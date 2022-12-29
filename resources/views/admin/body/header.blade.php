@@ -88,10 +88,13 @@
             </div>
 
             <div class="user-area dropdown float-right">
-                <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
+                <a href="#" class="dropdown-toggle active text-center" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
+                    <p class="m-2 mb-1">{{Auth::user()->name}}</p>
                     <img class="user-avatar rounded-circle" src="{{asset('backend/assets/images/admin.jpg')}}"
                         alt="User Avatar">
+
+
                 </a>
 
                 <div class="user-menu dropdown-menu">
