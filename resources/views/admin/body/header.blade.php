@@ -87,11 +87,17 @@
                 </div>
             </div>
 
+            @php
+            $id = Auth::user()->id;
+            $adminData= App\Models\User::find($id);
+            @endphp
+
             <div class="user-area dropdown float-right">
                 <a href="#" class="dropdown-toggle active text-center" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     <p class="m-2 mb-1">{{Auth::user()->name}}</p>
-                    <img class="user-avatar rounded-circle" src="{{asset('backend/assets/images/admin.jpg')}}"
+                    <img class="user-avatar rounded-circle"
+                        src="{{(!empty($adminData->photo))?url('upload/adminImages/'.$adminData->photo):url('upload/NoImage.jpg')}}"
                         alt="User Avatar">
 
 
