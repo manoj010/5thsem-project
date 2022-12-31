@@ -111,13 +111,15 @@
                         <p class="text-center mb-2">{{Auth::user()->name}}</p>
                     </a>
                     <div class="shadow mt-2 ps-4">
-                        <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
+                        <a class="nav-link" href="#"><i class="fa fa-bell"></i>Notifications <span
                                 class="count">13</span></a>
 
-                        <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+
+                        <a class="nav-link" href="{{route('admin.setting')}}"><i
+                                class="fa-solid fa-gear"></i>Settings</a>
 
                         <a class="nav-link text-danger" href="{{route('admin.logout')}}"><i
-                                class=" fa fa-power -off"></i>Logout</a>
+                                class="fa-solid fa-right-from-bracket"> </i>Logout</a>
                     </div>
 
                 </div>

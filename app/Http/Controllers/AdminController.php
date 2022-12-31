@@ -8,10 +8,14 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
+
+    //Admin Dashboard
     public function AdminDashboard() {
         return view('admin.index');
     }
 
+
+    //Admin Logout 
     public function AdminLogout(Request $request)
     {
         Auth::guard('web')->logout();
@@ -23,16 +27,20 @@ class AdminController extends Controller
         return redirect('/admin/login');
     }
 
+    //Admin Login page
     public function AdminLogin() {
         return view('admin.admin_login');
     }
 
+
+    //Admin Profile Update
     public function AdminProfile() {
         $id = Auth::user()->id;
         $adminData = User::find($id);
         return view('admin.admin_profile', compact('adminData'));
     }
 
+    //Admin Profile Store
     public function AdminProfileStore(Request $request){
         $id = Auth::user()->id;
         $data= User::find($id);
@@ -60,4 +68,17 @@ class AdminController extends Controller
         return redirect()->back();
         
     }
+
+    //Admin Setting 
+
+    public function AdminSetting(){
+        return view('admin.admin_setting');
+    }
+
+    //Admin Password Change
+    public function AdminChangePassword(){
+        return view('admin.admin_change_password');
+    }
+
+    
 }
