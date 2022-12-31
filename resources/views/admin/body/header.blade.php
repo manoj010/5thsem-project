@@ -7,7 +7,7 @@
             <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
         </div>
     </div>
-    <div class="top-right">
+    <div class="top-right ">
         <div class="header-menu">
             <div class="header-left">
                 <button class="search-trigger"><i class="fa fa-search"></i></button>
@@ -92,27 +92,34 @@
             $adminData= App\Models\User::find($id);
             @endphp
 
-            <div class="user-area dropdown float-right">
-                <a href="#" class="dropdown-toggle active text-center" data-toggle="dropdown" aria-haspopup="true"
+            <div class="user-area dropdown float-right ">
+                <a href="#" class="dropdown-toggle active text-center " data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    <p class="m-2 mb-1">{{Auth::user()->name}}</p>
-                    <img class="user-avatar rounded-circle"
+                    <img class="user-avatar rounded-circle p-2"
                         src="{{(!empty($adminData->photo))?url('upload/adminImages/'.$adminData->photo):url('upload/NoImage.jpg')}}"
                         alt="User Avatar">
 
 
                 </a>
 
-                <div class="user-menu dropdown-menu">
-                    <a class="nav-link" href="{{route('admin.profile')}}"><i class="fa fa- user"></i>My Profile</a>
+                <div class="user-menu dropdown-menu m-3">
+                    <a class="nav-link border-0 shadow p-3" href="{{route('admin.profile')}}">
 
-                    <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
-                            class="count">13</span></a>
+                        <img class="user-avatar rounded-circle mx-4 mb-2"
+                            src="{{(!empty($adminData->photo))?url('upload/adminImages/'.$adminData->photo):url('upload/NoImage.jpg')}}"
+                            alt="User Avatar">
+                        <p class="text-center mb-2">{{Auth::user()->name}}</p>
+                    </a>
+                    <div class="shadow mt-2 ps-4">
+                        <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
+                                class="count">13</span></a>
 
-                    <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+                        <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                    <a class="nav-link" href="{{route('admin.logout')}}"><i
-                            class="text-danger fa fa-power -off"></i>Logout</a>
+                        <a class="nav-link text-danger" href="{{route('admin.logout')}}"><i
+                                class=" fa fa-power -off"></i>Logout</a>
+                    </div>
+
                 </div>
             </div>
 
