@@ -1,7 +1,13 @@
 <header id="header" class="header">
     <div class="top-left">
         <div class="navbar-header">
-            <a class="navbar-brand" href="./"><img src="{{asset('backend/assets/images/logo.png')}}" alt="Logo"></a>
+            <a class="navbar-brand" href="./"><img src="{{asset('backend/assets/images/logo.png')}}" alt="Logo"><em
+                    style="position: absolute; width: 69px; height: 34px;left: 145px;top:13px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                            font-style:normal;
+                            font-size: 18px;
+                            line-height: 34px;
+                            color: red;
+                            margin-left:-50px; ">SUVIDA</em></a>
             <a class="navbar-brand hidden" href="./"><img src="{{asset('backend/assets/images/logo2.png')}}"
                     alt="Logo"></a>
             <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
