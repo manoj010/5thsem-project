@@ -1,47 +1,115 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+        rel="stylesheet" />
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <title>Suvida</title>
+
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/bootstrap.min.css')}}" />
+
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/font-awesome.css')}}" />
+
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}" />
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/login.css')}}" />
+</head>
+
+<body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    <!-- ***** Header Area Start ***** -->
+    @include('frontend.body.header')
+    <!-- ***** Header Area End ***** -->
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner" id="top">
+        <video autoplay muted loop id="bg-video">
+            <source src="{{asset('frontend/assets/images/video.mp4')}}" type="video/mp4" />
+        </video>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div class="video-overlay header-text">
+            <div class="loginBox">
+                <div class="glass">
+                    <h3 class="lh3">Sign in Here</h3>
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <div class="inputBox">
+                            <input type="text" id="email" name="email" placeholder="Email" required />
+                            <span><i class="fa fa-user"></i></span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="password" id="password" name="password" placeholder="Password" required />
+                            <span><i class="fa fa-lock"></i></span>
+                        </div>
+
+                        <input type="submit" name="login" value="Login" />
+                    </form>
+                    <a href="#" class="a">Forget Password</a>
+                    <h5 class="l5">Sign Up Using</h5>
+                    <ul class="lul">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-google"></i></a>
+                        </li>
+                    </ul>
+                    <h4>Create account? <a href="#">Sign Up</a></h4>
+                </div>
+            </div>
         </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
+    <div class="content">
+        @yield('main')
+    </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
+    <!-- ***** Footer Start ***** -->
+    @include('frontend.body.footer')
+    <!-- ***** Footer Ends ***** -->
 
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    <!-- serachbar -->
+
+    <!-- jQuery -->
+    <script src="{{asset('frontend/assets/js/jquery-2.1.0.min.js')}}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{{asset('frontend/assets/js/popper.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
+
+    <!-- Plugins -->
+    <script src="{{asset('frontend/assets/js/scrollreveal.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/waypoints.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/jquery.counterup.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/imgfix.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/mixitup.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/accordions.js')}}"></script>
+
+    <!-- Global Init -->
+    <script src="{{asset('frontend/assets/js/custom.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/script.js')}}"></script>
+
+
+</body>
+
+</html>
