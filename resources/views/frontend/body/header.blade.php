@@ -72,7 +72,7 @@
                         </li>
 
                         <li>
-                            <a href="#"><img src="{{asset('frontend/assets/images/signup.png')}}"
+                            <a href="{{route('register')}}"><img src="{{asset('frontend/assets/images/signup.png')}}"
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" />Sign Up</a>
                         </li>
                     </ul>
