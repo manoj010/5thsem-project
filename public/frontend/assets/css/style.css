@@ -1417,3 +1417,54 @@ a:focus,
 a:hover {
   color: #f9735b;
 }
+
+
+#tab ul {
+  margin: 0;
+  padding: 0;
+}
+#tab ul li {
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 75%;
+}
+#tab ul li:last-child {
+  margin-bottom: 0px;
+}
+
+
+
+#tab ul li a {
+  text-transform: capitalize;
+  width: 100%;
+  padding: 10px 10px;
+  display: inline-block;
+  background-color: #fff;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  font-size: 19px;
+  color: #232d39;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+#tab ul li a:hover {
+background: #ed563b;
+color: #eee;
+}
+
+#tab ul li a :active{
+  background: #ed563b;
+color: #eee;
+}
+
+#tab ul .ui-tabs-active a {
+  background: #ed563b;
+  color: #eee;
+}
+
+.user-avatar {
+  float: right;
+  width: 55px;
+  margin-top: -11px;
+  }

@@ -6,6 +6,10 @@
         $("#tabs").tabs();
     });
 
+	$(function() {
+        $("#tab").tabs();
+    });
+
 	$(window).scroll(function() {
 	  var scroll = $(window).scrollTop();
 	  var box = $('.header-text').height();
