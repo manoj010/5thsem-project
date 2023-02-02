@@ -46,11 +46,11 @@
                     <li><a href='#tabs-4'><i class="fa fa-address-book"></i> My Address</a></a></li>
                     <li><a href='#tabs-5'><i class="fa fa-sign-in"></i> Account Details</a></a></li>
                     <li><a href='#tabs-6'><i class="fa fa-save"></i> Account Security</a></a></li>
-                    <li><a href='#tabs-7'><i class="fa fa-sign-out"></i> Logout</a></a></li>
+                    <li><a href="{{route('user.logout')}}"><i class="fa fa-sign-out"></i> Logout</a></a></li>
                 </ul>
             </div>
             <div class="col-lg-8 ">
-                <section class='tabs-content'>
+                <section class=' tabs-content'>
 
                     <div id='tabs-2'>
                         <div class="card">
