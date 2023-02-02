@@ -30,11 +30,12 @@
                         <div class="nav-link  " data-bs-toggle="tab" href="#tabs-1" role="tab" aria-controls="dashboard"
                             aria-selected="false">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="{{asset('frontend/assets/images/pht.jpg')}}" alt="User"
-                                    class="rounded-circle p-1 bg-transparent" style="width:150px; height:150px">
+                                <img src="{{(!empty($userData->photo))?url('upload/userImages/'.$userData->photo):url('upload/NoImage.jpg')}}"
+                                    alt="User" class="rounded-circle p-1 bg-transparent"
+                                    style="width:150px; height:150px">
                                 <div class="mt-3">
                                     <h4 class="mb-2">{{$userData->name}}</h4>
-                                    <p class="text-muted font-size-sm">Danuwar</p>
+                                    <p class="text-muted font-size-sm">{{$userData->address}}</p>
 
                                 </div>
                             </div>
@@ -166,31 +167,34 @@
                                 <h5 class="text-center">Account Details</h5>
                             </div>
                             <div class="card-body">
-                                <form method="post" action="" enctype="multipart/form-data">
+                                <form method="post" action="{{route('user.profile.store')}}"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="form-group col-md-12">
                                             <label>User Name <span class="required">*</span></label>
                                             <input required="" class="form-control" name="username" type="text"
-                                                value="" />
+                                                value="{{$userData->username}}" />
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Full Name <span class="required">*</span></label>
-                                            <input required="" class="form-control" name="name" type="text" value="" />
+                                            <input required="" class="form-control" name="name" type="text"
+                                                value="{{$userData->name}}" />
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Email <span class="required">*</span></label>
                                             <input required="" class="form-control" name="email" type="email"
-                                                value="" />
+                                                value="{{$userData->email}}" />
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Phone <span class="required">*</span></label>
-                                            <input required="" class="form-control" name="phone" type="text" value="" />
+                                            <input required="" class="form-control" name="phone" type="text"
+                                                value="{{$userData->phone}}" />
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Address <span class="required">*</span></label>
                                             <input required="" class="form-control" name="address" type="text"
-                                                value="" />
+                                                value="{{$userData->address}}" />
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Photo <span class="required">*</span></label>
@@ -198,8 +202,8 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <div class="col-sm-9 text-secondary">
-                                                <img id="showImage" src="" alt="User"
-                                                    class="rounded-circle p-1 bg-primary "
+                                                <img src="{{(!empty($userData->photo))?url('upload/userImages/'.$userData->photo):url('upload/NoImage.jpg')}}"
+                                                    alt="User" class="rounded-circle p-1 bg-secondary "
                                                     style="width:100px; height:100px; ">
                                             </div>
                                         </div>

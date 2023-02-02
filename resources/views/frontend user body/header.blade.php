@@ -62,7 +62,8 @@
                         <li>
                             <a href="#" class=" active text-center " aria-haspopup="true" aria-expanded="false">
                                 <img class="user-avatar rounded-circle p-2"
-                                    src="{{asset('frontend/assets/images/pht.jpg')}}" alt="User Avatar">
+                                    src="{{(!empty($userData->photo))?url('upload/userImages/'.$userData->photo):url('upload/NoImage.jpg')}}"
+                                    alt="User Avatar">
 
 
                             </a>
