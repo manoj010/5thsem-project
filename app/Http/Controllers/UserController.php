@@ -39,7 +39,7 @@ class UserController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->back();
+        return redirect()->back()->with($notification);
         
     }
 
@@ -51,7 +51,12 @@ class UserController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        $notification = array(
+            'message' => 'Logout Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect('/login')->with($notification);
     }
 
     public function UserPasswordUpdate(Request $request){
