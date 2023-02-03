@@ -39,7 +39,7 @@
 
 
     <!-- ***** Header Area Start ***** -->
-    @include('frontend user body.header')
+    @include('frontend.body.header')
     <!-- ***** Header Area End ***** -->
 
 
@@ -51,7 +51,7 @@
 
 
     <!-- ***** Footer Start ***** -->
-    @include('frontend user body.footer')
+    @include('frontend.body.footer')
 
     <!-- jQuery -->
     <script src="{{asset('frontend/assets/js/jquery-2.1.0.min.js')}}"></script>

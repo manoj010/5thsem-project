@@ -66,6 +66,27 @@
                                 <div class="fas fa-search" id="search-btn"></div>
                             </a>
                         </li>
+
+                        @auth
+
+                        <li>
+                            <a href="#"><img src="{{asset('frontend/assets/images/notification.png')}}"
+                                    style="height: 30px; width: 30px; margin-bottom: 5px" alt="" /></a>
+
+                        <li>
+                            <a href="#"><img src="{{asset('frontend/assets/images/wishlist.png')}}"
+                                    style="height: 30px; width: 30px; margin-bottom: 5px" alt="" /></a>
+                        </li>
+                        <li>
+                            <a href="#" class=" active text-center " aria-haspopup="true" aria-expanded="false">
+                                <img class="user-avatar rounded-circle p-2"
+                                    src="{{(!empty($userData->photo))?url('upload/userImages/'.$userData->photo):url('upload/NoImage.jpg')}}"
+                                    alt="User Avatar">
+
+
+                            </a>
+                        </li>
+                        @else
                         <li>
                             <a href="{{route('login')}}"><img src="{{asset('frontend/assets/images/login-icon.png')}}"
                                     style="height: 35px; width: 35px" alt="" />Log In</a>
@@ -75,6 +96,9 @@
                             <a href="{{route('register')}}"><img src="{{asset('frontend/assets/images/signup.png')}}"
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" />Sign Up</a>
                         </li>
+                        @endauth
+
+
                     </ul>
 
                     <a class="menu-trigger">
