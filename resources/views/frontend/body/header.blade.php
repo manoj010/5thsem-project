@@ -78,13 +78,25 @@
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" /></a>
                         </li>
                         <li>
-                            <a href="#" class=" active text-center " aria-haspopup="true" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle active text-center " data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 <img class="user-avatar rounded-circle p-2"
                                     src="{{(!empty($userData->photo))?url('upload/userImages/'.$userData->photo):url('upload/NoImage.jpg')}}"
                                     alt="User Avatar">
 
 
                             </a>
+                            <div class="dropdown-menu">
+                                <a class="nav-link" href="{{route('dashboard')}}"><i class="fa fa-user"></i> My
+                                    Profile</a>
+
+
+                                <a class="nav-link" href="{{route('dashboard')}}"><i
+                                        class="fa fa-toolbox"></i>Settings</a>
+
+                                <a class="nav-link " href="{{route('user.logout')}}"><i
+                                        class="fa fa-sign-out"></i>Logout</a>
+                            </div>
                         </li>
                         @else
                         <li>

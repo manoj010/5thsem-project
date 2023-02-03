@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/assets/css/login.css')}}" />
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 </head>
 
@@ -109,6 +110,8 @@
     <!-- Global Init -->
     <script src="{{asset('frontend/assets/js/custom.js')}}"></script>
     <script src="{{asset('frontend/assets/js/script.js')}}"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
     @if(Session::has('message'))
