@@ -39,7 +39,7 @@ class UserController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->back();
+        return redirect()->back()->with($notification);
         
     }
 
@@ -51,6 +51,29 @@ class UserController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        $notification = array(
+            'message' => 'Logout Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect('/login')->with($notification);
+    }
+
+    public function UserPasswordUpdate(Request $request){
+        
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+        
+        if(!Hash::check($request->old_password,Auth::user()->password)){
+            return back()->with("error","Old Password doesn't Matched");
+        }
+
+        User::whereId(Auth::user()->id)->update([
+            'password'=>Hash::make($request->new_password)
+        ]);
+
+        return back()->with("success","Password Successfully Updated");
     }
 }

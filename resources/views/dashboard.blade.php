@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/assets/css/login.css')}}" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 </head>
 
 <body>
@@ -39,7 +40,7 @@
 
 
     <!-- ***** Header Area Start ***** -->
-    @include('frontend user body.header')
+    @include('frontend.body.header')
     <!-- ***** Header Area End ***** -->
 
 
@@ -51,7 +52,7 @@
 
 
     <!-- ***** Footer Start ***** -->
-    @include('frontend user body.footer')
+    @include('frontend.body.footer')
 
     <!-- jQuery -->
     <script src="{{asset('frontend/assets/js/jquery-2.1.0.min.js')}}"></script>
@@ -72,6 +73,30 @@
     <script src="{{asset('frontend/assets/js/custom.js')}}"></script>
     <script src="{{asset('frontend/assets/js/script.js')}}"></script>
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+    @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type','info') }}"
+    switch (type) {
+        case 'info':
+            toastr.info(" {{ Session::get('message') }} ");
+            break;
+
+        case 'success':
+            toastr.success(" {{ Session::get('message') }} ");
+            break;
+
+        case 'warning':
+            toastr.warning(" {{ Session::get('message') }} ");
+            break;
+
+        case 'error':
+            toastr.error(" {{ Session::get('message') }} ");
+            break;
+    }
+    @endif
+    </script>
 </body>
 
 </html>

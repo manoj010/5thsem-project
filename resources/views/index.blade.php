@@ -46,7 +46,7 @@
                     <li><a href='#tabs-4'><i class="fa fa-address-book"></i> My Address</a></a></li>
                     <li><a href='#tabs-5'><i class="fa fa-sign-in"></i> Account Details</a></a></li>
                     <li><a href='#tabs-6'><i class="fa fa-save"></i> Account Security</a></a></li>
-                    <li><a href="{{route('user.logout')}}"><i class="fa fa-sign-out"></i> Logout</a></a></li>
+                    <li><a href="{{route('user.logout')}}"><i class="fa fa-sign-out"></i>Logout</a></a></li>
                 </ul>
             </div>
             <div class="col-lg-8 ">
@@ -223,22 +223,41 @@
                             </div>
                             <div class="card-body">
 
-                                <form method="post" name="enq">
+                                <form method="post" action="{{route('user.password.update')}}">
+                                    @csrf
+
+
+                                    @if(session('success'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{session('success')}}
+                                    </div>
+                                    @elseif(session('error'))
+                                    <div class="alert alert-danger" role="alert">{{session('error')}}</div>
+                                    @endif
                                     <div class="row">
 
                                         <div class="form-group col-md-12">
                                             <label>Current Password
                                                 <span class="required">*</span></label>
-                                            <input required="" class="form-control" name="password" type="password" />
+                                            <input type="password" name="old_password" class="form-control  @error('old_password')is-invalid
+                                            @enderror " id="current_password" placeholder="Old Password">
+                                            @error('old_password')
+                                            <span class="text-danger">{{$message}}</span>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>New Password <span class="required">*</span></label>
-                                            <input required="" class="form-control" name="npassword" type="password" />
+                                            <input type="password" name="new_password" placeholder="New Password" class="form-control @error('new_password')is-invalid
+                                            @enderror " id="new_password">
+                                            @error('new_password')
+                                            <span class="text-danger">{{$message}}</span>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Confirm Password
                                                 <span class="required">*</span></label>
-                                            <input required="" class="form-control" name="cpassword" type="password" />
+                                            <input type="password" name="new_password_confirmation" class="form-control"
+                                                placeholder=" Confirm Password" id="new_password_confirmation">
                                         </div>
                                         <div class="col-md-12">
                                             <button type="submit" class="btn btn-success" name="submit" value="Submit">
