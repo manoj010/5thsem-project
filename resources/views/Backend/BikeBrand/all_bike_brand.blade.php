@@ -14,7 +14,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <a href="" class="btn btn-primary">Add Brand</a>
+                            <a href="{{route('add.bike.brand')}}" class="btn btn-primary">Add Brand</a>
                         </ol>
                     </div>
                 </div>

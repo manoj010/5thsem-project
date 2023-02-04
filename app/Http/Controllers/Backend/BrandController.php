@@ -12,4 +12,8 @@ class BrandController extends Controller
         $brands = Brand::latest()->get();
         return view('Backend.BikeBrand.all_bike_brand',compact('brands'));
     }
+
+    public function AddBikeBrand(){
+        return view('Backend.BikeBrand.add_bike_brand');
+    }
 }
