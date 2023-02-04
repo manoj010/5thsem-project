@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Backend\BrandController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,3 +47,7 @@ Route::middleware('auth','role:admin')->group(function() {
 });
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
+
+Route::controller(BrandController::class)->group(function(){
+   Route::get('/all/bike/brand','AllBikeBrand')->name('all.bike.brand'); 
+});

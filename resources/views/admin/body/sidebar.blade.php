@@ -7,8 +7,16 @@
                     <a href="{{route('admin.dashboard')}}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                 </li>
 
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"> <i class="menu-icon fa-brands fa-bandcamp"></i>Bike Brand</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><a href="{{route('all.bike.brand')}}">All Bike Brand</a></li>
 
+                        <li><a href="ui-cards.html">Add Bike Brand</a></li>
 
+                    </ul>
+                </li>
 
                 <li class="menu-title">UI elements</li><!-- /.menu-title -->
 
