@@ -14,7 +14,7 @@
                     <ul class="sub-menu children dropdown-menu">
                         <li><a href="{{route('all.bike.brand')}}">All Bike Brand</a></li>
 
-                        <li><a href="ui-cards.html">Add Bike Brand</a></li>
+                        <li><a href="{{route('add.bike.brand')}}">Add Bike Brand</a></li>
 
                     </ul>
                 </li>
