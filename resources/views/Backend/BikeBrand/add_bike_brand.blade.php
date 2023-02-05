@@ -30,11 +30,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <form method="post" action="{{route('admin.profile.store')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('store.bike.brand')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header"><strong>Add Bike Company</strong></div>
                         <div class="card-body card-block">
-                            <div class="form-group"><label for="brand" class=" form-control-label">Brand
+                            <div class="form-group hello"><label for="brand" class=" form-control-label">Brand
                                     Name</label><input type="text" name="brand_name" id="brand"
                                     placeholder="Enter Brand Name" class="form-control"></div>
                             <div class="form-group"><label for="brand_logo" class=" form-control-label">Brand

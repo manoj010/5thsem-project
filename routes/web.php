@@ -51,4 +51,5 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
 Route::controller(BrandController::class)->group(function(){
    Route::get('/all/bike/brand','AllBikeBrand')->name('all.bike.brand'); 
    Route::get('/add/bike/brand','AddBikeBrand')->name('add.bike.brand');
+   Route::post('/store/bike/brand','StoreBikeBrand')->name('store.bike.brand');
 });

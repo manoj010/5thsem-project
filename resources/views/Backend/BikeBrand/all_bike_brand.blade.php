@@ -51,7 +51,7 @@
                                             alt="Logo">
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-info">Edit</a>
+                                        <a href="" class="btn btn-primary">Edit</a>
                                         <a href="" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
