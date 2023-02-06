@@ -30,8 +30,13 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <form method="post" action="" enctype="multipart/form-data">
+                    <form method="post" action="{{route('update.brand')}}" enctype="multipart/form-data">
                         @csrf
+
+
+                        <input type="hidden" name="id" value="{{$brands->id}}">
+                        <input type="hidden" name="old_img" value="{{$brands->brand_logo}}">
+
                         <div class="card-header"><strong>Edit Brand</strong></div>
                         <div class="card-body card-block">
                             <div class="form-group "><label for="brand" class=" form-control-label">Brand
