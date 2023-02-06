@@ -9,12 +9,12 @@
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"> <i class="menu-icon fa-brands fa-bandcamp"></i>Bike Brand</a>
+                        aria-expanded="false"> <i class="menu-icon fa-brands fa-bandcamp"></i>Brand</a>
 
                     <ul class="sub-menu children dropdown-menu">
-                        <li><a href="{{route('all.bike.brand')}}">All Bike Brand</a></li>
+                        <li><a href="{{route('all.brand')}}">All Brand</a></li>
 
-                        <li><a href="{{route('add.bike.brand')}}">Add Bike Brand</a></li>
+                        <li><a href="{{route('add.brand')}}">Add Brand</a></li>
 
                     </ul>
                 </li>

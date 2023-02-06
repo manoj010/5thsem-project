@@ -48,8 +48,11 @@ Route::middleware('auth','role:admin')->group(function() {
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
 
-Route::controller(BrandController::class)->group(function(){
-   Route::get('/all/bike/brand','AllBikeBrand')->name('all.bike.brand'); 
-   Route::get('/add/bike/brand','AddBikeBrand')->name('add.bike.brand');
-   Route::post('/store/bike/brand','StoreBikeBrand')->name('store.bike.brand');
+Route::middleware('auth','role:admin')->group(function() {
+    Route::controller(BrandController::class)->group(function(){
+        Route::get('/all/brand','AllBrand')->name('all.brand'); 
+        Route::get('/add/brand','AddBrand')->name('add.brand');
+        Route::post('/store/brand','StoreBrand')->name('store.brand');
+        Route::get('/edit/brand/{id}','EditBrand')->name('edit.brand');
+    });
 });

@@ -6,7 +6,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>All Bike Brand</h1>
+                        <h1>All Brand Dashboard</h1>
                     </div>
                 </div>
             </div>
@@ -14,7 +14,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <a href="{{route('add.bike.brand')}}" class="btn btn-primary">Add Brand</a>
+                            <a href="{{route('add.brand')}}" class="btn btn-primary">Add Brand</a>
                         </ol>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Bike Brand </strong>
+                        <strong class="card-title">All Brand </strong>
                     </div>
                     <div class="card-body">
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -51,7 +51,7 @@
                                             alt="Logo">
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-primary">Edit</a>
+                                        <a href="{{route('edit.brand',$item->id)}}" class="btn btn-primary">Edit</a>
                                         <a href="" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>

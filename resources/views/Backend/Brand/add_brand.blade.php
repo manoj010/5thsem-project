@@ -6,7 +6,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Bike Brand</h1>
+                        <h1>Add Brand</h1>
                     </div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                         <ol class="breadcrumb text-right">
                             <li><a href="#">Dashboard</a></li>
                             <li><a href="#">Brand</a></li>
-                            <li class="active">Add Bike Brand</li>
+                            <li class="active">Add Brand</li>
                         </ol>
                     </div>
                 </div>
@@ -30,9 +30,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <form method="post" action="{{route('store.bike.brand')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('store.brand')}}" enctype="multipart/form-data">
                         @csrf
-                        <div class="card-header"><strong>Add Bike Company</strong></div>
+                        <div class="card-header"><strong>Add Company</strong></div>
                         <div class="card-body card-block">
                             <div class="form-group hello"><label for="brand" class=" form-control-label">Brand
                                     Name</label><input type="text" name="brand_name" id="brand"

@@ -9,16 +9,16 @@ use Image;
 
 class BrandController extends Controller
 {
-    public function AllBikeBrand(){
+    public function AllBrand(){
         $brands = Brand::latest()->get();
-        return view('Backend.BikeBrand.all_bike_brand',compact('brands'));
+        return view('Backend.Brand.all_brand',compact('brands'));
     }
 
-    public function AddBikeBrand(){
-        return view('Backend.BikeBrand.add_bike_brand');
+    public function AddBrand(){
+        return view('Backend.Brand.add_brand');
     }
 
-    public function StoreBikeBrand(Request $request){
+    public function StoreBrand(Request $request){
         $logo = $request->file('brand_logo');
         $img_name_gen = hexdec(uniqid()).'.'.$logo->getClientOriginalExtension();
         Image::make($logo)->resize(300,300)->save('upload/brandImage/'.$img_name_gen);
@@ -35,6 +35,11 @@ class BrandController extends Controller
             'alert-type'=> 'success' 
         );
         
-        return redirect()->route('all.bike.brand')->with($notification);
+        return redirect()->route('all.brand')->with($notification);
+    }
+
+    public function EditBrand($id){
+        $brands = Brand::findOrFail($id);
+        return view('Backend.Brand.edit_brand', compact('brands'));
     }
 }
