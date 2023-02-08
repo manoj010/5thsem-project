@@ -14,7 +14,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                             <li><a href="{{route('all.vehicle')}}">All Vehicle</a></li>
                             <li class="active">Add Vehicle</li>
                         </ol>
