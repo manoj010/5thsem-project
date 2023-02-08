@@ -19,12 +19,16 @@
                     </ul>
                 </li>
 
-                <li class="menu-title">UI elements</li><!-- /.menu-title -->
+                <li>
+                    <a href="{{route('all.vehicle')}}"> <i class="menu-icon fa-solid fa-motorcycle"></i>Vehicle</a>
+                </li>
+
+                <li class="menu-title">Bike and Scooter</li><!-- /.menu-title -->
 
                 <li class="menu-item-has-children dropdown">
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Application</a>
+                        aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Vehicle</a>
 
 
                     <ul class="sub-menu children dropdown-menu">

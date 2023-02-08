@@ -6,7 +6,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>All Brand Dashboard</h1>
+                        <h1>Vehicle Dashboard</h1>
                     </div>
                 </div>
             </div>
@@ -14,7 +14,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <a href="{{route('add.brand')}}" class="btn btn-primary">Add Brand</a>
+                            <a href="{{route('add.vehicle')}}" class="btn btn-primary">Add Vehicle</a>
                         </ol>
                     </div>
                 </div>
@@ -30,29 +30,30 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">All Brand </strong>
+                        <strong class="card-title">All Vehicle </strong>
                     </div>
                     <div class="card-body">
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th>SN</th>
-                                    <th>Brand Name</th>
-                                    <th>Brand Logo</th>
+                                    <th>Vehicle Name</th>
+                                    <th>Vehicle Image</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($brands as $key => $item)
+                                @foreach($vehicles as $key => $vehicle)
                                 <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>{{$item->brand_name}}</td>
-                                    <td><img src="{{asset($item->brand_logo)}}" style="width:60px; height:50px"
+                                    <td>{{$vehicle->vehicle_name}}</td>
+                                    <td><img src="{{asset($vehicle->vehicle_image)}}" style="width:60px; height:50px"
                                             alt="Logo">
                                     </td>
                                     <td>
-                                        <a href="{{route('edit.brand',$item->id)}}" class="btn btn-primary">Edit</a>
-                                        <a href="{{route('delete.brand',$item->id)}}" class="btn btn-danger">Delete</a>
+                                        <a href="{{route('edit.vehicle',$vehicle->id)}}"
+                                            class="btn btn-primary">Edit</a>
+                                        <a href="" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach
