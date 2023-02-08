@@ -7,29 +7,28 @@
                     <a href="{{route('admin.dashboard')}}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                 </li>
 
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"> <i class="menu-icon fa-solid fa-b"></i>Brand</a>
+                <li>
+                    <a href="{{route('all.brand')}}"> <i class="menu-icon fa-solid fa-b"></i>Brand</a>
 
-                    <ul class=" sub-menu children dropdown-menu">
-                        <li><a href="{{route('all.brand')}}">All Brand</a></li>
-
-                        <li><a href="{{route('add.brand')}}">Add Brand</a></li>
-
-                    </ul>
                 </li>
 
                 <li>
                     <a href="{{route('all.vehicle')}}"> <i class="menu-icon fa-solid fa-motorcycle"></i>Vehicle</a>
                 </li>
 
-                <li class="menu-title">Bike and Scooter</li><!-- /.menu-title -->
+
+                <li>
+                    <a href="{{route('all.category')}}"> <i class="menu-icon fa fa-tasks"></i>Category</a>
+                </li>
+
+                <li class=" menu-title">Bike and Scooter
+                </li><!-- /.menu-title -->
 
                 <li class="menu-item-has-children dropdown">
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <i class="menu-icon fa fa-book"></i>Vehicle</a>
+                        <i class="menu-icon fa fa-book"></i>File Manger</a>
 
 
                     <ul class="sub-menu children dropdown-menu">
@@ -75,7 +74,7 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <i class="menu-icon fa fa-tasks"></i>Icons</a>
+                        <i class="menu-icon fa fa-tasksfa fa-tasks"></i>Icons</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Font
                                 Awesome</a></li>

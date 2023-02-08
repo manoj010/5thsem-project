@@ -6,7 +6,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Add Brand</h1>
+                        <h1>Category</h1>
                     </div>
                 </div>
             </div>
@@ -15,8 +15,8 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                            <li><a href="{{route('all.brand')}}">All Brand</a></li>
-                            <li class="active">Add Brand</li>
+                            <li><a href="{{route('all.category')}}">All Category</a></li>
+                            <li class="active">Add Category</li>
                         </ol>
                     </div>
                 </div>
@@ -30,17 +30,25 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <form method="post" action="{{route('store.brand')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('store.category')}}">
                         @csrf
-                        <div class="card-header"><strong>Add Company</strong></div>
+                        <div class="card-header"><strong>Add Category</strong></div>
                         <div class="card-body card-block">
-                            <div class="form-group hello"><label for="brand" class=" form-control-label">Brand
-                                    Name</label><input type="text" name="brand_name" id="brand"
-                                    placeholder="Enter Brand Name" class="form-control"></div>
-                            <div class="form-group"><label for="brand_logo" class=" form-control-label">Brand
-                                    Photo</label><input type="file" name="brand_logo" id="brand_logo"
-                                    class="form-control"></div>
-                            <img src="{{url('upload/NoImage.jpg')}}" alt="Admin" style="width:100px; height:100px">
+                            <div class="form-group "><label class=" form-control-label">Vehicle
+                                    Name</label><select name="vehicle_name" id="select" class="form-control">
+                                    <option value="0">Please select Vehicle</option>
+
+
+                                    @foreach($vehicles as $vehicle )
+                                    <option value="{{$vehicle->id}}">{{$vehicle->vehicle_name}}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                            <div class="form-group"><label for="category_name" class=" form-control-label">Category
+                                    Name</label><input type="text" name="category_name" id="category_name"
+                                    placeholder="Enter Category Name" class="form-control">
+                            </div>
                             <div class="col-sm-6 text-secondary">
                                 <input type="submit" class="btn btn-primary px-4" value="Submit" />
                             </div>
