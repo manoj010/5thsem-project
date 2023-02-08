@@ -86,4 +86,20 @@ class VehicleController extends Controller
             return redirect()->route('all.vehicle')->with($notification);
         }
     }
+
+    public function DeleteVehicle($id){
+        $vehicle = Vehicle::find($id);
+        $vehicle_img = $vehicle->vehicle_image;
+
+        unlink($vehicle_img);
+
+        Vehicle::find($id)->delete();
+
+        $notification = array (
+            'message' => 'Vehicle Delete  Successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }
