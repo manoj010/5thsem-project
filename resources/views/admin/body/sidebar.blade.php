@@ -9,9 +9,9 @@
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"> <i class="menu-icon fa-solid fa-motorcycle"></i>Brand</a>
+                        aria-expanded="false"> <i class="menu-icon fa-solid fa-b"></i>Brand</a>
 
-                    <ul class="sub-menu children dropdown-menu">
+                    <ul class=" sub-menu children dropdown-menu">
                         <li><a href="{{route('all.brand')}}">All Brand</a></li>
 
                         <li><a href="{{route('add.brand')}}">Add Brand</a></li>
@@ -19,12 +19,17 @@
                     </ul>
                 </li>
 
-                <li class="menu-title">UI elements</li><!-- /.menu-title -->
+                <li>
+                    <a href="{{route('all.vehicle')}}"> <i class="menu-icon fa-solid fa-motorcycle"></i>Vehicle</a>
+                </li>
+
+                <li class="menu-title">Bike and Scooter</li><!-- /.menu-title -->
 
                 <li class="menu-item-has-children dropdown">
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Application</a>
+                        aria-expanded="false">
+                        <i class="menu-icon fa fa-book"></i>Vehicle</a>
 
 
                     <ul class="sub-menu children dropdown-menu">
@@ -47,7 +52,8 @@
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Components</a>
+                        aria-expanded="false">
+                        <i class="menu-icon fa fa-cogs"></i>Components</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
                         <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
@@ -68,7 +74,8 @@
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
+                        aria-expanded="false">
+                        <i class="menu-icon fa fa-tasks"></i>Icons</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Font
                                 Awesome</a></li>
@@ -81,7 +88,8 @@
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
+                        aria-expanded="false">
+                        <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-line-chart"></i><a href="charts-chartjs.html">Chart JS</a>
                         </li>
@@ -94,7 +102,8 @@
                 <li class="menu-title">Extras</li><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Authentication</a>
+                        aria-expanded="false">
+                        <i class="menu-icon fa fa-glass"></i>Authentication</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a>
