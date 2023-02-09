@@ -26,11 +26,45 @@ class CategoryController extends Controller
            'category_slug'=>strtolower(str_replace(' ','-',$request->category_name)),
         ]);
 
+        
         $notification = array(
-            'message'=>"Category Inserted Successfully",
-            'alert-type'=>"success",
+            'message' => 'Brand Inserted Successfully',
+            'alert-type'=> 'success' 
         );
         
-        return redirect()->route('all.category')->with('$notification');
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function EditCategory($id){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        $category = Category::find($id);
+        return view('Backend.Category.edit_category',compact('vehicles','category'));
+    }
+
+    public function UpdateCategory(Request $request){
+        $category_id = $request->id;
+        
+        Category::find($category_id)->update([
+            'vehicle_id' => $request->vehicle_name,
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
+
+        $notification = array (
+          'message' => 'Category Updated Successfully',
+          'alert-type' => 'success'  
+        );
+
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function DeleteCategory($id){
+        Category::find($id)->delete();
+        $notification = array (
+            'message' => 'Category Deleted Successfully',
+            'alert-type' => 'success'  
+          );
+  
+          return redirect()->back()->with($notification);
     }
 }
