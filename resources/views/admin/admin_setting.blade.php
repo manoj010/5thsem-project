@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header h2 text-center">Admin Setting</div>
                 <div class="card-body card-block">
-                    <a href="">
+                    <a href="{{route('become.admin')}}">
                         <div class="form-group my-4">
                             <div class="input-group">
                                 <div class="input-group-addon px-4">Register Admin</div>
