@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\VehicleController;
+use App\Http\Controllers\Backend\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -71,6 +72,17 @@ Route::middleware('auth','role:admin')->group(function() {
         Route::post('update/vehicle','UpdateVehicle')->name('update.vehicle');
         Route::get('/delete/vehicle/{id}','DeleteVehicle')->name('delete.vehicle');
 
+    });
+
+    Route::controller(CategoryController::class)->group(function(){
+       
+        Route::get('/all/category','AllCategory')->name('all.category');
+        Route::get('/add/category','AddCategory')->name('add.category');
+        Route::post('/store/category','StoreCategory')->name('store.category');
+        Route::get('/edit/category/{id}','EditCategory')->name('edit.category');
+        Route::post('/update/category','UpdateCategory')->name('update.category');
+        Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
+        
     });
     
 });
