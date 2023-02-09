@@ -98,7 +98,6 @@
                     </ul>
                 </li>
 
-                <li class="menu-title">Extras</li><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">

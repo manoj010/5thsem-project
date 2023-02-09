@@ -49,6 +49,8 @@ Route::middleware('auth','role:admin')->group(function() {
 });
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
+Route::get('/become/admin',[AdminController::class, 'BecomeAdmin'])->name('become.admin');
+Route::post('/admin/register',[AdminController::class, 'AdminRegister'])->name('admin.register');
 
 Route::middleware('auth','role:admin')->group(function() {
     
