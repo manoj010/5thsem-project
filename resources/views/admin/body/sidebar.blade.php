@@ -21,6 +21,10 @@
                     <a href="{{route('all.category')}}"> <i class="menu-icon fa fa-tasks"></i>Category</a>
                 </li>
 
+                <li>
+                    <a href=""> <i class="menu-icon fa-sharp fa-solid fa-sitemap"></i>Model</a>
+                </li>
+
                 <li class=" menu-title">Bike and Scooter
                 </li><!-- /.menu-title -->
 

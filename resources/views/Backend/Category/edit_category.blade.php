@@ -51,7 +51,8 @@
                             </div>
                             <div class="form-group"><label for="category_name" class=" form-control-label">Category
                                     Name</label><input type="text" name="category_name" id="category_name"
-                                    placeholder="Enter Category Name" class="form-control">
+                                    placeholder="Enter Category Name" class="form-control"
+                                    value="{{$category->category_name}}">
                             </div>
                             <div class="col-sm-6 text-secondary">
                                 <input type="submit" class="btn btn-primary px-4" value="Submit" />
