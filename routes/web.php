@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\VehicleController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ModelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -87,4 +88,11 @@ Route::middleware('auth','role:admin')->group(function() {
         
     });
     
+
+    Route::controller(ModelController::class)->group(function(){
+       
+        Route::get('/all/model','AllModel')->name('all.model');
+        Route::get('/add/model','AddModel')->name('add.model');
+        
+    });
 });

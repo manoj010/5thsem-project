@@ -22,7 +22,7 @@
                 </li>
 
                 <li>
-                    <a href=""> <i class="menu-icon fa-sharp fa-solid fa-sitemap"></i>Model</a>
+                    <a href="{{route('all.model')}}"> <i class="menu-icon fa-sharp fa-solid fa-sitemap"></i>Model</a>
                 </li>
 
                 <li class=" menu-title">Bike and Scooter

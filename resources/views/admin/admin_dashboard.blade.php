@@ -90,11 +90,8 @@
         @include('admin.body.header')
         <!-- /#header -->
         <!-- Content -->
-        <div class="content">
-            <!-- Animated -->
-            @yield('content')
-            <!-- .animated -->
-        </div>
+
+        @yield('content')
         <!-- /.content -->
         <div class="clearfix"></div>
         <!-- Footer -->
