@@ -17,7 +17,9 @@ class ModelController extends Controller
         return view('Backend.VehicleModel.all_model',compact('models'));
     }
     public function AddModel(){
-       
-        return view('Backend.VehicleModel.add_model',);
+        $brands = Brand::latest()->get();
+        $vehicles = Vehicle::latest()->get();
+        $categories = Category::latest()->get();
+        return view('Backend.VehicleModel.add_model',compact('brands','vehicles','categories'));
     }
 }

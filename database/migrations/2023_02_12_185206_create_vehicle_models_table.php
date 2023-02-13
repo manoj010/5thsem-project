@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('category_id');
             $table->string('model_name');
             $table->string('model_slug');
-            $table->string('model_no');
+            $table->string('model_no')->nullable();
             $table->string('model_thumbnail');
             $table->string('engine_type');
             $table->string('displacement');
@@ -29,16 +29,16 @@ return new class extends Migration
             $table->string('max_torque');
             $table->string('mileage');
             $table->string('starting')->nullable();
-            $table->string('body_type');
+            $table->string('body_type')->nullable();
             $table->string('cooling_system')->nullable();
             $table->string('fuel_capacity')->nullable();
-            $table->string('braking_type');
+            $table->string('braking_type')->nullable();
             $table->string('speedometer')->nullable();
             $table->string('techometer')->nullable();
             $table->string('odometer')->nullable();
             $table->string('fuel_gauge')->nullable();
             $table->string('tripmeter')->nullable();
-            $table->string('gear_box');
+            $table->string('gear_box')->nullable();
             $table->string('emission_type');
             $table->string('weight');
             $table->string('width')->nullable();
@@ -57,7 +57,7 @@ return new class extends Migration
             $table->string('tyre_rear')->nullable();
             $table->string('tyre_type')->nullable();
             $table->text('description')->nullable();
-            $table->integer('price')->nullable();
+            $table->integer('price');
             $table->integer('offer')->nullable();
             $table->timestamps();
         });
