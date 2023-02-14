@@ -33,18 +33,18 @@
                     <strong>Vehicle</strong> Model
                 </div>
                 <div class="card-body p-4">
-                    <form method="post" action="{{route('store.model')}}" enctype="multipart/form-data">
+                    <form id="myForm" method="post" action="{{route('store.model')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-body mt-4">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="border border-3 p-4 rounded">
-                                        <div class="mb-3">
+                                        <div class="form-group mb-3">
                                             <label for="model_name" class="form-label">Model Name</label>
                                             <input type="text" name="model_name" class="form-control" id="model_name"
                                                 placeholder="Enter Model Name">
                                         </div>
-                                        <div class="mb-3">
+                                        <div class="form-group mb-3">
                                             <label for="engine_type" class="form-label">Engine Type</label>
                                             <input type="text" name="engine_type" class="form-control" id="engine_type"
                                                 placeholder="Enter Engine Type">
@@ -136,6 +136,71 @@
                                                 <input name="price" type="text" class="form-control mb-3" id="price"
                                                     placeholder="">
                                             </div>
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Braking Type</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="radio1" class="form-check-label ">
+                                                                <input type="radio" id="radio1" name="braking_type"
+                                                                    value="ABS" class="form-check-input">ABS
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="radio2" class="form-check-label mb-3">
+                                                                <input type="radio" id="radio2" name="braking_type"
+                                                                    value="Non ABS" class="form-check-input ">Non
+                                                                ABS
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Fuel Supply </label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="radio1" class="form-check-label ">
+                                                                <input type="radio" id="radio1" name="fuel_supply"
+                                                                    value="Fuel Injection" class="form-check-input">Fuel
+                                                                Injection
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="radio2" class="form-check-label mb-3">
+                                                                <input type="radio" id="radio2" name="fuel_supply"
+                                                                    value="Carboretor"
+                                                                    class="form-check-input">Carboretor
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Starting </label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="radio1" class="form-check-label ">
+                                                                <input type="radio" id="radio1" name="starting"
+                                                                    value="Self Start" class="form-check-input">Self
+                                                                Start
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="radio2" class="form-check-label mb-3">
+                                                                <input type="radio" id="radio2" name="starting"
+                                                                    value="Kick and Self Start"
+                                                                    class="form-check-input">Kick and Self Start
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
 
                                             <div class="col-12">
                                                 <label for="description" class="form-label">Description</label>
@@ -162,6 +227,42 @@
 <!--/.col-->
 
 <script type="text/javascript">
+$(document).ready(function() {
+    $('#myForm').validate({
+        rules: {
+            model_name: {
+                required: true,
+            },
+            engine_type: {
+                required: true,
+            },
+
+        },
+        messages: {
+            model_name: {
+                required: 'Please Enter Product Name',
+            },
+            engine_type: {
+                required: 'Please Enter Short Description',
+            },
+
+        },
+        errorElement: 'span',
+        errorPlacement: function(error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.form-group').append(error);
+        },
+        highlight: function(element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        },
+    });
+});
+</script>
+
+<script type="text/javascript">
 function mainThamUrl(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -182,7 +283,8 @@ $(document).ready(function() {
             var data = $(this)[0].files; //this file data
 
             $.each(data, function(index, file) { //loop though each file
-                if (/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)) { //check supported file type
+                if (/(\.|\/)(gif|jpeg|jpg|png)$/i.test(file
+                        .type)) { //check supported file type
                     var fRead = new FileReader(); //new filereader
                     fRead.onload = (function(file) { //trigger function on successful read
                         return function(e) {

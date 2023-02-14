@@ -38,13 +38,10 @@
                                 <tr>
                                     <th>SN</th>
                                     <th>Model</th>
-                                    <th>Price</th>
                                     <th>Image</th>
-                                    <th>Engine</th>
                                     <th>Displacement</th>
-                                    <th>Power</th>
-                                    <th>Torque</th>
-                                    <th>Mileage</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,18 +49,26 @@
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>{{$model->model_name}}</td>
-                                    <td>{{$model->price}}</td>
                                     <td><img src="{{asset($model->model_thumbnail)}}" style="width:60px; height:50px"
                                             alt="model">
                                     </td>
-                                    <td>{{$model->engine_type}}</td>
                                     <td>{{$model->displacement}}</td>
-                                    <td>{{$model->max_power}}</td>
-                                    <td>{{$model->max_torque}}</td>
-                                    <td>{{$model->mileage}}</td>
+                                    <td>@if($model->status == 1)
+                                        <span class="badge rounded-pill bg-success text-light">Active</span>
+
+                                        @else <span class="badge rounded-pill bg-danger text-light ">
+                                            Inactive</span>
+                                        @endif
+                                    </td>
+
                                     <td>
-                                        <a href="" class="btn btn-primary">Edit</a>
-                                        <a href="" class="btn btn-danger">Delete</a>
+                                        <a href="" class="btn btn-primary" title="Edit-Data"><span
+                                                class="fa-solid fa-pen-to-square"></span></a>
+                                        <a href="" class="btn btn-danger" title="Delete-Data"><span
+                                                class="fa-solid fa-delete-left"></span></a>
+                                        <a href="" class="btn btn-info" title="View-Data"><span
+                                                class="fa-solid fa-eye"></span></a>
+
                                     </td>
                                 </tr>
                                 @endforeach

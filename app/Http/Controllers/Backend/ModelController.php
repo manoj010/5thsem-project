@@ -46,12 +46,15 @@ class ModelController extends Controller
             'emission_type' => $request->emission_type,
             'price' => $request->price,
             'description' => $request->description,
+            'braking_type' => $request->braking_type,
+            'starting' => $request->starting,
+            'fuel_supply' => $request->fuel_supply,
         ]);
 
         $multi_img = $request->file('multi_img');
         foreach($multi_img as $img){
             $multi_name_gen = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-            Image::make($multi_img)->resize(800,800)->save('upload/modelImage/multiImage/'.$multi_name_gen);
+            Image::make($img)->resize(800,800)->save('upload/modelImage/multiImage/'.$multi_name_gen);
             $save_multi_url = 'upload/modelImage/multiImage/'.$multi_name_gen;
         }
 
