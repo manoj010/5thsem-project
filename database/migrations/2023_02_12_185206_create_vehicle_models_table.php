@@ -57,7 +57,7 @@ return new class extends Migration
             $table->string('tyre_rear')->nullable();
             $table->string('tyre_type')->nullable();
             $table->text('description')->nullable();
-            $table->integer('price');
+            $table->string('price');
             $table->integer('offer')->nullable();
             $table->timestamps();
         });
