@@ -50,10 +50,11 @@
                                     <td>{{ $category->category_name}} </td>
                                     </td>
                                     <td>
-                                        <a href="{{route('edit.category',$category->id)}}"
-                                            class="btn btn-primary">Edit</a>
-                                        <a href="{{route('delete.category',$category->id)}}"
-                                            class="btn btn-danger">Delete</a>
+                                        <a href="{{route('edit.category',$category->id)}}" class="btn btn-primary"
+                                            title="Edit-Data"><span class="fa-solid fa-pen-to-square"></span></a>
+                                        <a href="{{route('delete.category',$category->id)}}" class="btn btn-danger"
+                                            title="Delete-Data"><span class="fa-solid fa-delete-left"></span></a>
+
                                     </td>
                                 </tr>
                                 @endforeach

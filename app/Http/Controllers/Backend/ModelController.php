@@ -73,4 +73,12 @@ class ModelController extends Controller
         
         
     }
+
+    public function EditModel($id){
+        $brands = Brand::latest()->get();
+        $vehicles = Vehicle::latest()->get();
+        $categories = Category::latest()->get();
+        $models = VehicleModel::findOrFail($id);
+        return view('Backend.VehicleModel.edit_model',compact('brands','vehicles','categories','models'));
+    }
 }
