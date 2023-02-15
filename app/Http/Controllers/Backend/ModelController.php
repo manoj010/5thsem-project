@@ -187,4 +187,28 @@ class ModelController extends Controller
         
         return redirect()->back()->with($notification);
     }
+
+    public function ModelInactive($id){
+
+        $status_id = VehicleModel::findOrFail($id)->update(['status'=>'0']); 
+
+        $notification = array(
+            'message' => 'Status Inactive Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->back()->with($notification);
+    }
+
+    public function ModelActive($id){
+
+        $status_id = VehicleModel::findOrFail($id)->update(['status'=>'1']); 
+
+        $notification = array(
+            'message' => 'Status Active Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->back()->with($notification);
+    }
 }

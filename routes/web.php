@@ -99,6 +99,8 @@ Route::middleware('auth','role:admin')->group(function() {
         Route::post('/update/model/img','UpdateModelImg')->name('update.model.img');
         Route::post('/update/model/multiimg','UpdateModelMultiImg')->name('update.model.multiimg');
         Route::get('/multi/img/delete/{id}','MultiImgDelete')->name('multi.img.delete');
+        Route::get('/model/inactive/{id}','ModelInactive')->name('model.inactive');
+        Route::get('/model/active/{id}','ModelActive')->name('model.active');
         
     });
 });

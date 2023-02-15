@@ -54,10 +54,13 @@
                                     </td>
                                     <td>{{$model->displacement}}</td>
                                     <td>@if($model->status == 1)
-                                        <span class="badge rounded-pill bg-success text-light">Active</span>
+                                        <a href="{{route('model.inactive',$model->id)}}"
+                                            class="badge rounded-pill bg-success text-light"><i
+                                                class="fa-solid fa-check"></i></a>
 
-                                        @else <span class="badge rounded-pill bg-danger text-light ">
-                                            Inactive</span>
+                                        @else <a href="{{route('model.active',$model->id)}}"
+                                            class="badge rounded-pill bg-danger text-light ">
+                                            <i class="fa-solid fa-x"></i></a>
                                         @endif
                                     </td>
 
