@@ -231,7 +231,7 @@
             <strong class="card-title">Main Image</strong>
         </div>
         <div class="card-body">
-            <form id="myForm" method="post" action="{{route('update.model.img')}}">
+            <form id="myForm" method="post" action="{{route('update.model.img')}}" enctype="multipart/form-data">
                 @csrf
 
 
