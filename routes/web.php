@@ -95,6 +95,7 @@ Route::middleware('auth','role:admin')->group(function() {
         Route::get('/add/model','AddModel')->name('add.model');
         Route::post('/store/model','StoreModel')->name('store.model');
         Route::get('/edit/model/{id}','EditModel')->name('edit.model');
+        Route::post('/update/model/','UpdateModel')->name('update.model');
         
     });
 });

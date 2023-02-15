@@ -81,4 +81,36 @@ class ModelController extends Controller
         $models = VehicleModel::findOrFail($id);
         return view('Backend.VehicleModel.edit_model',compact('brands','vehicles','categories','models'));
     }
+
+    public function UpdateModel(Request $request) {
+        $model_id = $request->id;
+
+        VehicleModel::findOrFail($model_id)->update([
+            'brand_id' => $request->brand_id,
+            'vehicle_id' => $request->vehicle_id,
+            'category_id' => $request->category_id,
+            'model_name' => $request->model_name,
+            'model_slug' => strtolower(str_replace(' ','-',$request->model_name)),
+            'engine_type' => $request->engine_type,
+            'displacement' => $request->displacement,
+            'weight' => $request->weight,
+            'max_power' => $request->max_power,
+            'max_torque' => $request->max_torque,
+            'mileage' => $request->mileage,
+            'emission_type' => $request->emission_type,
+            'price' => $request->price,
+            'description' => $request->description,
+            'braking_type' => $request->braking_type,
+            'starting' => $request->starting,
+            'fuel_supply' => $request->fuel_supply,
+        ]);
+
+        
+        $notification = array(
+            'message' => 'Model without Image  Updated  Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->route('all.model')->with($notification);
+    }
 }

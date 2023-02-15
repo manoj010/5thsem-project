@@ -33,8 +33,12 @@
                     <strong>Vehicle</strong> Model
                 </div>
                 <div class="card-body p-4">
-                    <form id="myForm" method="post" action="" enctype="multipart/form-data">
+                    <form id="myForm" method="post" action="{{route('update.model')}}">
                         @csrf
+
+
+                        <input type="hidden" name="id" value="{{$models->id}}">
+
                         <div class="form-body mt-4">
                             <div class="row">
                                 <div class="col-lg-6">
