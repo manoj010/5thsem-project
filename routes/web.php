@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\VehicleController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ModelController;
+use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,7 +50,7 @@ Route::middleware('auth','role:admin')->group(function() {
     Route::post('/admin/password/update',[AdminController::class, 'AdminPasswordUpdate'])->name('password.update');
 });
 
-Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class);
 Route::get('/become/admin',[AdminController::class, 'BecomeAdmin'])->name('become.admin');
 Route::post('/admin/register',[AdminController::class, 'AdminRegister'])->name('admin.register');
 
