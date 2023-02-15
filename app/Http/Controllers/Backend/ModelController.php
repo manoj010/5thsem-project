@@ -211,4 +211,25 @@ class ModelController extends Controller
         
         return redirect()->back()->with($notification);
     }
+
+    public function DeleteModel($id){
+        $main_img = VehicleModel::findOrFail($id);
+        unlink($main_img->model_thumbnail);
+
+        VehicleModel::findOrFail($id)->delete();
+        
+        $multi_img = MultiImage::where('model_id',$id)->get();
+        foreach($multi_img as $multiImg ){
+            
+            unlink($multiImg->photo_name);
+            MultiImage::where('model_id',$id)->delete();
+        }
+
+        $notification = array(
+            'message' => 'Model Deleted Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->back()->with($notification);
+    }
 }
