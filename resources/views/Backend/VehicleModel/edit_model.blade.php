@@ -286,7 +286,8 @@
                             </td>
                             <td>
                                 <input type="submit" class="btn btn-success" value="update">
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <a href="{{route('multi.img.delete',$imgs->id)}}" class="btn btn-danger"
+                                    id="delete">Delete</a>
                             </td>
 
                         </tr>

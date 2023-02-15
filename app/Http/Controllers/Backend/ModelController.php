@@ -172,4 +172,19 @@ class ModelController extends Controller
         
         return redirect()->back()->with($notification);
     }
+
+    public function MultiImgDelete($id){
+        $multi_img_id =  MultiImage::findOrFail($id);
+
+        unlink($multi_img_id->photo_name);
+
+        MultiImage::findOrFail($id)->delete();
+        
+        $notification = array(
+            'message' => 'Model Delete Multiple Image Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->back()->with($notification);
+    }
 }
