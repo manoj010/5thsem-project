@@ -6,7 +6,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Category Dashboard</h1>
+                        <h1>All Vehicle Model</h1>
                     </div>
                 </div>
             </div>
@@ -14,7 +14,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <a href="{{route('add.category')}}" class="btn btn-primary">Add Category</a>
+                            <a href="{{route('add.model')}}" class="btn btn-primary">Add Model</a>
                         </ol>
                     </div>
                 </div>
@@ -30,30 +30,47 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">All Category </strong>
+                        <strong class="card-title">All Model </strong>
                     </div>
                     <div class="card-body">
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th>SN</th>
-                                    <th>Vehicle Name</th>
-                                    <th>Category Name</th>
+                                    <th>Model</th>
+                                    <th>Image</th>
+                                    <th>Displacement</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($categories as $key => $category)
+                                @foreach($models as $key => $model)
                                 <tr>
-                                    <td>{{ $key+1}} </td>
-                                    <td>{{ $category['vehicle']['vehicle_name']}} </td>
-                                    <td>{{ $category->category_name}} </td>
+                                    <td>{{$key+1}}</td>
+                                    <td>{{$model->model_name}}</td>
+                                    <td><img src="{{asset($model->model_thumbnail)}}" style="width:60px; height:50px"
+                                            alt="model">
                                     </td>
+                                    <td>{{$model->displacement}}</td>
+                                    <td>@if($model->status == 1)
+                                        <a href="{{route('model.inactive',$model->id)}}"
+                                            class="badge rounded-pill bg-success text-light"><i
+                                                class="fa-solid fa-check"></i></a>
+
+                                        @else <a href="{{route('model.active',$model->id)}}"
+                                            class="badge rounded-pill bg-danger text-light ">
+                                            <i class="fa-solid fa-x"></i></a>
+                                        @endif
+                                    </td>
+
                                     <td>
-                                        <a href="{{route('edit.category',$category->id)}}" class="btn btn-primary"
+                                        <a href="{{route('edit.model',$model->id)}}" class="btn btn-primary"
                                             title="Edit-Data"><span class="fa-solid fa-pen-to-square"></span></a>
-                                        <a href="{{route('delete.category',$category->id)}}" class="btn btn-danger"
+                                        <a href="{{route('delete.model',$model->id)}}" class="btn btn-danger"
                                             title="Delete-Data"><span class="fa-solid fa-delete-left"></span></a>
+                                        <a href="" class="btn btn-info" title="View-Data"><span
+                                                class="fa-solid fa-eye"></span></a>
 
                                     </td>
                                 </tr>

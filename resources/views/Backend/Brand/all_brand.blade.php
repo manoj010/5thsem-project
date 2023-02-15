@@ -1,5 +1,6 @@
 @extends('admin.admin_dashboard')
 @section('content')
+
 <div class="breadcrumbs">
     <div class="breadcrumbs-inner">
         <div class="row m-0">
@@ -65,5 +66,8 @@
 
         </div>
     </div><!-- .animated -->
-</div><!-- .content -->
+</div>
+<!-- .content 
+</div>
+-->
 @endsection

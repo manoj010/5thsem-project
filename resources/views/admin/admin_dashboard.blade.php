@@ -90,11 +90,8 @@
         @include('admin.body.header')
         <!-- /#header -->
         <!-- Content -->
-        <div class="content">
-            <!-- Animated -->
-            @yield('content')
-            <!-- .animated -->
-        </div>
+
+        @yield('content')
         <!-- /.content -->
         <div class="clearfix"></div>
         <!-- Footer -->
@@ -135,6 +132,7 @@
     <script src="{{asset('backend/assets/js/lib/data-table/buttons.print.min.js')}}"></script>
     <script src="{{asset('backend/assets/js/lib/data-table/buttons.colVis.min.js')}}"></script>
     <script src="{{asset('backend/assets/js/init/datatables-init.js')}}"></script>
+    <script src="{{asset('backend/assets/js/validate.min.js')}}"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         $('#bootstrap-data-table-export').DataTable();

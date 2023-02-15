@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\VehicleController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ModelController;
+use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,7 +50,7 @@ Route::middleware('auth','role:admin')->group(function() {
     Route::post('/admin/password/update',[AdminController::class, 'AdminPasswordUpdate'])->name('password.update');
 });
 
-Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class);
 Route::get('/become/admin',[AdminController::class, 'BecomeAdmin'])->name('become.admin');
 Route::post('/admin/register',[AdminController::class, 'AdminRegister'])->name('admin.register');
 
@@ -87,4 +89,20 @@ Route::middleware('auth','role:admin')->group(function() {
         
     });
     
+
+    Route::controller(ModelController::class)->group(function(){
+       
+        Route::get('/all/model','AllModel')->name('all.model');
+        Route::get('/add/model','AddModel')->name('add.model');
+        Route::post('/store/model','StoreModel')->name('store.model');
+        Route::get('/edit/model/{id}','EditModel')->name('edit.model');
+        Route::post('/update/model/','UpdateModel')->name('update.model');
+        Route::post('/update/model/img','UpdateModelImg')->name('update.model.img');
+        Route::post('/update/model/multiimg','UpdateModelMultiImg')->name('update.model.multiimg');
+        Route::get('/multi/img/delete/{id}','MultiImgDelete')->name('multi.img.delete');
+        Route::get('/model/inactive/{id}','ModelInactive')->name('model.inactive');
+        Route::get('/model/active/{id}','ModelActive')->name('model.active');
+        Route::get('/delete/model/{id}','DeleteModel')->name('delete.model');
+        
+    });
 });
