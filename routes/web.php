@@ -97,6 +97,7 @@ Route::middleware('auth','role:admin')->group(function() {
         Route::get('/edit/model/{id}','EditModel')->name('edit.model');
         Route::post('/update/model/','UpdateModel')->name('update.model');
         Route::post('/update/model/img','UpdateModelImg')->name('update.model.img');
+        Route::post('/update/model/multiimg','UpdateModelMultiImg')->name('update.model.multiimg');
         
     });
 });

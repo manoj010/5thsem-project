@@ -10,6 +10,7 @@ use App\Models\Vehicle;
 use App\Models\Category;
 use App\Models\MultiImage;
 use Image;
+use Carbon\Carbon;
 
 class ModelController extends Controller
 {
@@ -49,6 +50,7 @@ class ModelController extends Controller
             'braking_type' => $request->braking_type,
             'starting' => $request->starting,
             'fuel_supply' => $request->fuel_supply,
+            'created_at' =>Carbon::now(),
         ]);
 
         $multi_img = $request->file('multi_img');
@@ -56,12 +58,14 @@ class ModelController extends Controller
             $multi_name_gen = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
             Image::make($img)->resize(800,800)->save('upload/modelImage/multiImage/'.$multi_name_gen);
             $save_multi_url = 'upload/modelImage/multiImage/'.$multi_name_gen;
+
+            MultiImage::insert([
+                'model_id' => $model_id,
+                'photo_name' => $save_multi_url,
+            ]);
+
         }
 
-        MultiImage::insert([
-            'model_id' => $model_id,
-            'photo_name' => $save_multi_url,
-        ]);
 
         
         $notification = array(
@@ -75,11 +79,12 @@ class ModelController extends Controller
     }
 
     public function EditModel($id){
+        $multiImg = MultiImage::where('model_id',$id)->get();
         $brands = Brand::latest()->get();
         $vehicles = Vehicle::latest()->get();
         $categories = Category::latest()->get();
         $models = VehicleModel::findOrFail($id);
-        return view('Backend.VehicleModel.edit_model',compact('brands','vehicles','categories','models'));
+        return view('Backend.VehicleModel.edit_model',compact('brands','vehicles','categories','models','multiImg'));
     }
 
     public function UpdateModel(Request $request) {
@@ -107,7 +112,7 @@ class ModelController extends Controller
 
         
         $notification = array(
-            'message' => 'Model without Image  Updated  Successfully',
+            'message' => 'Model update without Image Successfully',
             'alert-type'=> 'success' 
         );
         
@@ -130,15 +135,41 @@ class ModelController extends Controller
 
         VehicleModel::findOrFail($model_id)->update([
             'model_thumbnail' => $save_img_url,
+            'updated_at' => Carbon::now(),
         ]);
 
         
         $notification = array(
-            'message' => 'Model update with Image    Successfully',
+            'message' => 'Model update with Image Successfully',
             'alert-type'=> 'success' 
         );
         
         return redirect()->back()->with($notification);
         
+    }
+
+    public function UpdateModelMultiImg(Request $request){
+        $multiImg = $request->multi_img;
+
+        foreach($multiImg as $id => $img){
+            $unlinkImg = MultiImage::findOrFail($id);
+            unlink($unlinkImg->photo_name);
+
+            $multi_name_gen = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+            Image::make($img)->resize(800,800)->save('upload/modelImage/multiImage/'.$multi_name_gen);
+            $save_multi_url = 'upload/modelImage/multiImage/'.$multi_name_gen;
+
+            MultiImage::where('id',$id)->update([
+                'photo_name' => $save_multi_url,
+                'updated_at' => Carbon::now(),
+            ]);
+        }
+ 
+        $notification = array(
+            'message' => 'Model update with Multiple Image Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->back()->with($notification);
     }
 }

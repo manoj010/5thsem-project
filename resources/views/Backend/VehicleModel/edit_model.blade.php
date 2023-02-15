@@ -249,43 +249,50 @@
                 <div class="col-sm-6 text-secondary">
                     <input type="submit" class="btn btn-primary px-4" value="Submit" />
                 </div>
+            </form>
         </div>
     </div>
 </div>
 <div class="content">
     <div class="card">
         <div class="card-header">
-            <strong class="card-title">Custom Table</strong>
+            <strong class="card-title">Multi Image Update</strong>
         </div>
         <div class="table-stats order-table ov-h">
             <table class="table ">
                 <thead>
                     <tr>
-                        <th class="serial">#</th>
-                        <th class="avatar">Avatar</th>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Status</th>
+                        <th class="serial">SN</th>
+                        <th>Image</th>
+                        <th>Change Image</th>
+                        <th>Action</th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="serial">1.</td>
-                        <td class="avatar">
-                            <div class="round-img">
-                                <a href="#"><img class="rounded-circle" src="images/avatar/1.jpg" alt=""></a>
-                            </div>
-                        </td>
-                        <td> #5469 </td>
-                        <td> <span class="name">Louis Stanley</span> </td>
-                        <td> <span class="product">iMax</span> </td>
-                        <td><span class="count">231</span></td>
-                        <td>
-                            <span class="badge badge-complete">Complete</span>
-                        </td>
-                    </tr>
+                    <form id="myForm" method="post" action="{{route('update.model.multiimg')}}"
+                        enctype="multipart/form-data">
+                        @csrf
+
+                        @foreach($multiImg as $key => $imgs)
+                        <tr>
+                            <td scope="row">{{$key+1}}</td>
+
+                            <td>
+                                <img src="{{asset($imgs->photo_name)}}" style="height:80; width:60px">
+                            </td>
+                            <td>
+                                <input type="file" class="form-group" name="multi_img[{{$imgs->id}}]">
+                            </td>
+                            <td>
+                                <input type="submit" class="btn btn-success" value="update">
+                                <a href="" class="btn btn-danger">Delete</a>
+                            </td>
+
+                        </tr>
+                        @endforeach
+
+                    </form>
 
                 </tbody>
             </table>
