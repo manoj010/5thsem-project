@@ -62,8 +62,7 @@
                                         <div class="mb-3">
                                             <label for="file-multiple-input" class="form-label">Main Thumbnail</label>
                                             <input type="file" name="model_thumbnail" id="file-multiple-input"
-                                                name="file-multiple-input" multiple="" class="form-control-file"
-                                                onChange="mainThamUrl(this)">
+                                                multiple="" class="form-control-file" onChange="mainThamUrl(this)">
                                             <img src="" id="mainThmb">
                                         </div>
                                         <div class="mb-3">

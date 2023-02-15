@@ -113,4 +113,32 @@ class ModelController extends Controller
         
         return redirect()->route('all.model')->with($notification);
     }
+
+    public function UpdateModelImg(Request $request){
+
+        $model_id = $request->id;
+        $img = $request->old_img;
+
+        $image = $request->file('model_thumbnail');
+        $img_name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        Image::make($image)->resize(800,800)->save('upload/modelImage/mainImage/'.$img_name_gen);
+        $save_img_url = 'upload/modelImage/mainImage/'.$img_name_gen;
+
+        if(file_exists($img)){
+            unlink($img);
+        }
+
+        VehicleModel::findOrFail($model_id)->update([
+            'model_thumbnail' => $save_img_url,
+        ]);
+
+        
+        $notification = array(
+            'message' => 'Model update with Image    Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->back()->with($notification);
+        
+    }
 }

@@ -225,6 +225,73 @@
         </div>
     </div>
 </div>
+<div class="content">
+    <div class="card">
+        <div class="card-header">
+            <strong class="card-title">Main Image</strong>
+        </div>
+        <div class="card-body">
+            <form id="myForm" method="post" action="{{route('update.model.img')}}">
+                @csrf
+
+
+                <input type="hidden" name="id" value="{{$models->id}}">
+                <input type="hidden" name="old_img" value="{{$models->model_thumbnail}}">
+
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Update Main Image </label>
+                    <input class="form-control" name="model_thumbnail" type="file" id="formFile">
+                </div>
+                <div class="mb-3">
+                    <img src="{{asset($models->model_thumbnail)}}" style="height:100px; width:100px">
+                </div>
+
+                <div class="col-sm-6 text-secondary">
+                    <input type="submit" class="btn btn-primary px-4" value="Submit" />
+                </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="card">
+        <div class="card-header">
+            <strong class="card-title">Custom Table</strong>
+        </div>
+        <div class="table-stats order-table ov-h">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th class="serial">#</th>
+                        <th class="avatar">Avatar</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="serial">1.</td>
+                        <td class="avatar">
+                            <div class="round-img">
+                                <a href="#"><img class="rounded-circle" src="images/avatar/1.jpg" alt=""></a>
+                            </div>
+                        </td>
+                        <td> #5469 </td>
+                        <td> <span class="name">Louis Stanley</span> </td>
+                        <td> <span class="product">iMax</span> </td>
+                        <td><span class="count">231</span></td>
+                        <td>
+                            <span class="badge badge-complete">Complete</span>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div> <!-- /.table-stats -->
+    </div>
+</div>
 <!--/.col-->
 
 <script type="text/javascript">
