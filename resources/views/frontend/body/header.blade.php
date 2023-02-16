@@ -26,33 +26,33 @@
                     <!-- serach bar end -->
 
                     <!-- ***** Menu Start ***** -->
+
                     <ul class="nav">
                         <li><a href="#" class="active">Home</a></li>
-                        <!-- Bikes Menu -->
+
+
+                        @php
+                        $vehicles = App\Models\Vehicle::orderBy('vehicle_name','ASC')->limit(3)->get();
+                        @endphp
+
+                        @foreach($vehicles as $vehicle)
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true"
-                                aria-expanded="false">Bikes</a>
+                                aria-expanded="false">{{$vehicle->vehicle_name}}</a>
+                            @php
+                            $categories
+                            =App\Models\Category::where('vehicle_id',$vehicle->id)->orderBy('category_name','ASC')->get();
+                            @endphp
 
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="latestbikes.html">Latest Bikes</a>
-                                <a class="dropdown-item" href="popularbikes.html">Popular Bikes</a>
-                                <a class="dropdown-item" href="budgetbikes.html">Best Budget Bikes</a>
+                                @foreach($categories as $category)
+                                <a class="dropdown-item" href="latestbikes.html">{{$category->category_name}}</a>
+
+                                @endforeach
                             </div>
                         </li>
-                        <!-- Bikes Menu end -->
+                        @endforeach
 
-                        <!-- Scooter Menu -->
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true"
-                                aria-expanded="false">Scooter</a>
-
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="latestscooter.html">Latest Scooter</a>
-                                <a class="dropdown-item" href="popularscooter.html">Popular Scooter</a>
-                                <a class="dropdown-item" href="budgetscooter.html">Best Budget Scooter</a>
-                            </div>
-                        </li>
-                        <!-- Scooter Menu end -->
 
                         <li><a href="usedvehicle.html">Used Vehicles</a></li>
 
