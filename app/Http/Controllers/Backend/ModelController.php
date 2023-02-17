@@ -28,7 +28,7 @@ class ModelController extends Controller
     public function StoreModel(Request $request) {
         $image = $request->file('model_thumbnail');
         $img_name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(800,800)->save('upload/modelImage/mainImage/'.$img_name_gen);
+        Image::make($image)->resize(960,720)->save('upload/modelImage/mainImage/'.$img_name_gen);
         $save_img_url = 'upload/modelImage/mainImage/'.$img_name_gen;
 
         $model_id = VehicleModel::insertGetId([
@@ -56,7 +56,7 @@ class ModelController extends Controller
         $multi_img = $request->file('multi_img');
         foreach($multi_img as $img){
             $multi_name_gen = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-            Image::make($img)->resize(800,800)->save('upload/modelImage/multiImage/'.$multi_name_gen);
+            Image::make($img)->resize(960,720)->save('upload/modelImage/multiImage/'.$multi_name_gen);
             $save_multi_url = 'upload/modelImage/multiImage/'.$multi_name_gen;
 
             MultiImage::insert([
@@ -126,7 +126,7 @@ class ModelController extends Controller
 
         $image = $request->file('model_thumbnail');
         $img_name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(800,800)->save('upload/modelImage/mainImage/'.$img_name_gen);
+        Image::make($image)->resize(960,720)->save('upload/modelImage/mainImage/'.$img_name_gen);
         $save_img_url = 'upload/modelImage/mainImage/'.$img_name_gen;
 
         if(file_exists($img)){
@@ -156,7 +156,7 @@ class ModelController extends Controller
             unlink($unlinkImg->photo_name);
 
             $multi_name_gen = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-            Image::make($img)->resize(800,800)->save('upload/modelImage/multiImage/'.$multi_name_gen);
+            Image::make($img)->resize(960,720)->save('upload/modelImage/multiImage/'.$multi_name_gen);
             $save_multi_url = 'upload/modelImage/multiImage/'.$multi_name_gen;
 
             MultiImage::where('id',$id)->update([

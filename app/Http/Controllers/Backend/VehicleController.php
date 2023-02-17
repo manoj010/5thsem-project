@@ -22,7 +22,7 @@ class VehicleController extends Controller
         $vehicle_img =  $request->file('vehicle_image');
         $vehicle_name_gen = hexdec(uniqid()).'.'.$vehicle_img->getClientOriginalExtension();
         
-        Image::make($vehicle_img)->resize(300,300)->save('upload/vehicleImage/'.$vehicle_name_gen);
+        Image::make($vehicle_img)->resize(960,720)->save('upload/vehicleImage/'.$vehicle_name_gen);
         $save_image = 'upload/vehicleImage/'.$vehicle_name_gen;
         
         Vehicle::insert([
@@ -56,7 +56,7 @@ class VehicleController extends Controller
                 unlink($vehicle_old_img);
             }
             
-            Image::make($vehicle_img)->resize(300,300)->save('upload/vehicleImage/'.$vehicle_name_gen);
+            Image::make($vehicle_img)->resize(960,720)->save('upload/vehicleImage/'.$vehicle_name_gen);
             $save_image = 'upload/vehicleImage/'.$vehicle_name_gen;
             
             Vehicle::find($vehicle_id)->update([

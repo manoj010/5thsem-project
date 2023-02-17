@@ -1,6 +1,10 @@
  @extends('frontend.master')
  @section('main')
 
+ <!-- ***** popular brand Starts ***** -->
+ @include('frontend.home.popular_brand')
+ <!-- ***** popular brand Ends ***** -->
+
  <!-- ***** Bikes Starts ***** -->
  @include('frontend.home.bikes_feature')
  <!-- ***** Bikes Ends ***** -->

@@ -13,10 +13,23 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
+
+            @php
+            $category_bikes =App\Models\Category::where('category_name','Best Scooter')->get();
+            @endphp
+
+            @foreach($category_bikes as $top_scooters)
+
+            @php
+            $scooters
+            =App\Models\VehicleModel::where('category_id',$top_scooters->id)->orderBy('model_name','ASC')->get();
+            @endphp
+
+            @foreach($scooters as $scooter)
+            <div class="col-lg-3">
                 <div class="trainer-item">
                     <div class="image-thumb">
-                        <img src="{{asset('frontend/assets/images/Aprilia.jpg')}}" alt="" />
+                        <img src="{{asset($scooter->model_thumbnail)}}" alt="" />
                     </div>
                     <div class="down-content">
                         <span>
@@ -26,7 +39,7 @@
                         <h4>Lorem ipsum dolor sit amet, consectetur</h4>
 
                         <p>
-                            <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-dashboard"></i> 130 000km
                             <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                             <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                         </p>
@@ -37,54 +50,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src="{{asset('frontend/assets/images/dio.jpeg')}}" alt="" />
-                    </div>
-                    <div class="down-content">
-                        <span>
-                            <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                        </span>
-
-                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                        <p>
-                            <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                        </p>
-
-                        <ul class="social-icons">
-                            <li><a href="diodetails.html">+ Preview</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src="{{asset('frontend/assets/images/ntorq.jpg')}}" alt="" />
-                    </div>
-                    <div class="down-content">
-                        <span>
-                            <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                        </span>
-
-                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                        <p>
-                            <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                        </p>
-
-                        <ul class="social-icons">
-                            <li><a href="ntorqdetails.html">+ Preview</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            @endforeach
         </div>
 
         <br />

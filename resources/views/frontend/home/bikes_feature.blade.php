@@ -3,20 +3,29 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
-                    <h2>Featured <em>Bikes</em></h2>
-                    <img src="{{asset('frontend/assets/images/line-dec.png')}}" alt="" />
-                    <p>
-                        Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed
-                        viverra ipsum dolor, ultricies fermentum massa consequat eu.
-                    </p>
+                    <h2>Popular <em>Bikes</em></h2>
+
+
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
+            @php
+            $category_bikes =App\Models\Category::where('category_name','Brand Bike')->get();
+            @endphp
+
+            @foreach($category_bikes as $top_bikes)
+
+            @php
+            $bikes
+            =App\Models\VehicleModel::where('category_id',$top_bikes->id)->orderBy('model_name','ASC')->get();
+            @endphp
+
+            @foreach($bikes as $bike)
+            <div class="col-lg-3">
                 <div class="trainer-item">
                     <div class="image-thumb">
-                        <img src="{{asset('frontend/assets/images/duke390.jpg')}}" alt="" />
+                        <img src="{{asset($bike->model_thumbnail)}}" alt="" />
                     </div>
                     <div class="down-content">
                         <span>
@@ -37,54 +46,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src="{{asset('frontend/assets/images/XR.webp')}}" alt="" />
-                    </div>
-                    <div class="down-content">
-                        <span>
-                            <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                        </span>
+            @endforeach
+            @endforeach
 
-                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                        <p>
-                            <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                        </p>
-
-                        <ul class="social-icons">
-                            <li><a href="XRdetails.html">+ Preview</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src="{{asset('frontend/assets/images/royalenfield.jpg')}}" alt="" />
-                    </div>
-                    <div class="down-content">
-                        <span>
-                            <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                        </span>
-
-                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                        <p>
-                            <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                        </p>
-
-                        <ul class="social-icons">
-                            <li><a href="royalenfielddetails.html">+ Preview</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <br />
