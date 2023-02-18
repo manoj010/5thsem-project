@@ -45,7 +45,8 @@
                         </p>
 
                         <ul class="social-icons text-center">
-                            <span class="primaryButton  btn-dcb p-2" style="border:1px solid red">View February
+                            <span class="primaryButton  btn-dcb p-2" style="border:1px solid red">Book
+                                February
                                 Offers</span>
                         </ul>
                     </div>

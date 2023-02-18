@@ -34,7 +34,7 @@
                 </li>
                 <li class="ul-bike nav-item">
                     <a href="#offer" data-bs-toggle="tab" id="offer-tab" role="tab" aria-controls="offer"
-                        area-selected="true" class="nav-link">Offer</a>
+                        area-selected="true" class="nav-link">Booking</a>
                 </li>
                 <li class="ul-bike nav-item">
                     <a href="#specs" data-bs-toggle="tab" role="tab" aria-controls="specs" area-selected="true"
@@ -46,11 +46,16 @@
                 </li>
             </ul>
             <ul class="nav p-0">
-                <li class="ul-bike " style="font-size: 12px;">
-                    <a href="" class=" ">Home</a>
+                <li class="ul-bike " style="font-size: 13px;  ">
+                    <a href="" style=" color:black;">Home <span>></span></a>
                 </li>
-                <li class="ul-bike " style="font-size: 12px;">
-                    <a href="" class=" ">Brand Name</a>
+
+
+
+
+
+                <li class="ul-bike " style="font-size: 13px;">
+                    <a href="" style=" color:black;">{{$models['brand']['brand_name']}}<span>></span></a>
                 </li>
 
             </ul>
@@ -72,18 +77,17 @@
                                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                                 </ol>
                                 <div class="carousel-inner">
+
                                     <div class="carousel-item active">
-                                        <img class="d-block w-100" src="{{asset('frontend/assets/images/duke390.jpg')}}"
+                                        <img class="d-block w-100" src="{{asset($models->model_thumbnail)}}"
                                             alt="First slide" />
                                     </div>
+                                    @foreach( $multiImg as $multiImgs)
                                     <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{asset('frontend/assets/images/duke390.jpg')}}"
+                                        <img class="d-block w-100" src="{{asset($multiImgs->photo_name)}}"
                                             alt="Second slide" />
                                     </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{asset('frontend/assets/images/duke390.jpg')}}"
-                                            alt="Third slide" />
-                                    </div>
+                                    @endforeach
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
                                     data-slide="prev">

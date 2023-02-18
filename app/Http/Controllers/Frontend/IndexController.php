@@ -14,6 +14,9 @@ class IndexController extends Controller
 {
     public function ModelDetails($id,$slug){
         $models= VehicleModel::findOrFail($id);
-        return view('frontend.model.model_details',compact('models'));
+        
+        $multiImg = MultiImage::where('model_id',$id)->get();
+
+        return view('frontend.model.model_details',compact('models','multiImg'));
     }
 }
