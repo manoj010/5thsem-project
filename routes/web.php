@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\VehicleController;
 use App\Http\Controllers\Backend\CategoryController;
@@ -106,3 +107,6 @@ Route::middleware('auth','role:admin')->group(function() {
         
     });
 });
+
+
+Route::get('/model/details/{id}/{slug}',[IndexController::class,'ModelDetails']);

@@ -1,6 +1,10 @@
  @extends('frontend.master')
  @section('main')
 
+ <!-- ***** Header Area Start ***** -->
+ @include('frontend.home.main_banner')
+ <!-- ***** Header Area End ***** -->
+
  <!-- ***** popular brand Starts ***** -->
  @include('frontend.home.popular_brand')
  <!-- ***** popular brand Ends ***** -->

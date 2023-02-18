@@ -3,19 +3,15 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
-                    <h2>Featured <em>Scooters</em></h2>
-                    <img src="{{asset('frontend/assets/images/line-dec.png')}}" alt="" />
-                    <p>
-                        Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed
-                        viverra ipsum dolor, ultricies fermentum massa consequat eu.
-                    </p>
+                    <h2>Best <em>Scooters</em></h2>
+                    <hr>
                 </div>
             </div>
         </div>
         <div class="row">
 
             @php
-            $category_bikes =App\Models\Category::where('category_name','Best Scooter')->get();
+            $category_bikes =App\Models\Category::where('category_name','Latest Scooter')->get();
             @endphp
 
             @foreach($category_bikes as $top_scooters)
@@ -28,24 +24,26 @@
             @foreach($scooters as $scooter)
             <div class="col-lg-3">
                 <div class="trainer-item">
-                    <div class="image-thumb">
+                    <a href="{{url('model/details/'.$scooter->id.'/'.$scooter->model_slug )}}" class="image-thumb">
                         <img src="{{asset($scooter->model_thumbnail)}}" alt="" />
-                    </div>
+                    </a>
                     <div class="down-content">
-                        <span>
-                            <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                        </span>
-
-                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                        <div class="bike_name">
+                            <a href="" class="title" title="Model Name">{{$scooter->model_name}}</a>
+                        </div>
+                        <div class="price">
+                            <p>Rs. {{$scooter->price}} </p>
+                        </div>
 
                         <p>
-                            <i class="fa fa-dashboard"></i> 130 000km
-                            <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-dashboard"></i> {{$scooter->mileage}} km/hr &nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-cube"></i> {{$scooter->displacement}} cc &nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-cog"></i> {{$scooter->emission_type}} &nbsp;&nbsp;&nbsp;
                         </p>
 
-                        <ul class="social-icons">
-                            <li><a href="{{asset('frontend/')}}aprilia150details.html">+ Preview</a></li>
+                        <ul class="social-icons text-center">
+                            <span class="primaryButton  btn-dcb p-2" style="border:1px solid red">View February
+                                Offers</span>
                         </ul>
                     </div>
                 </div>

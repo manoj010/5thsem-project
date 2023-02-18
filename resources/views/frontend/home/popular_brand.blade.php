@@ -4,12 +4,13 @@
             <div class="col-lg-6 offset-lg-3 ">
                 <div class="section-heading">
                     <h2>Popular <em>Brand</em></h2>
+                    <hr>
                 </div>
             </div>
         </div>
         <div class="row">
             @php
-            $popular_brands =App\Models\Brand::orderBy('brand_name','ASC')->limit(8)->get();
+            $popular_brands =App\Models\Brand::orderBy('brand_name','ASC')->limit(12)->get();
             @endphp
 
             @foreach($popular_brands as $brand)

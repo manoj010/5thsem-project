@@ -20,6 +20,37 @@
 
     <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/assets/css/login.css')}}" />
+
+    <style>
+    .bike_name .title {
+        font-size: 20px;
+    }
+
+    .price p {
+        color: #24272c;
+        font-size: 15px;
+        line-height: 20px;
+        margin: 5px 0 0;
+        position: relative;
+    }
+
+    .nav-bike {
+        background: #fff;
+        box-shadow: 0 2px 1px 0 rgb(36 39 44 / 15%);
+        width: 100%;
+    }
+
+    .nav-bike .ul-bike {
+        padding: 15px 30px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.5;
+    }
+
+    .nav-bike .ul-bike a {
+        color: rgb(75, 82, 82);
+    }
+    </style>
 </head>
 
 <body>
@@ -40,23 +71,9 @@
     @include('frontend.body.header')
     <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner" id="top">
-        <video autoplay muted loop id="bg-video">
-            <source src="{{asset('frontend/assets/images/video.mp4')}}" type="video/mp4" />
-        </video>
 
-        <div class="video-overlay header-text">
-            <div class="caption">
-                <h6>Explore Our Ranges Of Bikes & Scooters</h6>
-                <h2>Best <em>Brand New & Used Bikes Dealer</em> in town!</h2>
-                <div class="main-button">
-                    <a href="contact.html">Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Main Banner Area End ***** -->
+
+
 
     <div class="content">
         @yield('main')
@@ -87,6 +104,9 @@
     <!-- Global Init -->
     <script src="{{asset('frontend/assets/js/custom.js')}}"></script>
     <script src="{{asset('frontend/assets/js/script.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

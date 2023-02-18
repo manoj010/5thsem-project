@@ -4,14 +4,14 @@
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
                     <h2>Popular <em>Bikes</em></h2>
-
+                    <hr>
 
                 </div>
             </div>
         </div>
         <div class="row">
             @php
-            $category_bikes =App\Models\Category::where('category_name','Brand Bike')->get();
+            $category_bikes =App\Models\Category::where('category_name','Best Bike')->get();
             @endphp
 
             @foreach($category_bikes as $top_bikes)
@@ -24,24 +24,29 @@
             @foreach($bikes as $bike)
             <div class="col-lg-3">
                 <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src="{{asset($bike->model_thumbnail)}}" alt="" />
-                    </div>
+                    <a href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}} class=" image-thumb">
+                        <div><img src="{{asset($bike->model_thumbnail)}}" alt="" /></div>
+                    </a>
                     <div class="down-content">
-                        <span>
-                            <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                        </span>
 
-                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                        <div class="bike_name">
+                            <a class="title" title="Model Name"
+                                href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}">{{$bike->model_name}}
+                            </a>
+                        </div>
+                        <div class="price">
+                            <p>Rs. {{$bike->price}} </p>
+                        </div>
 
                         <p>
-                            <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-dashboard"></i> {{$bike->mileage}} km/hr &nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-cube"></i> {{$bike->displacement}} cc &nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-cog"></i> {{$bike->emission_type}} &nbsp;&nbsp;&nbsp;
                         </p>
 
-                        <ul class="social-icons">
-                            <li><a href="dukedetails.html">+ Peview</a></li>
+                        <ul class="social-icons text-center">
+                            <span class="primaryButton  btn-dcb p-2" style="border:1px solid red">View February
+                                Offers</span>
                         </ul>
                     </div>
                 </div>

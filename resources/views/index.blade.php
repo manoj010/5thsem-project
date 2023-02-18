@@ -39,13 +39,14 @@
 
                                 </div>
                             </div>
-                            </>
+                        </div>
+
                     </li>
-                    <li><a href='#tabs-2'><i class="fa fa-list"></i> Orders</a></a></li>
-                    <li><a href='#tabs-3'><i class="fa fa-first-order"></i> Track Your Order</a></a></li>
-                    <li><a href='#tabs-4'><i class="fa fa-address-book"></i> My Address</a></a></li>
-                    <li><a href='#tabs-5'><i class="fa fa-sign-in"></i> Account Details</a></a></li>
-                    <li><a href='#tabs-6'><i class="fa fa-save"></i> Account Security</a></a></li>
+                    <li><a href='#tabs-2'><i class="fa fa-list"></i> Booking</a></a></li>
+
+                    <li><a href='#tabs-3'><i class="fa fa-address-book"></i> My Address</a></a></li>
+                    <li><a href='#tabs-4'><i class="fa fa-sign-in"></i> Account Details</a></a></li>
+                    <li><a href='#tabs-5'><i class="fa fa-save"></i> Account Security</a></a></li>
                     <li><a href="{{route('user.logout')}}"><i class="fa fa-sign-out"></i>Logout</a></a></li>
                 </ul>
             </div>
@@ -55,16 +56,16 @@
                     <div id='tabs-2'>
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="mb-0 text-center">Your Orders</h3>
+                                <h3 class="mb-0 text-center">Your Bookings</h3>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Order</th>
+                                                <th>Brand</th>
+                                                <th>Model</th>
                                                 <th>Date</th>
-                                                <th>Status</th>
                                                 <th>Total</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -97,36 +98,8 @@
                             </div>
                         </div>
                     </div>
+
                     <div id='tabs-3'>
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="mb-0 text-center">Orders tracking</h3>
-                            </div>
-                            <div class="card-body contact-from-area">
-                                <p>To track your order please enter your OrderID in the box below and
-                                    press "Track" button. This was given to you on your receipt and in
-                                    the confirmation email you should have received.</p>
-                                <div class="row">
-                                    <div class="col-lg-8">
-                                        <form class="contact-form-style mt-30 mb-50" action="#" method="post">
-                                            <div class="input-style mb-20">
-                                                <label>Order ID</label>
-                                                <input name="order-id"
-                                                    placeholder="Found in your order confirmation email" type="text" />
-                                            </div>
-                                            <div class="input-style mb-20">
-                                                <label>Billing email</label>
-                                                <input name="billing-email" placeholder="Email you used during checkout"
-                                                    type="email" />
-                                            </div>
-                                            <button class="submit submit-auto-width" type="submit">Track</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id='tabs-4'>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="card mb-3 mb-lg-0">
@@ -161,7 +134,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id='tabs-5'>
+                    <div id='tabs-4'>
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="text-center">Account Details</h5>
@@ -216,7 +189,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id='tabs-6'>
+                    <div id='tabs-5'>
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="text-center">Account Security</h5>
