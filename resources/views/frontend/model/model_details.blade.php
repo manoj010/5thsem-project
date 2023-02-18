@@ -2,17 +2,16 @@
 @section('main')
 <!-- ***** Call to Action Start ***** -->
 <section class="section section-bg" id="call-to-action"
-    style="background-image: url({{asset('frontend/assets/images/bike-banner-image.jpg')}})">
+    style="background-image: url({{asset($models->model_thumbnail) }})">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="cta-content">
                     <br />
                     <br />
-                    <h2>
-                        <small><del>Nrs.830000</del></small> <em>Nrs.800000</em>
-                    </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur.</p>
+                    <br>
+                    <br>
+
                 </div>
             </div>
         </div>
@@ -106,7 +105,7 @@
                             <div class=" bike-content" style="padding: 20px; margin: 10px; line-height: 40px;">
 
 
-                                <h5> <strong>Duke Bike</strong> </h5>
+                                <h5> <strong>{{$models->model_name}}</strong> </h5>
 
 
                                 <div class="span" style="color:rgb(199, 80, 25)">
@@ -143,7 +142,7 @@
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="d-flex justfly-content-starts p-2">
-                                                        <img src="{{asset('frontend/assets/images/bike-banner-image.jpg')}}"
+                                                        <img src="{{asset($models->model_thumbnail) }}"
                                                             style="height: 15rem;" alt="" />
                                                     </div>
                                                 </div>
@@ -152,7 +151,8 @@
                                                         style="padding: 20px; margin: 10px; line-height: 30px;">
 
 
-                                                        <h5>On Road Price of <strong>Duke Bike</strong> </h5>
+                                                        <h5>On Road Price of <strong>{{$models->model_name}}</strong>
+                                                        </h5>
                                                         <hr>
                                                         <div class="span" style="color:rgb(199, 80, 25)">
                                                             <span>Rs.
@@ -176,7 +176,7 @@
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="d-flex justfly-content-starts p-2">
-                                                    <img src="{{asset('frontend/')}}assets/images/bike-banner-image.jpg"
+                                                    <img src="{{asset($models->model_thumbnail) }}"
                                                         style="height: 15rem;" alt="" />
                                                 </div>
                                             </div>
@@ -185,7 +185,7 @@
                                                     style="padding: 20px; margin: 10px; line-height: 40px;">
 
 
-                                                    <h5> <strong>Duke Bike</strong> </h5>
+                                                    <h5> <strong>{{$models->model_name}}</strong> </h5>
 
 
                                                     <div class="span" style="color:rgb(199, 80, 25)">
@@ -372,7 +372,7 @@
                                                             <div class="row">
                                                                 <div class="col-lg-4">
                                                                     <div class="d-flex justfly-content-starts p-2">
-                                                                        <img src="assets/images/bike-banner-image.jpg"
+                                                                        <img src="{{asset($models->model_thumbnail) }}"
                                                                             style="height: 15rem;" alt="" />
                                                                     </div>
                                                                 </div>
@@ -381,7 +381,8 @@
                                                                         style="padding: 20px; margin: 10px; line-height: 30px;">
 
 
-                                                                        <h5>On Road Price of <strong>Duke Bike</strong>
+                                                                        <h5>On Road Price of
+                                                                            <strong>{{$models->model_name}}</strong>
                                                                         </h5>
                                                                         <hr>
                                                                         <div class="span"
