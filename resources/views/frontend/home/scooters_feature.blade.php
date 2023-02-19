@@ -42,8 +42,8 @@
                         </p>
 
                         <ul class="social-icons text-center">
-                            <span class="primaryButton  btn-dcb p-2" style="border:1px solid red">View February
-                                Offers</span>
+                            <a href="" class="primaryButton  btn-dcb p-2" style="border:1px solid red"><span><i
+                                        class="fa fa-cart-plus"> </i> Book Now</a>
                         </ul>
                     </div>
                 </div>
