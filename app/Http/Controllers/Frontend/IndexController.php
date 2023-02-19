@@ -17,6 +17,15 @@ class IndexController extends Controller
         
         $multiImg = MultiImage::where('model_id',$id)->get();
 
-        return view('frontend.model.model_details',compact('models','multiImg'));
+        return view('frontend.index.model_details',compact('models','multiImg'));
+    }
+    
+    public function CategoryBike($id,$slug){
+        $categories = Category::where('id',$id)->get();
+        
+        $models = VehicleModel::where('category_id',$id)->get();
+        
+    
+       return view('frontend.index.bike_categories',compact('categories','models'));
     }
 }
