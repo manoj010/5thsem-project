@@ -42,13 +42,16 @@
 
     .nav-bike .ul-bike {
         padding: 15px 30px;
-        font-size: 14px;
+
         font-weight: 400;
         line-height: 1.5;
     }
 
-    .nav-bike .ul-bike a {
+
+
+    .ul-link a {
         color: rgb(75, 82, 82);
+        font-size: 14px;
     }
     </style>
 </head>
