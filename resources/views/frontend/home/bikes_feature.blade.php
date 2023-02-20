@@ -39,7 +39,7 @@
                         </p>
 
                         <ul class="social-icons text-center">
-                            <a href="" class="primaryButton  btn-dcb p-2" style="border:1px solid red"><span><i
+                            <a href="{{ route('booking',$bike->id) }}" class="primaryButton  btn-dcb p-2" style="border:1px solid red"><span><i
                                         class="fa fa-cart-plus"> </i> Book Now</a>
                         </ul>
                     </div>
