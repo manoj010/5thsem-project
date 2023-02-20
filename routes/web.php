@@ -45,6 +45,8 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
+
 Route::middleware('auth','role:admin')->group(function() {
     Route::get('/admin/dashboard',[AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/logout',[AdminController::class, 'AdminLogout'])->name('admin.logout');
@@ -111,8 +113,6 @@ Route::middleware('auth','role:admin')->group(function() {
         Route::get('/delete/model/{id}','DeleteModel')->name('delete.model');
         
     });
-
-    Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
 
     Route::controller(NewslettersController::class)->group(function(){
         Route::get('/newsletters','newsletters')->name('newsletters');
