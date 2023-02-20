@@ -24,4 +24,12 @@ class NewslettersController extends Controller
 
         return back();
     }
+
+    public function deleteEmail($id){
+        $emails = Newsletters::find($id);
+
+        Newsletters::find($id)->delete();
+
+        return back();
+    }
 }

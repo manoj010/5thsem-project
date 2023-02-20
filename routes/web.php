@@ -116,6 +116,7 @@ Route::middleware('auth','role:admin')->group(function() {
 
     Route::controller(NewslettersController::class)->group(function(){
         Route::get('/newsletters','newsletters')->name('newsletters');
+        Route::get('/delete/{id}','deleteEmail');
     });
 });
 
