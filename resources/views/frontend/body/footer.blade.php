@@ -262,7 +262,7 @@
           <div class="col-md-2 col-sm-6">
             <h3>Quick  LInks</h3>
             <ul class="footer-links">
-              <li><a href="#">Home</a>
+              <li><a href="{{route('main')}}">Home</a>
               </li>
               <li><a href="#">Best Bikes</a>
               </li>
@@ -277,6 +277,7 @@
             <ul class="footer-category">
               <li><a href="#">Used Vehicles</a>
               </li>
+              <li><a href="#">Compare Vehicles</a>
               </li>
             </ul>
             <div class="clearfix"></div>

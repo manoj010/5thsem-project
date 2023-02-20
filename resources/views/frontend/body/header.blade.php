@@ -4,7 +4,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo"><img src="{{asset('frontend/assets/images/logo.png')}}"
+                    <a href="{{route('main')}}" class="logo"><img src="{{asset('frontend/assets/images/logo.png')}}"
                             style="height: 60px; width: 60px; margin-left: -50px" alt="" /><em style="
                     position: absolute;
                     width: 69px;
@@ -28,7 +28,7 @@
                     <!-- ***** Menu Start ***** -->
 
                     <ul class="nav">
-                        <li><a href="{{route('main')}}" class="active">Home</a></li>
+                        <li><a href="{{route('main')}}">Home</a></li>
 
 
                         @php
