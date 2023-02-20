@@ -22,9 +22,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+
+Route::get('/',[IndexController::class,'Master'])->name('main');
+Route::get('/',[IndexController::class,'Master'])->name('main');
 
 Route::middleware('auth')->group(function(){
     Route::get('/dashboard',[UserController::class,'UserDashboard'])->name('dashboard');
@@ -110,3 +110,5 @@ Route::middleware('auth','role:admin')->group(function() {
 
 
 Route::get('/model/details/{id}/{slug}',[IndexController::class,'ModelDetails']);
+Route::get('/contact',[IndexController::class,'ContactAdmin'])->name('contact.admin');
+Route::get('/vehicle/{id}/{slug}',[IndexController::class,'CategoryBike']);

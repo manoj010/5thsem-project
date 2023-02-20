@@ -3,25 +3,19 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
-                    <h2>Popular <em>Bikes</em></h2>
+
+                    <h2> {{$category_1->category_name
+               }}<em> {{$category_1['vehicle']['vehicle_name']}}</em></h2>
+
                     <hr>
 
                 </div>
             </div>
         </div>
         <div class="row">
-            @php
-            $category_bikes =App\Models\Category::where('category_name','Best Bike')->get();
-            @endphp
 
-            @foreach($category_bikes as $top_bikes)
 
-            @php
-            $bikes
-            =App\Models\VehicleModel::where('category_id',$top_bikes->id)->orderBy('model_name','ASC')->get();
-            @endphp
-
-            @foreach($bikes as $bike)
+            @foreach($category_1_model as $bike)
             <div class="col-lg-3">
                 <div class="trainer-item">
                     <a href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}} class=" image-thumb">
@@ -52,7 +46,7 @@
                 </div>
             </div>
             @endforeach
-            @endforeach
+
 
         </div>
 

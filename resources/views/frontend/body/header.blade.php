@@ -28,7 +28,7 @@
                     <!-- ***** Menu Start ***** -->
 
                     <ul class="nav">
-                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="{{route('main')}}" class="active">Home</a></li>
 
 
                         @php
@@ -46,7 +46,11 @@
 
                             <div class="dropdown-menu">
                                 @foreach($categories as $category)
-                                <a class="dropdown-item" href="latestbikes.html">{{$category->category_name}}</a>
+                                <a class="dropdown-item"
+                                    href="{{ url('vehicle/'.$category->id.'/'.$category->category_slug )}}">{{$category->category_name}}
+                                    <span?>
+                                        {{$category['vehicle']['vehicle_name']}}</span>
+                                </a>
 
                                 @endforeach
                             </div>
@@ -54,11 +58,13 @@
                         @endforeach
 
 
-                        <li><a href="usedvehicle.html">Used Vehicles</a></li>
+
+                        <li><a href="">Booking</a>
+                        </li>
 
                         <li><a href="about.html">Compare</a></li>
 
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{{route('contact.admin')}}">Contact</a></li>
                     </ul>
                     <ul class="nav-auth">
                         <li>
