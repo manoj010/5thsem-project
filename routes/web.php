@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\VehicleController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ModelController;
+use App\Http\Controllers\Backend\NewslettersController;
 use App\Http\Controllers\BookingController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +44,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
 
 Route::middleware('auth','role:admin')->group(function() {
     Route::get('/admin/dashboard',[AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
@@ -109,6 +112,11 @@ Route::middleware('auth','role:admin')->group(function() {
         Route::get('/model/active/{id}','ModelActive')->name('model.active');
         Route::get('/delete/model/{id}','DeleteModel')->name('delete.model');
         
+    });
+
+    Route::controller(NewslettersController::class)->group(function(){
+        Route::get('/newsletters','newsletters')->name('newsletters');
+        Route::get('/delete/{id}','deleteEmail');
     });
 });
 

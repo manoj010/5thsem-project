@@ -28,6 +28,10 @@
                     <a href="{{route('all.model')}}"> <i class="menu-icon fa-sharp fa-solid fa-sitemap"></i>Model</a>
                 </li>
 
+                <li>
+                    <a href="{{route('newsletters')}}"> <i class="menu-icon fa-sharp fa-solid fa-n"></i>Newsletters</a>
+                </li>
+
                 <li class=" menu-title">Bike and Scooter
                 </li><!-- /.menu-title -->
 
