@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\VehicleController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ModelController;
+use App\Http\Controllers\BookingController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,8 @@ Route::middleware('auth')->group(function(){
     Route::post('/user/profile/store',[UserController::class,'UserProfileStore'])->name('user.profile.store');
     Route::post('/user/password/update',[UserController::class,'UserPasswordUpdate'])->name('user.password.update');
     Route::get('/user/logout',[UserController::class,'UserLogout'])->name('user.logout');
+    Route::get('/booking/{id}',[BookingController::class,'booking'])->name('booking');
+    Route::post('/booking-submit',[BookingController::class,'bookingSubmit'])->name('bookingSubmit');
 });
 
 Route::middleware('auth')->group(function () {
@@ -49,6 +52,7 @@ Route::middleware('auth','role:admin')->group(function() {
     Route::get('/admin/setting',[AdminController::class, 'AdminSetting'])->name('admin.setting');
     Route::get('/admin/change/password',[AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
     Route::post('/admin/password/update',[AdminController::class, 'AdminPasswordUpdate'])->name('password.update');
+    Route::get('all-bookings',[AdminController::class,'showBookings'])->name('showBookings');
 });
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class);

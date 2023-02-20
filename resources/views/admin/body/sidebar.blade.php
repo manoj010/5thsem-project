@@ -15,6 +15,9 @@
                 <li>
                     <a href="{{route('all.vehicle')}}"> <i class="menu-icon fa-solid fa-motorcycle"></i>Vehicle</a>
                 </li>
+                <li>
+                    <a href="{{ route('showBookings') }}"> <i class="menu-icon fa-solid fa-motorcycle"></i>All Booking</a>
+                </li>
 
 
                 <li>

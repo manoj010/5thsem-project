@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -130,5 +131,9 @@ class AdminController extends Controller
         return redirect()->route('admin.dashboard')->with($notification);
     }
 
+    public function showBookings(){
+        $bookings = Booking::with('rBike')->with('rUser')->get();
+        return view('Backend.bookings',compact('bookings'));
+    }
     
 }
