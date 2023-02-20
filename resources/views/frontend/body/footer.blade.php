@@ -11,12 +11,6 @@
     .btn-envelop a{color: #D6403A;font-size: 15px; padding: 9px 12px;}
     .standard_header .standard_social_links {margin-left: 1rem;}
 
-    /*
-    =========================================================================================
-                                        footer
-    =========================================================================================
-    */
-    
     .footer-wrap {
         padding-top: 43px;
         background-size: cover;
@@ -255,72 +249,61 @@
         </div>
       </div>
   </div>
-    <div class="second_class">
-      <div class="container second_class_bdr">
-      <div class="row">
-        <div class="col-md-4 col-sm-6">
+  <div class="second_class">
+        <div class="container second_class_bdr">
+        <div class="row">
+          <div class="col-md-4 col-sm-6">
 
-          <div class="footer-logo"><img src="http://localhost/lrn/img/footer_logo.png" alt="logo">
+            <div class="footer-logo"><img src="{{asset('frontend/assets/images/logo.png')}}" style="height: 60px; width: 60px" alt="logo">
+            </div>
+            <p>Your one-stop platform to find Latest Bikes, Scooters, Used Bikes, Used Scooters.</p>
           </div>
-          <p>Your one-stop career platform to find Jobs, Internships, Professional Trainings, Projects, and Volunteering Opportunities.</p>
-        </div>
-        <div class="col-md-2 col-sm-6">
-          <h3>Quick  LInks</h3>
-          <ul class="footer-links">
-            <li><a href="#">Home</a>
-            </li>
-            <li><a href="#">About us</a>
-            </li>
-            <li><a href="#">Triedge Partners</a>
-            </li>
-            <li><a href="#">Contact Us</a>
-            </li>
-            <li><a href="#" target="_blank">Terms &amp; Conditions</a>
-            </li>
-            <li><a href="#" target="_blank">Privacy Policy</a>
-            </li>
-            <li><a href="#">Sitemap</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <h3>OUR SERVICES</h3>
-          <ul class="footer-category">
-            <li><a href="#">Fresher Jobs</a>
-            </li>
-            <li><a href="#">InternEdge - Internships &amp; Projects </a>
-            </li>
-            <li><a href="#">Resume Edge - Resume Writing Services</a>
-            </li>
-            <li><a href="#">Readers Galleria - Curated Library</a>
-            </li>
-            <li><a href="#">Trideus - Campus Ambassadors</a>
-            </li>
-          </ul>
-          <div class="clearfix"></div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <h3>triedge Events</h3>
-          <ul class="footer-links">
-            <li><a href="#">Triedge Events</a>
-            </li>
+          <div class="col-md-2 col-sm-6">
+            <h3>Quick  LInks</h3>
+            <ul class="footer-links">
+              <li><a href="#">Home</a>
+              </li>
+              <li><a href="#">Best Bikes</a>
+              </li>
+              <li><a href="#">Best Scooters</a>
+              </li>
+              <li><a href="#">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h3>OUR SERVICES</h3>
+            <ul class="footer-category">
+              <li><a href="#">Used Vehicles</a>
+              </li>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h3>Contact Us</h3>
+            <ul class="footer-links">
+              <li><a href="#">+977-9842069250</a>
+              </li>
 
-            <li><a href="#">Jobs &AMP; Internship Fair 2019</a>
-            </li>
-          </ul>
+              <li><a href="#">suvidaservice@gmaill.com</a>
+              </li>
+            </ul>
+          </div>
         </div>
+        
       </div>
-      
-    </div>
-    </div>
+      </div>
     
     <div class="row">
       
       <div class="container-fluid">
-        <div class="copyright"> Copyright 2019 | All Rights Reserved by TRIEDGE Solutions Pvt. Ltd.</div>
+        <div class="copyright">Copyright 2022 | All Rights Reserved by Suvida</div>
       </div>
 
     </div>
   </div>
   
   </footer>
+
+<script src="https://kit.fontawesome.com/fddf5c0916.js" crossorigin="anonymous"></script>
