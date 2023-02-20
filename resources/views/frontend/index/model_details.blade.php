@@ -112,100 +112,110 @@
                                 <h5> <strong>{{$models->model_name}}</strong> </h5>
 
 
-                                <div class="span" style="color:rgb(199, 80, 25)">
-                                    <span>Rs.
+                                <div class="span">
+                                    <span style="color:rgb(199, 80, 25)">Rs.
                                         3,59,900
                                     </span>
-                                    <!-- rating -->
-                                    <!-- end rating -->
+
                                     <ul class="social-icons mt-2">
                                         <span class="primaryButton  btn-dcb p-2"
                                             style="background-color: #d02f2f; color:#fff">View February
                                             Offers</span>
-                                        </li>
+
 
                                     </ul>
-                                    <div class="short-desc">
-                                        <span ">Don't miss out on the best offers this February</span>
-                </div>
-                </div>
-                
-
-               
-              </div>
-
-                <br />
-              </div>
-            </div>
-            
-          </div>
-           
-            <div
-              class=" tab-pane fade show "
-              role=" tab-pane" id="price" aria-labelledby="price-tab">
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <div class="d-flex justfly-content-starts p-2">
-                                                        <img src="{{asset($models->model_thumbnail) }}"
-                                                            style="height: 15rem;" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-8">
-                                                    <div class=" bike-content"
-                                                        style="padding: 20px; margin: 10px; line-height: 30px;">
-
-
-                                                        <h5>On Road Price of <strong>{{$models->model_name}}</strong>
-                                                        </h5>
-                                                        <hr>
-                                                        <div class="span" style="color:rgb(199, 80, 25)">
-                                                            <span>Rs.
-                                                                <del>3,99,900 </del> &nbsp; 3,59,900
-                                                            </span>
-                                                        </div>
-
-
-                                                        <p>
-                                                            <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                                            <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                                                            <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                </div>
+                                <div class="short-desc">
+                                    <span ">Don't miss out on the best offers this February</span>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class=" row justify-content-end">
+                                        <div class=" font"
+                                            style="background-color:#e9e9e9 ;height: 34px; width:34px;  border-radius: 50%; margin-top:22px;">
+                                            <div class="" style=" justify-content: center;">
+                                                <a class="action-btn" id="{{$models->id}}"
+                                                    onclick="addToWishList(this.id)">
+                                                    <i class="fa-regular fa-heart
+                                                    m-2"></i></a>
                                             </div>
+                                        </div>
+                                        <div class=" font"
+                                            style="background-color:#e9e9e9 ;height: 34px; width:34px;  border-radius: 50%; margin-top:22px; margin-left:10px">
+                                            <span class="" style=" justify-content: center; ">
+
+                                                <a aria-label="Add To Wishlist" class="action-btn" id="{{$models->id}}"
+                                                    onclick="addToWishList(this.id)"><i class="fa-regular fa-heart
+                                                    m-2"></i></a>
+                                            </span>
+                                        </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class=" tab-pane fade show " role=" tab-pane" id="price" aria-labelledby="price-tab">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="d-flex justfly-content-starts p-2">
+                                        <img src="{{asset($models->model_thumbnail) }}" style="height: 15rem;" alt="" />
                                     </div>
-
-                                    <div class="tab-pane fade show " role="tab-pane" id="offer"
-                                        aria-labelledby="offer-tab">
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="d-flex justfly-content-starts p-2">
-                                                    <img src="{{asset($models->model_thumbnail) }}"
-                                                        style="height: 15rem;" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class=" bike-content"
-                                                    style="padding: 20px; margin: 10px; line-height: 40px;">
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class=" bike-content" style="padding: 20px; margin: 10px; line-height: 30px;">
 
 
-                                                    <h5> <strong>{{$models->model_name}}</strong> </h5>
+                                        <h5>On Road Price of <strong>{{$models->model_name}}</strong>
+                                        </h5>
+                                        <hr>
+                                        <div class="span" style="color:rgb(199, 80, 25)">
+                                            <span>Rs.
+                                                <del>3,99,900 </del> &nbsp; 3,59,900
+                                            </span>
+                                        </div>
 
 
-                                                    <div class="span" style="color:rgb(199, 80, 25)">
-                                                        <span>Rs.
-                                                            <del>3,99,900 </del> &nbsp; 3,59,900
-                                                        </span>
-                                                        <!-- rating -->
-                                                        <!-- end rating -->
-                                                        <ul class="social-icons mt-2">
-                                                            <span class="primaryButton  btn-dcb p-2"
-                                                                style="background-color: #d02f2f; color:#fff">View
-                                                                February
-                                                                Offers</span>
-                                                        </ul>
-                                                        <div class="short-desc">
-                                                            <span ">Don't miss out on the best offers this February</span>
+                                        <p>
+                                            <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
+                                            <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
+                                            <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade show " role="tab-pane" id="offer" aria-labelledby="offer-tab">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="d-flex justfly-content-starts p-2">
+                                        <img src="{{asset($models->model_thumbnail) }}" style="height: 15rem;" alt="" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class=" bike-content" style="padding: 20px; margin: 10px; line-height: 40px;">
+
+
+                                        <h5> <strong>{{$models->model_name}}</strong> </h5>
+
+
+                                        <div class="span" style="color:rgb(199, 80, 25)">
+                                            <span>Rs.
+                                                <del>3,99,900 </del> &nbsp; 3,59,900
+                                            </span>
+                                            <!-- rating -->
+                                            <!-- end rating -->
+                                            <ul class="social-icons mt-2">
+                                                <span class="primaryButton  btn-dcb p-2"
+                                                    style="background-color: #d02f2f; color:#fff">View
+                                                    February
+                                                    Offers</span>
+                                            </ul>
+                                            <div class="short-desc">
+                                                <span ">Don't miss out on the best offers this February</span>
                 </div>
                 </div>
                 
@@ -220,202 +230,201 @@
 
             <div
               class=" tab-pane fade show" role="tab-pane" id="specs" aria-labelledby="specs-tab">
-                                                                <div class="row" id="tabs">
-                                                                    <div class="col-lg-4">
-                                                                        <ul>
-                                                                            <li>
-                                                                                <a href="#tabs-1"><i
-                                                                                        class="fa fa-cog"></i> Bike
-                                                                                    Specs</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#tabs-2"><i
-                                                                                        class="fa fa-info-circle"></i>
-                                                                                    Bike Description</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#tabs-3"><i
-                                                                                        class="fa fa-plus-circle"></i>
-                                                                                    Bike Extras</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#tabs-4"><i
-                                                                                        class="fa fa-phone"></i> Contact
-                                                                                    Details</a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div class="col-lg-8">
-                                                                        <section class="tabs-content"
-                                                                            style="width: 100%">
-                                                                            <article id="tabs-1">
-                                                                                <h4>Vehicle Specs</h4>
-
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-6">
-                                                                                        <label>Type</label>
-
-                                                                                        <p>Brand New</p>
-                                                                                    </div>
-
-                                                                                    <div class="col-sm-6">
-                                                                                        <label>Make</label>
-
-                                                                                        <p>Lorem ipsum dolor sit</p>
-                                                                                    </div>
-
-                                                                                    <div class="col-sm-6">
-                                                                                        <label> Model</label>
-
-                                                                                        <p>Lorem ipsum dolor sit</p>
-                                                                                    </div>
-
-                                                                                    <div class="col-sm-6">
-                                                                                        <label>First
-                                                                                            registration</label>
-
-                                                                                        <p>05/2010</p>
-                                                                                    </div>
-
-                                                                                    <div class="col-sm-6">
-                                                                                        <label>Mileage</label>
-
-                                                                                        <p>30 km</p>
-                                                                                    </div>
-
-                                                                                    <div class="col-sm-6">
-                                                                                        <label>Engine size</label>
-
-                                                                                        <p>390 cc</p>
-                                                                                    </div>
-
-                                                                                    <div class="col-sm-6">
-                                                                                        <label>Power</label>
-
-                                                                                        <p>85 hp</p>
-                                                                                    </div>
-
-                                                                                    <div class="col-sm-6">
-                                                                                        <label>Color</label>
-
-                                                                                        <p>Black-Orange</p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </article>
-                                                                            <article id="tabs-2">
-                                                                                <h4>Vehicle Description</h4>
-
-                                                                                <p>
-                                                                                    -12 months used <br />
-                                                                                    - 2000km runned <br />
-                                                                                    - Warranty <br />
-                                                                                    Lorem ipsum dolor sit amet,
-                                                                                    consectetur adipiscing elit,
-                                                                                    sed do eiusmod tempor incididunt ut
-                                                                                    labore et dolore
-                                                                                    magna aliqua. Ut enim ad minim
-                                                                                    veniam, quis nostrud
-                                                                                    exercitation ullamco laboris nisi ut
-                                                                                    aliquip ex ea
-                                                                                    commodo consequat. Duis aute irure
-                                                                                    dolor in
-                                                                                    reprehenderit in voluptate velit
-                                                                                    esse cillum dolore eu
-                                                                                    fugiat nulla pariatur. Excepteur
-                                                                                    sint occaecat cupidatat
-                                                                                    non proident, sunt in culpa qui
-                                                                                    officia deserunt mollit
-                                                                                    anim id est laborum.
-                                                                                </p>
-                                                                            </article>
-                                                                            <article id="tabs-3">
-                                                                                <h4>Vehicle Extras</h4>
-
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-6">
-                                                                                        <p>ABS</p>
-                                                                                    </div>
-                                                                                    <div class="col-sm-6">
-                                                                                        <p>Digita Screen View</p>
-                                                                                    </div>
-                                                                                    <div class="col-sm-6">
-                                                                                        <p>F.I system</p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </article>
-                                                                            <article id="tabs-4">
-                                                                                <h4>Contact Details</h4>
-
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-6">
-                                                                                        <label>Name</label>
-
-                                                                                        <p>Ram Prasad</p>
-                                                                                    </div>
-                                                                                    <div class="col-sm-6">
-                                                                                        <label>Phone</label>
-
-                                                                                        <p>9852146523</p>
-                                                                                    </div>
-
-                                                                                    <div class="col-sm-6">
-                                                                                        <label>Email</label>
-                                                                                        <p><a
-                                                                                                href="#">ramprasad@gmail.com</a>
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </article>
-                                                                        </section>
-                                                                    </div>
-                                                                </div>
+                                                    <div class="row" id="tabs">
+                                                        <div class="col-lg-4">
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="#tabs-1"><i class="fa fa-cog"></i>
+                                                                        Bike
+                                                                        Specs</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#tabs-2"><i class="fa fa-info-circle"></i>
+                                                                        Bike Description</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#tabs-3"><i class="fa fa-plus-circle"></i>
+                                                                        Bike Extras</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#tabs-4"><i class="fa fa-phone"></i>
+                                                                        Contact
+                                                                        Details</a>
+                                                                </li>
+                                                            </ul>
                                                         </div>
+                                                        <div class="col-lg-8">
+                                                            <section class="tabs-content" style="width: 100%">
+                                                                <article id="tabs-1">
+                                                                    <h4>Vehicle Specs</h4>
 
-                                                        <div class="tab-pane fade show" role="tab-pane" id="review"
-                                                            aria-labelledby="review-tab">
-                                                            <div class="row">
-                                                                <div class="col-lg-4">
-                                                                    <div class="d-flex justfly-content-starts p-2">
-                                                                        <img src="{{asset($models->model_thumbnail) }}"
-                                                                            style="height: 15rem;" alt="" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-8">
-                                                                    <div class=" bike-content"
-                                                                        style="padding: 20px; margin: 10px; line-height: 30px;">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <label>Type</label>
 
-
-                                                                        <h5>On Road Price of
-                                                                            <strong>{{$models->model_name}}</strong>
-                                                                        </h5>
-                                                                        <hr>
-                                                                        <div class="span"
-                                                                            style="color:rgb(199, 80, 25)">
-                                                                            <span>Rs.
-                                                                                <del>3,99,900 </del> &nbsp; 3,59,900
-                                                                            </span>
+                                                                            <p>Brand New</p>
                                                                         </div>
 
+                                                                        <div class="col-sm-6">
+                                                                            <label>Make</label>
 
-                                                                        <p>
-                                                                            <i class="fa fa-dashboard"></i> 130 000km
-                                                                            &nbsp;&nbsp;&nbsp;
-                                                                            <i class="fa fa-cube"></i> 1800 cc
-                                                                            &nbsp;&nbsp;&nbsp;
-                                                                            <i class="fa fa-cog"></i> Manual
-                                                                            &nbsp;&nbsp;&nbsp;
-                                                                        </p>
+                                                                            <p>Lorem ipsum dolor sit</p>
+                                                                        </div>
+
+                                                                        <div class="col-sm-6">
+                                                                            <label> Model</label>
+
+                                                                            <p>Lorem ipsum dolor sit</p>
+                                                                        </div>
+
+                                                                        <div class="col-sm-6">
+                                                                            <label>First
+                                                                                registration</label>
+
+                                                                            <p>05/2010</p>
+                                                                        </div>
+
+                                                                        <div class="col-sm-6">
+                                                                            <label>Mileage</label>
+
+                                                                            <p>30 km</p>
+                                                                        </div>
+
+                                                                        <div class="col-sm-6">
+                                                                            <label>Engine size</label>
+
+                                                                            <p>390 cc</p>
+                                                                        </div>
+
+                                                                        <div class="col-sm-6">
+                                                                            <label>Power</label>
+
+                                                                            <p>85 hp</p>
+                                                                        </div>
+
+                                                                        <div class="col-sm-6">
+                                                                            <label>Color</label>
+
+                                                                            <p>Black-Orange</p>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
+                                                                </article>
+                                                                <article id="tabs-2">
+                                                                    <h4>Vehicle Description</h4>
+
+                                                                    <p>
+                                                                        -12 months used <br />
+                                                                        - 2000km runned <br />
+                                                                        - Warranty <br />
+                                                                        Lorem ipsum dolor sit amet,
+                                                                        consectetur adipiscing elit,
+                                                                        sed do eiusmod tempor incididunt
+                                                                        ut
+                                                                        labore et dolore
+                                                                        magna aliqua. Ut enim ad minim
+                                                                        veniam, quis nostrud
+                                                                        exercitation ullamco laboris
+                                                                        nisi ut
+                                                                        aliquip ex ea
+                                                                        commodo consequat. Duis aute
+                                                                        irure
+                                                                        dolor in
+                                                                        reprehenderit in voluptate velit
+                                                                        esse cillum dolore eu
+                                                                        fugiat nulla pariatur. Excepteur
+                                                                        sint occaecat cupidatat
+                                                                        non proident, sunt in culpa qui
+                                                                        officia deserunt mollit
+                                                                        anim id est laborum.
+                                                                    </p>
+                                                                </article>
+                                                                <article id="tabs-3">
+                                                                    <h4>Vehicle Extras</h4>
+
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <p>ABS</p>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <p>Digita Screen View</p>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <p>F.I system</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </article>
+                                                                <article id="tabs-4">
+                                                                    <h4>Contact Details</h4>
+
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <label>Name</label>
+
+                                                                            <p>Ram Prasad</p>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <label>Phone</label>
+
+                                                                            <p>9852146523</p>
+                                                                        </div>
+
+                                                                        <div class="col-sm-6">
+                                                                            <label>Email</label>
+                                                                            <p><a href="#">ramprasad@gmail.com</a>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </article>
+                                                            </section>
+                                                        </div>
+                                                    </div>
+                                            </div>
+
+                                            <div class="tab-pane fade show" role="tab-pane" id="review"
+                                                aria-labelledby="review-tab">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="d-flex justfly-content-starts p-2">
+                                                            <img src="{{asset($models->model_thumbnail) }}"
+                                                                style="height: 15rem;" alt="" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-8">
+                                                        <div class=" bike-content"
+                                                            style="padding: 20px; margin: 10px; line-height: 30px;">
+
+
+                                                            <h5>On Road Price of
+                                                                <strong>{{$models->model_name}}</strong>
+                                                            </h5>
+                                                            <hr>
+                                                            <div class="span" style="color:rgb(199, 80, 25)">
+                                                                <span>Rs.
+                                                                    <del>3,99,900 </del> &nbsp; 3,59,900
+                                                                </span>
                                                             </div>
+
+
+                                                            <p>
+                                                                <i class="fa fa-dashboard"></i> 130
+                                                                000km
+                                                                &nbsp;&nbsp;&nbsp;
+                                                                <i class="fa fa-cube"></i> 1800 cc
+                                                                &nbsp;&nbsp;&nbsp;
+                                                                <i class="fa fa-cog"></i> Manual
+                                                                &nbsp;&nbsp;&nbsp;
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <br />
-                                                <br />
-
-                                                <div class="right"></div>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <br />
+
+                                    <div class="right"></div>
+                                </div>
 </section>
 <!-- ***** Fleet Ends ***** -->
 @endsection

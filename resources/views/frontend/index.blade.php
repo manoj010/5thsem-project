@@ -9,17 +9,22 @@
  @include('frontend.home.popular_brand')
  <!-- ***** popular brand Ends ***** -->
 
- <!-- ***** Bikes Starts ***** -->
+ <!-- *****Best Bikes Starts ***** -->
  @include('frontend.home.bikes_feature')
  <!-- ***** Bikes Ends ***** -->
 
- <!-- ***** Scooter Starts ***** -->
+ <!-- *****Best Scooter Starts ***** -->
  @include('frontend.home.scooters_feature')
  <!-- ***** Scooter Ends ***** -->
 
- <!-- ***** About Starts ***** -->
- @include('frontend.home.about')
- <!-- ***** About Ends ***** -->
+ <!-- *****Popular Scooter Starts ***** -->
+ @include('frontend.home.popular_bikes')
+ <!-- ***** Scooter Ends ***** -->
+
+ <!-- *****Popular Scooter Starts ***** -->
+ @include('frontend.home.popular_scooter')
+ <!-- ***** Scooter Ends ***** -->
+
 
  <!-- ***** Call to Action Start ***** -->
  <section class="section section-bg" id="call-to-action"
