@@ -112,6 +112,8 @@ Route::middleware('auth','role:admin')->group(function() {
         
     });
 
+    Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
+
     Route::controller(NewslettersController::class)->group(function(){
         Route::get('/newsletters','newsletters')->name('newsletters');
     });

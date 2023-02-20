@@ -13,5 +13,15 @@ class NewslettersController extends Controller
         return view('Backend.Newsletters.newsletters',compact('emails'));
     }
 
-    
+    public function newslettersmail(Request $req) {
+        $req->validate([
+            'emails' => 'required'
+        ]);
+
+        Newsletters::create([
+            'emails' => $req->emails
+        ]);
+
+        return back();
+    }
 }

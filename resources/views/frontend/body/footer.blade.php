@@ -213,10 +213,11 @@
             and Fairs. Sign up for our newsletter today.</p>
         </div>
         <div class="col-md-4 col-sm-6">
-        <form class="newsletter">
-           <input type="text" placeholder="Email Address"> 
-            <button class="newsletter_submit_btn" type="submit"><i class="fa fa-paper-plane"></i></button>  
-        </form>
+            <form class="newsletter" action="{{route('newslettersmail')}}" method="post">
+                @csrf
+                <input type="text" name="emails" placeholder="Email Address"> 
+                <button class="newsletter_submit_btn" type="submit"><i class="fa fa-paper-plane"></i></button>  
+            </form>
         
         </div>
         <div class="col-md-4 col-sm-6">
