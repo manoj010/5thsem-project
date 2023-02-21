@@ -22,37 +22,37 @@
     <link rel="stylesheet" href="{{asset('frontend/assets/css/login.css')}}" />
 
     <style>
-    .bike_name .title {
-        font-size: 20px;
-    }
+        .bike_name .title {
+            font-size: 20px;
+        }
 
-    .price p {
-        color: #24272c;
-        font-size: 15px;
-        line-height: 20px;
-        margin: 5px 0 0;
-        position: relative;
-    }
+        .price p {
+            color: #24272c;
+            font-size: 15px;
+            line-height: 20px;
+            margin: 5px 0 0;
+            position: relative;
+        }
 
-    .nav-bike {
-        background: #fff;
-        box-shadow: 0 2px 1px 0 rgb(36 39 44 / 15%);
-        width: 100%;
-    }
+        .nav-bike {
+            background: #fff;
+            box-shadow: 0 2px 1px 0 rgb(36 39 44 / 15%);
+            width: 100%;
+        }
 
-    .nav-bike .ul-bike {
-        padding: 15px 30px;
+        .nav-bike .ul-bike {
+            padding: 15px 30px;
 
-        font-weight: 400;
-        line-height: 1.5;
-    }
+            font-weight: 400;
+            line-height: 1.5;
+        }
 
 
 
-    .ul-link a {
-        color: rgb(75, 82, 82);
-        font-size: 14px;
-    }
+        .ul-link a {
+            color: rgb(75, 82, 82);
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -73,10 +73,6 @@
     <!-- ***** Header Area Start ***** -->
     @include('frontend.body.header')
     <!-- ***** Header Area End ***** -->
-
-
-
-
 
     <div class="content">
         @yield('main')

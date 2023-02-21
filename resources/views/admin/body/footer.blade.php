@@ -2,10 +2,10 @@
     <div class="footer-inner bg-white">
         <div class="row">
             <div class="col-sm-6">
-                Copyright &copy; 2022 Bike Subidha. All rights reserved
+                Copyright 2022 | All Rights Reserved by Suvida
             </div>
             <div class="col-sm-6 text-right">
-                Designed by <a href="https://colorlib.com">Subash Danuwar</a>
+                Designed by <span>Subash Danuwar</span>
             </div>
         </div>
     </div>

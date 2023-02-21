@@ -36,8 +36,9 @@
                     <a href="{{route('contactpage')}}"> <i class="menu-icon fa-sharp fa-solid fa-c"></i>Contact</a>
                 </li>
 
-                <li class=" menu-title">Bike and Scooter
-                </li><!-- /.menu-title -->
+                <!---
+
+                <li class=" menu-title">Bike and Scooter</li>
 
                 <li class="menu-item-has-children dropdown">
 
@@ -84,7 +85,7 @@
                 </li>
 
 
-                <li class="menu-title">Icons</li><!-- /.menu-title -->
+                <li class="menu-title">Icons</li>
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
@@ -122,8 +123,8 @@
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a>
                         </li>
                     </ul>
-                </li>
+                </li> --->
             </ul>
-        </div><!-- /.navbar-collapse -->
+        </div>
     </nav>
 </aside>

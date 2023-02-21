@@ -3,7 +3,6 @@
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
                     <a href="{{route('main')}}" class="logo"><img src="{{asset('frontend/assets/images/logo.png')}}"
                             style="height: 60px; width: 60px; margin-left: -50px" alt="" /><em style="
                     position: absolute;
@@ -19,13 +18,6 @@
                     color: #fff;
                     margin-left: -50px;
                   ">Suvida</em></a>
-                    <!-- ***** Logo End ***** -->
-
-                    <!-- search bar -->
-
-                    <!-- serach bar end -->
-
-                    <!-- ***** Menu Start ***** -->
 
                     <ul class="nav">
                         <li><a href="{{route('main')}}" class="active">Home</a></li>
@@ -56,8 +48,6 @@
                         </li>
                         @endforeach
 
-
-
                         <li><a href="">Booking</a>
                         </li>
 
@@ -82,25 +72,21 @@
                             <a href="#"><img src="{{asset('frontend/assets/images/wishlist.png')}}"
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" /></a>
                         </li>
+                        
                         <li>
-                            <a href="#" class="dropdown-toggle active text-center " data-toggle="dropdown"
+                            <a href="#" class="dropdown-toggle active text-center" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                <img class="user-avatar rounded-circle p-2"
+                                <img class="user-avatar rounded-circle mx-4 mb-2"
                                     src="{{(!empty($userData->photo))?url('upload/userImages/'.$userData->photo):url('upload/NoImage.jpg')}}"
                                     alt="User Avatar">
-
-
                             </a>
+
                             <div class="dropdown-menu">
-                                <a class="nav-link" href="{{route('dashboard')}}"><i class="fa fa-user"></i> My
-                                    Profile</a>
+                                <a class="nav-link" href="{{route('dashboard')}}"><i class="fa fa-user"></i> My Profile</a>
 
+                                <a class="nav-link" href="{{route('dashboard')}}"><i class="fa fa-toolbox"></i>Settings</a>
 
-                                <a class="nav-link" href="{{route('dashboard')}}"><i
-                                        class="fa fa-toolbox"></i>Settings</a>
-
-                                <a class="nav-link " href="{{route('user.logout')}}"><i
-                                        class="fa fa-sign-out"></i>Logout</a>
+                                <a class="nav-link " href="{{route('user.logout')}}"><i class="fa fa-sign-out"></i>Logout</a>
                             </div>
                         </li>
                         @else
@@ -114,20 +100,17 @@
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" />Sign Up</a>
                         </li>
                         @endauth
-
-
                     </ul>
 
                     <a class="menu-trigger">
                         <span>Menu</span>
                     </a>
-                    <!-- ***** Menu End ***** -->
                 </nav>
             </div>
         </div>
     </div>
     <div class="search-form">
-        <input type="search" id="search-box" placeholder="search here..." />
+        <input type="search" id="search-box" placeholder="Search" />
         <label for="search-box" class="fas fa-search"></label>
     </div>
 </header>

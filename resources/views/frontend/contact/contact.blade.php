@@ -33,7 +33,7 @@
                     <i class="fa fa-phone"></i>
                 </div>
 
-                <h5><a href="#">+977 9820142580</a></h5>
+                <h5><a href="#">+977-9842069250</a></h5>
 
                 <br>
             </div>
@@ -43,7 +43,7 @@
                     <i class="fa fa-envelope"></i>
                 </div>
 
-                <h5><a href="#">contact@company.com</a></h5>
+                <h5><a href="#">suvidaservice@gmaill.com</a></h5>
 
                 <br>
             </div>
@@ -111,5 +111,4 @@
         </div>
     </div>
 </section>
-<!-- ***** Contact Us Area Ends ***** -->
 @endsection
