@@ -52,6 +52,6 @@ class IndexController extends Controller
     }
 
     public function ContactAdmin(){
-        return view('frontend.index.contact');
+        return view('frontend.contact.contact');
     }
 }

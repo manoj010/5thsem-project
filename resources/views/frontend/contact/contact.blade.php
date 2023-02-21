@@ -23,7 +23,7 @@
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
                     <h2>contact <em> info</em></h2>
-                    <img src="assets/images/line-dec.png" alt="waves">
+                    <img src="{{asset('frontend/assets/images/logo.png')}}" style="height: 100px; width: 100px" alt="logo">
 
                 </div>
             </div>

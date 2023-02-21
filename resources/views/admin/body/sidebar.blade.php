@@ -32,6 +32,10 @@
                     <a href="{{route('newsletters')}}"> <i class="menu-icon fa-sharp fa-solid fa-n"></i>Newsletters</a>
                 </li>
 
+                <li>
+                    <a href="#"> <i class="menu-icon fa-sharp fa-solid fa-n"></i>Contact</a>
+                </li>
+
                 <li class=" menu-title">Bike and Scooter
                 </li><!-- /.menu-title -->
 
