@@ -28,7 +28,7 @@
                     <!-- ***** Menu Start ***** -->
 
                     <ul class="nav">
-                        <li><a href="{{route('main')}}" class="active">Home</a></li>
+                        <li><a href="{{route('dashboard')}}" class="active">Home</a></li>
 
 
                         @php
