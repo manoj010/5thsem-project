@@ -9,7 +9,7 @@
             <h6>Explore Our Ranges Of Bikes & Scooters</h6>
             <h2>Best <em>Brand New & Used Bikes Dealer</em> in town!</h2>
             <div class="main-button">
-                <a href="contact.html">Contact Us</a>
+                <a href="{{route('contact.admin')}}">Contact Us</a>
             </div>
         </div>
     </div>
