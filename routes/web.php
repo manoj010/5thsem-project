@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\VehicleController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ModelController;
 use App\Http\Controllers\Backend\NewslettersController;
+use App\Http\Controllers\Backend\ContactpageController;
 use App\Http\Controllers\BookingController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
@@ -43,8 +44,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
-Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
 
 Route::middleware('auth','role:admin')->group(function() {
     Route::get('/admin/dashboard',[AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
@@ -117,9 +116,16 @@ Route::middleware('auth','role:admin')->group(function() {
         Route::get('/newsletters','newsletters')->name('newsletters');
         Route::get('/delete/{id}','deleteEmail');
     });
+
+    Route::controller(ContactpageController::class)->group(function(){
+        Route::get('/contactpage','contactpage')->name('contactpage');
+    });
 });
 
 
 Route::get('/model/details/{id}/{slug}',[IndexController::class,'ModelDetails']);
 Route::get('/contact',[IndexController::class,'ContactAdmin'])->name('contact.admin');
 Route::get('/vehicle/{id}/{slug}',[IndexController::class,'CategoryBike']);
+
+Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
+Route::post('/contact', [ContactpageController::class, 'contact'])->name('contact');
