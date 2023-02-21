@@ -52,8 +52,8 @@
                                             alt="Logo">
                                     </td>
                                     <td>
-                                        <a href="{{route('edit.brand',$item->id)}}" class="btn btn-primary">Edit</a>
-                                        <a href="{{route('delete.brand',$item->id)}}" class="btn btn-danger">Delete</a>
+                                        <a href="{{route('edit.brand',$item->id)}}" class="btn btn-primary"><span class="fa-solid fa-pen-to-square"></span></a>
+                                        <a href="{{route('delete.brand',$item->id)}}" class="btn btn-danger"><span class="fa-solid fa-delete-left"></span></a>
                                     </td>
                                 </tr>
                                 @endforeach

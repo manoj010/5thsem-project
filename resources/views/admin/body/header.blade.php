@@ -1,7 +1,7 @@
 <header id="header" class="header">
     <div class="top-left">
         <div class="navbar-header">
-            <a class="navbar-brand" href="./"><img src="{{asset('backend/assets/images/logo.png')}}" alt="Logo"><em
+            <a class="navbar-brand" href="{{route('admin.dashboard')}}"><img src="{{asset('backend/assets/images/logo.png')}}" alt="Logo"><em
                     style="position: absolute; width: 69px; height: 34px;left: 145px;top:13px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
                             font-style:normal;
                             font-size: 18px;
@@ -24,7 +24,7 @@
                     </form>
                 </div>
 
-                <div class="dropdown for-notification">
+                <!-- <div class="dropdown for-notification">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="notification"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-bell"></i>
@@ -45,9 +45,9 @@
                             <p>Server #3 overloaded.</p>
                         </a>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="dropdown for-message">
+                <!-- <div class="dropdown for-message">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-envelope"></i>
@@ -90,44 +90,36 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             @php
             $id = Auth::user()->id;
             $adminData= App\Models\User::find($id);
             @endphp
-
             <div class="user-area dropdown float-right ">
-                <a href="#" class="dropdown-toggle active text-center " data-toggle="dropdown" aria-haspopup="true"
+                <a href="#" class="dropdown-toggle active text-center" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     <img class="user-avatar rounded-circle p-2"
                         src="{{(!empty($adminData->photo))?url('upload/adminImages/'.$adminData->photo):url('upload/NoImage.jpg')}}"
                         alt="User Avatar">
-
-
                 </a>
 
                 <div class="user-menu dropdown-menu m-3">
-                    <a class="nav-link border-0 shadow p-3" href="{{route('admin.profile')}}">
-
+                    <a class="nav-link border-0 p-3" href="{{route('admin.profile')}}">
                         <img class="user-avatar rounded-circle mx-4 mb-2"
                             src="{{(!empty($adminData->photo))?url('upload/adminImages/'.$adminData->photo):url('upload/NoImage.jpg')}}"
                             alt="User Avatar">
                         <p class="text-center mb-2">{{Auth::user()->name}}</p>
                     </a>
-                    <div class="shadow mt-2 ps-4">
-                        <a class="nav-link" href="#"><i class="fa fa-bell"></i>Notifications <span
-                                class="count">13</span></a>
-
-
+                    <div class="mt-1 ps-2">
+                        <!-- <a class="nav-link" href="#"><i class="fa fa-bell"></i>Notifications <span
+                                class="count">13</span></a> -->
                         <a class="nav-link" href="{{route('admin.setting')}}"><i
                                 class="fa-solid fa-gear"></i>Settings</a>
-
                         <a class="nav-link text-danger" href="{{route('admin.logout')}}"><i
                                 class="fa-solid fa-right-from-bracket"> </i>Logout</a>
                     </div>
-
                 </div>
             </div>
 

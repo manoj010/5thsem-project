@@ -35,12 +35,11 @@
                  <div class="cta-content">
                      <h2>Send us a <em>message</em></h2>
                      <p>
-                         Ut consectetur, metus sit amet aliquet placerat, enim est
-                         ultricies ligula, sit amet dapibus odio augue eget libero. Morbi
-                         tempus mauris a nisi luctus imperdiet.
+                        We would love to respond to our queries and help you get your new and latest Bikes and Scooters. 
+                        Let us help you, feel free to get in touch with us.
                      </p>
                      <div class="main-button">
-                         <a href="contact.html">Contact us</a>
+                         <a href="{{route('contact.admin')}}">Contact us</a>
                      </div>
                  </div>
              </div>

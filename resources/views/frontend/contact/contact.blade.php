@@ -23,7 +23,7 @@
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
                     <h2>contact <em> info</em></h2>
-                    <img src="assets/images/line-dec.png" alt="waves">
+                    <img src="{{asset('frontend/assets/images/logo.png')}}" style="height: 100px; width: 100px" alt="logo">
 
                 </div>
             </div>
@@ -33,7 +33,7 @@
                     <i class="fa fa-phone"></i>
                 </div>
 
-                <h5><a href="#">+977 9820142580</a></h5>
+                <h5><a href="#">+977-9842069250</a></h5>
 
                 <br>
             </div>
@@ -43,7 +43,7 @@
                     <i class="fa fa-envelope"></i>
                 </div>
 
-                <h5><a href="#">contact@company.com</a></h5>
+                <h5><a href="#">suvidaservice@gmaill.com</a></h5>
 
                 <br>
             </div>
@@ -76,33 +76,32 @@
             </div>
             <div class="col-lg-6 col-md-6 col-xs-12">
                 <div class="contact-form section-bg" style="background-image: url(assets/images/contact.jpg)">
-                    <form id="contact" action="" method="post">
+                    <form id="contact" action="{{route('contact')}}" method="post">
+                        @csrf
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
                                 <fieldset>
-                                    <input name="name" type="text" id="name" placeholder="Your Name*" required="">
+                                    <input name="name" type="text" placeholder="Your Name*">
                                 </fieldset>
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 <fieldset>
-                                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*"
-                                        placeholder="Your Email*" required="">
+                                    <input name="email" type="text" placeholder="Your Email*">
                                 </fieldset>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <fieldset>
-                                    <input name="subject" type="text" id="subject" placeholder="Subject">
+                                    <input name="subject" type="text" placeholder="Subject">
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <textarea name="message" rows="6" id="message" placeholder="Message"
-                                        required=""></textarea>
+                                    <textarea name="message" rows="6" placeholder="Message"></textarea>
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <button type="submit" id="form-submit" class="main-button">Send Message</button>
+                                    <button type="submit" class="main-button">Send Message</button>
                                 </fieldset>
                             </div>
                         </div>
@@ -112,5 +111,4 @@
         </div>
     </div>
 </section>
-<!-- ***** Contact Us Area Ends ***** -->
 @endsection
