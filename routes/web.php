@@ -119,6 +119,7 @@ Route::middleware('auth','role:admin')->group(function() {
 
     Route::controller(ContactpageController::class)->group(function(){
         Route::get('/contactpage','contactpage')->name('contactpage');
+        Route::get('/delete/{id}','deleteContactinfo');
     });
 });
 

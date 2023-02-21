@@ -39,7 +39,7 @@
                                     <td>{{$key+1}}</td>
                                     <td>{{$email->emails}}</td>
                                     <td>
-                                        <a href="{{url('/delete/'.$email->id)}}" class="btn btn-danger">Delete</a>
+                                        <a href="{{url('/delete/'.$email->id)}}" class="btn btn-danger"><span class="fa-solid fa-delete-left"></span></a>
                                     </td>
                                 </tr>
                                 @endforeach

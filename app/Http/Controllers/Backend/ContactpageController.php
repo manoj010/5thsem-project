@@ -9,7 +9,8 @@ use App\Models\Contactpage;
 class ContactpageController extends Controller
 {
     public function Contactpage(){
-        return view('Backend.Contacts.contactpage');
+        $contacts = Contactpage::latest()->get();
+        return view('Backend.Contacts.contactpage',compact('contacts'));
     }
 
     public function contact(Request $req) {
@@ -33,5 +34,13 @@ class ContactpageController extends Controller
         );
         
         return back()->with($notification);
+    }
+
+    public function deleteContactinfo($id){
+        $emails = Contactpage::find($id);
+
+        Contactpage::find($id)->delete();
+
+        return back();
     }
 }
