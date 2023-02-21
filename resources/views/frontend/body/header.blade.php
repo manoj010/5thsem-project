@@ -28,8 +28,7 @@
                     <!-- ***** Menu Start ***** -->
 
                     <ul class="nav">
-                        <li><a href="{{route('main')}}">Home</a></li>
-
+                        <li><a href="{{route('main')}}" class="active">Home</a></li>
 
                         @php
                         $vehicles = App\Models\Vehicle::orderBy('vehicle_name','ASC')->limit(3)->get();

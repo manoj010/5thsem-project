@@ -44,7 +44,7 @@
                     </li>
                     <li><a href='#tabs-2'><i class="fa fa-list"></i> Booking</a></a></li>
 
-                    <li><a href='#tabs-3'><i class="fa fa-address-book"></i> My Address</a></a></li>
+
                     <li><a href='#tabs-4'><i class="fa fa-sign-in"></i> Account Details</a></a></li>
                     <li><a href='#tabs-5'><i class="fa fa-save"></i> Account Security</a></a></li>
                     <li><a href="{{route('user.logout')}}"><i class="fa fa-sign-out"></i>Logout</a></a></li>
@@ -66,32 +66,30 @@
                                                 <th>Brand</th>
                                                 <th>Model</th>
                                                 <th>Date</th>
-                                                <th>Total</th>
-                                                <th>Actions</th>
+                                                <th>Image</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>#1357</td>
-                                                <td>March 45, 2020</td>
-                                                <td>Processing</td>
-                                                <td>$125.00 for 2 item</td>
-                                                <td><a href="#" class="btn-small d-block">View</a></td>
+                                                <td>KTM</td>
+                                                <td>Duke 200</td>
+                                                <td>2/34/2019</td>
+                                                <td>image</td>
                                             </tr>
                                             <tr>
-                                                <td>#2468</td>
-                                                <td>June 29, 2020</td>
-                                                <td>Completed</td>
-                                                <td>$364.00 for 5 item</td>
-                                                <td><a href="#" class="btn-small d-block">View</a></td>
+                                                <td>KTM</td>
+                                                <td>Duke 200</td>
+                                                <td>2/34/2019</td>
+                                                <td>image</td>
                                             </tr>
                                             <tr>
-                                                <td>#2366</td>
-                                                <td>August 02, 2020</td>
-                                                <td>Completed</td>
-                                                <td>$280.00 for 3 item</td>
-                                                <td><a href="#" class="btn-small d-block">View</a></td>
+                                                <td>KTM</td>
+                                                <td>Duke 200</td>
+                                                <td>2/34/2019</td>
+                                                <td>image</td>
                                             </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -99,41 +97,7 @@
                         </div>
                     </div>
 
-                    <div id='tabs-3'>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="card mb-3 mb-lg-0">
-                                    <div class="card-header">
-                                        <h3 class="mb-0 text-center">Billing Address</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <address>
-                                            3522 Interstate<br />
-                                            75 Business Spur,<br />
-                                            Sault Ste. <br />Marie, MI 49783
-                                        </address>
-                                        <p>New York</p>
-                                        <a href="#" class="btn-small">Edit</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0 text-center">Shipping Address</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <address>
-                                            4299 Express Lane<br />
-                                            Sarasota, <br />FL 34249 USA <br />Phone: 1.941.227.4444
-                                        </address>
-                                        <p>Sarasota</p>
-                                        <a href="#" class="btn-small">Edit</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div id='tabs-4'>
                         <div class="card">
                             <div class="card-header">
