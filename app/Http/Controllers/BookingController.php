@@ -17,6 +17,11 @@ class BookingController extends Controller
             'user_id'=>auth()->user()->id,
             'bike_id'=>$request->bike_id,
         ]);
-        return back()->with('success','booking success');
+        $notification = array(
+            'message' => 'Booking Success',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 }

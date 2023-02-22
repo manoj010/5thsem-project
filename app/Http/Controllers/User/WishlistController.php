@@ -11,23 +11,14 @@ use Carbon\Carbon;
 
 class WishlistController extends Controller
 {
-    public function AddWishlist(Request $request, $id){
-        
-        if(Auth::check()){
-            $IsUser = Wishlist::where('user_id',Auth::id())->where('model_id',$id)->first();
-            if(!$User) {
-                Wishlist::insert([
-                    'user_id' =>Auth::id(),
-                    'model_id' =>$product_id,
-                    'created_at' => Carbon::now(),
-                ]);
-                return response()->json(['success'=> 'Successfully Added On Your Wishlist']);
-            }else {
-                return response()->json(['error'=> 'This Model has already on Your wishlist']);
-            }
-        }
-        else {
-            return response()->json(['error'=> 'At First Login Your Account']);
-        }
+    public function WishlistModels(){
+        $wishlist = Wishlist::where('user_id',Auth::id())->get();
+
+        return view('frontend.index.wishlist',compact('wishlist'));
+
+    }
+
+    public function AddToWishList(Request $request, $id){
+        dd($id);
     }
 }

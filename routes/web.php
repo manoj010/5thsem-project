@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\ModelController;
 use App\Http\Controllers\Backend\NewslettersController;
 use App\Http\Controllers\Backend\ContactpageController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\User\WishlistController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/user/logout',[UserController::class,'UserLogout'])->name('user.logout');
     Route::get('/booking/{id}',[BookingController::class,'booking'])->name('booking');
     Route::post('/booking-submit',[BookingController::class,'bookingSubmit'])->name('bookingSubmit');
+    Route::get('/wishlist',[WishlistController::class,'WishlistModels'])->name('wishlist');
+    Route::post('/add-to-wishlist',[WishlistController::class,'AddToWishList']);
 });
 
 Route::middleware('auth')->group(function () {
@@ -128,5 +131,8 @@ Route::get('/model/details/{id}/{slug}',[IndexController::class,'ModelDetails'])
 Route::get('/contact',[IndexController::class,'ContactAdmin'])->name('contact.admin');
 Route::get('/vehicle/{id}/{slug}',[IndexController::class,'CategoryBike']);
 
+
 Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
 Route::post('/contact', [ContactpageController::class, 'contact'])->name('contact');
+
+Route::post('/add-to-wishlist/{id}',[WishlistController::class,'AddToWishList']);

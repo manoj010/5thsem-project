@@ -29,22 +29,21 @@
         </div>
         <div class="h2 text-center">Admin </div>
 
-        <form class="pt-2" method="POST" action="{{ route('login') }}">
+        <form class="pt-2" id="myForm" method="POST" action="{{ route('login') }}">
             @csrf
 
             <div class="form-group py-3">
                 <label for="inputEmailAddress" class="form-label">Email </label>
-                <div class="input-field">
+                <div class="input-field ">
                     <span class="far fa-user p-2"></span>
-                    <input type="text" id="email" name="email" placeholder="Email Address" required class="">
+                    <input type="text" id="email" name="email" placeholder="Email Address">
                 </div>
             </div>
             <div class="form-group py-1 pb-2">
                 <label for="inputEmailAddress" class="form-label">Password</label>
-                <div class="input-field">
+                <div class="input-field ">
                     <span class="fas fa-lock p-2"></span>
-                    <input type="password" id="password" name="password" placeholder="Enter your Password" required
-                        class="">
+                    <input type="password" id="password" name="password" placeholder="Password">
                     <button class="btn bg-white text-muted">
                         <span class=" far fa-eye-slash"></span>
                     </button>
@@ -65,6 +64,43 @@
         </form>
     </div>
 
+    <script src="{{asset('backend/assets/js/validate.min.js')}}"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#myForm').validate({
+            rules: {
+                email: {
+                    required: true,
+                },
+                password: {
+                    required: true,
+                },
+
+            },
+            messages: {
+                email: {
+                    required: 'Please Enter Email ',
+                },
+                password: {
+                    required: 'Please Enter Password ',
+                },
+
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+    </script>
 
 </body>
 

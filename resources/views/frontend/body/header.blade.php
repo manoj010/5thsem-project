@@ -69,10 +69,10 @@
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" /></a>
 
                         <li>
-                            <a href="#"><img src="{{asset('frontend/assets/images/wishlist.png')}}"
+                            <a href="{{ route('wishlist')}}"><img src="{{asset('frontend/assets/images/wishlist.png')}}"
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" /></a>
                         </li>
-                        
+
                         <li>
                             <a href="#" class="dropdown-toggle active text-center" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -82,11 +82,14 @@
                             </a>
 
                             <div class="dropdown-menu">
-                                <a class="nav-link" href="{{route('dashboard')}}"><i class="fa fa-user"></i> My Profile</a>
+                                <a class="nav-link" href="{{route('dashboard')}}"><i class="fa fa-user"></i> My
+                                    Profile</a>
 
-                                <a class="nav-link" href="{{route('dashboard')}}"><i class="fa fa-toolbox"></i>Settings</a>
+                                <a class="nav-link" href="{{route('dashboard')}}"><i
+                                        class="fa fa-toolbox"></i>Settings</a>
 
-                                <a class="nav-link " href="{{route('user.logout')}}"><i class="fa fa-sign-out"></i>Logout</a>
+                                <a class="nav-link " href="{{route('user.logout')}}"><i
+                                        class="fa fa-sign-out"></i>Logout</a>
                             </div>
                         </li>
                         @else

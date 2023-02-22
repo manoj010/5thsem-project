@@ -45,10 +45,13 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
+        
 
-        Auth::login($user);
+        $notification = array(
+            'message' => 'Register Successfully',
+            'alert-type' => 'success'
+        );
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect('/login')->with($notification);
     }
 }
