@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
+  
+
+    
     public function booking($id){
         $bike=VehicleModel::findOrFail($id);
         return view('booking',compact('bike'));
@@ -22,6 +25,7 @@ class BookingController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->back()->with($notification);
+        return redirect()->route('dashboard')->with($notification);
     }
+    
 }

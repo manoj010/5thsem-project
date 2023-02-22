@@ -63,33 +63,29 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Brand</th>
-                                                <th>Model</th>
-                                                <th>Date</th>
-                                                <th>Image</th>
-
+                                                <th>SN</th>
+                                                <th>Vehicle Name</th>
+                                                <th>Category Name</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>KTM</td>
-                                                <td>Duke 200</td>
-                                                <td>2/34/2019</td>
-                                                <td>image</td>
-                                            </tr>
-                                            <tr>
-                                                <td>KTM</td>
-                                                <td>Duke 200</td>
-                                                <td>2/34/2019</td>
-                                                <td>image</td>
-                                            </tr>
-                                            <tr>
-                                                <td>KTM</td>
-                                                <td>Duke 200</td>
-                                                <td>2/34/2019</td>
-                                                <td>image</td>
-                                            </tr>
 
+                                        @php
+                                        $booking =App\Models\Booking::latest()->get();
+                                        @endphp
+                                        <tbody>
+                                            @foreach($booking as $key => $booking)
+                                            <tr>
+                                                <td>{{ $key+1}} </td>
+                                                <td>{{ $booking['rBike']['model_name']}} </td>
+                                                <td></td>
+                                                </td>
+                                                <td>
+
+
+                                                </td>
+                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

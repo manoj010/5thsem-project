@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/user/profile/store',[UserController::class,'UserProfileStore'])->name('user.profile.store');
     Route::post('/user/password/update',[UserController::class,'UserPasswordUpdate'])->name('user.password.update');
     Route::get('/user/logout',[UserController::class,'UserLogout'])->name('user.logout');
+    
     Route::get('/booking/{id}',[BookingController::class,'booking'])->name('booking');
     Route::post('/booking-submit',[BookingController::class,'bookingSubmit'])->name('bookingSubmit');
     Route::get('/wishlist',[WishlistController::class,'WishlistModels'])->name('wishlist');

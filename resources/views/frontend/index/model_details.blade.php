@@ -1,5 +1,8 @@
 @extends('frontend.master')
 @section('main')
+
+
+
 <!-- ***** Call to Action Start ***** -->
 <section class="section section-bg" id="call-to-action"
     style="background-image: url({{asset($models->model_thumbnail) }})">
@@ -55,7 +58,7 @@
 
 
                 <li class="ul-bike " style="font-size: 13px;">
-                    <a href="" style=" color:black;">{{$models['brand']['brand_name']}}<span>></span></a>
+                    <a href="" style=" color:black;">{{$models['brand']['brand_name']}} <span>></span></a>
                 </li>
 
             </ul>
@@ -134,12 +137,12 @@
                         <div class=" row justify-content-end ">
                                        
                                         <div class=" font"
-                                        style="background-color:#e9e9e9 ;height: 34px; width:34px; border-radius: 50% ; margin-top:22px; margin-left:10px">
+                                        style="background-color:#e9e9e9 ;height: 38px; width:39px; border-radius: 50% ; margin-top:22px; margin-left:10px">
                                         <span class="" style=" justify-content: center; ">
 
-                                            <button type="button" class=" btn btn-1 " id=" {{ $models->id }}"
+                                            <a type="button" class=" btn " id=" {{ $models->id }}"
                                                 onclick="addToWishList(this.id)"><i
-                                                    class=" fa-regular fa-heart m-2 "></i></button>
+                                                    class=" fa-regular fa-heart  "></i></a>
                                         </span>
                                 </div>
                             </div>
@@ -222,76 +225,91 @@
 
             <div
               class=" tab-pane fade show" role="tab-pane" id="specs" aria-labelledby="specs-tab">
-                                                <div class="row" id="tabs">
+                                                <div class="row" id="tab">
                                                     <div class="col-lg-4">
                                                         <ul>
+
                                                             <li>
                                                                 <a href="#tabs-1"><i class="fa fa-cog"></i>
-                                                                    Bike
-                                                                    Specs</a>
+                                                                    Engine </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#tabs-2"><i class="fa fa-info-circle"></i>
-                                                                    Bike Description</a>
+                                                                <a href="#tabs-2"><i class="fa fa-plus-circle"></i>
+                                                                    Safety</a>
                                                             </li>
                                                             <li>
-                                                                <a href="#tabs-3"><i class="fa fa-plus-circle"></i>
-                                                                    Bike Extras</a>
+                                                                <a href="#tabs-3"><i class="fa fa-info-circle"></i>
+                                                                    Performance</a>
                                                             </li>
                                                             <li>
-                                                                <a href="#tabs-4"><i class="fa fa-phone"></i>
-                                                                    Contact
-                                                                    Details</a>
+                                                                <a href="#tabs-4"><i
+                                                                        class="fa-solid fa-weight-scale"></i>
+                                                                    Dimensions </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#tabs-5"><i
+                                                                        class="fa-sharp fa-solid fa-bolt"></i>
+                                                                    Electricals</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#tabs-6"><i class="fa-solid fa-shield"></i>
+                                                                    Tyres and Brakes</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#tabs-7"><i
+                                                                        class="fa-solid fa-arrow-up-wide-short"></i>
+                                                                    Underpinnings</a>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-8">
                                                         <section class="tabs-content" style="width: 100%">
                                                             <article id="tabs-1">
-                                                                <h4>Vehicle Specs</h4>
+                                                                <h4>Engine and Transmission</h4>
 
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
-                                                                        <label>Type</label>
+                                                                        <label>Engine Type</label>
 
-                                                                        <p>Brand New</p>
+                                                                        <p>{{$models->engine_type}}</p>
                                                                     </div>
 
                                                                     <div class="col-sm-6">
-                                                                        <label>Make</label>
+                                                                        <label>Displacement</label>
 
-                                                                        <p>Lorem ipsum dolor sit</p>
+                                                                        <p>{{$models->displacement}}<span> CC
+                                                                            </span> </p>
                                                                     </div>
 
                                                                     <div class="col-sm-6">
-                                                                        <label> Model</label>
+                                                                        <label> Max Power</label>
 
-                                                                        <p>Lorem ipsum dolor sit</p>
+                                                                        <p>{{$models->max_power}}</p>
                                                                     </div>
 
                                                                     <div class="col-sm-6">
-                                                                        <label>First
-                                                                            registration</label>
+                                                                        <label>Max Torque</label>
 
-                                                                        <p>05/2010</p>
+                                                                        <p>{{$models->max_torque}}</p>
                                                                     </div>
 
                                                                     <div class="col-sm-6">
                                                                         <label>Mileage</label>
 
-                                                                        <p>30 km</p>
+                                                                        <p>{{$models->mileage}} <span> KMpl</span></p>
                                                                     </div>
 
                                                                     <div class="col-sm-6">
-                                                                        <label>Engine size</label>
+                                                                        <label>Emission Type</label>
 
-                                                                        <p>390 cc</p>
+                                                                        <p>{{$models->emission_type}} </p>
+
                                                                     </div>
 
                                                                     <div class="col-sm-6">
-                                                                        <label>Power</label>
+                                                                        <label>Braking Type</label>
 
-                                                                        <p>85 hp</p>
+                                                                        <p>{{$models->braking_type}} </p>
                                                                     </div>
 
                                                                     <div class="col-sm-6">
@@ -299,39 +317,76 @@
 
                                                                         <p>Black-Orange</p>
                                                                     </div>
+
                                                                 </div>
                                                             </article>
                                                             <article id="tabs-2">
-                                                                <h4>Vehicle Description</h4>
+                                                                <h4>Features and Safety</h4>
 
-                                                                <p>
-                                                                    -12 months used <br />
-                                                                    - 2000km runned <br />
-                                                                    - Warranty <br />
-                                                                    Lorem ipsum dolor sit amet,
-                                                                    consectetur adipiscing elit,
-                                                                    sed do eiusmod tempor incididunt
-                                                                    ut
-                                                                    labore et dolore
-                                                                    magna aliqua. Ut enim ad minim
-                                                                    veniam, quis nostrud
-                                                                    exercitation ullamco laboris
-                                                                    nisi ut
-                                                                    aliquip ex ea
-                                                                    commodo consequat. Duis aute
-                                                                    irure
-                                                                    dolor in
-                                                                    reprehenderit in voluptate velit
-                                                                    esse cillum dolore eu
-                                                                    fugiat nulla pariatur. Excepteur
-                                                                    sint occaecat cupidatat
-                                                                    non proident, sunt in culpa qui
-                                                                    officia deserunt mollit
-                                                                    anim id est laborum.
-                                                                </p>
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <label>Engine Type</label>
+
+                                                                        <p>{{$models->engine_type}}</p>
+                                                                    </div>
+
+                                                                    <div class="col-sm-6">
+                                                                        <label>Displacement</label>
+
+                                                                        <p>{{$models->displacement}}<span> CC
+                                                                            </span> </p>
+                                                                    </div>
+
+                                                                    <div class="col-sm-6">
+                                                                        <label> Max Power</label>
+
+                                                                        <p>{{$models->max_power}}</p>
+                                                                    </div>
+
+                                                                    <div class="col-sm-6">
+                                                                        <label>Max Torque</label>
+
+                                                                        <p>{{$models->max_torque}}</p>
+                                                                    </div>
+
+                                                                    <div class="col-sm-6">
+                                                                        <label>Mileage</label>
+
+                                                                        <p>{{$models->mileage}} <span> KMpl</span></p>
+                                                                    </div>
+
+                                                                    <div class="col-sm-6">
+                                                                        <label>Emission Type</label>
+
+                                                                        <p>{{$models->emission_type}} </p>
+
+                                                                    </div>
+
+                                                                    <div class="col-sm-6">
+                                                                        <label>Braking Type</label>
+
+                                                                        <p>{{$models->braking_type}} </p>
+                                                                    </div>
+
+                                                                    <div class="col-sm-6">
+                                                                        <label>Color</label>
+
+                                                                        <p>Black-Orange</p>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <label>Color</label>
+
+                                                                        <p>Black-Orange</p>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <label>Color</label>
+
+                                                                        <p>Black-Orange</p>
+                                                                    </div>
+                                                                </div>
                                                             </article>
                                                             <article id="tabs-3">
-                                                                <h4>Vehicle Extras</h4>
+                                                                <h4>Mileage and Performance</h4>
 
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
@@ -346,7 +401,7 @@
                                                                 </div>
                                                             </article>
                                                             <article id="tabs-4">
-                                                                <h4>Contact Details</h4>
+                                                                <h4>Dimensions and Capacity</h4>
 
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
@@ -366,6 +421,21 @@
                                                                         </p>
                                                                     </div>
                                                                 </div>
+                                                            </article>
+                                                            <article id="tabs-5">
+                                                                <h4>Electricals</h4>
+
+
+                                                            </article>
+                                                            <article id="tabs-6">
+                                                                <h4>Tyres and Brakes</h4>
+
+
+                                                            </article>
+                                                            <article id="tabs-7">
+                                                                <h4>Underpinnings</h4>
+
+
                                                             </article>
                                                         </section>
                                                     </div>
