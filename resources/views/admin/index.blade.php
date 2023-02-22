@@ -10,12 +10,12 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-1">
-                                <i class="pe-7s-cash"></i>
+                                <i class=" fa-solid fa-motorcycle"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text">$<span class="count">23569</span></div>
-                                    <div class="stat-heading">Revenue</div>
+                                    <div class="stat-text"><span class="count">23569</span></div>
+                                    <div class="stat-heading">Total Vehicle</div>
                                 </div>
                             </div>
                         </div>
@@ -28,12 +28,12 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-2">
-                                <i class="pe-7s-cart"></i>
+                                <i class="fa fa-cart-plus"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
                                     <div class="stat-text"><span class="count">3435</span></div>
-                                    <div class="stat-heading">Sales</div>
+                                    <div class="stat-heading">Total Booking</div>
                                 </div>
                             </div>
                         </div>
@@ -50,8 +50,8 @@
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">349</span></div>
-                                    <div class="stat-heading">Templates</div>
+                                    <div class="stat-text"><span class="count">100</span></div>
+                                    <div class="stat-heading">Brands</div>
                                 </div>
                             </div>
                         </div>
@@ -64,12 +64,12 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-4">
-                                <i class="pe-7s-users"></i>
+                                <i class="fa-solid fa-users"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
                                     <div class="stat-text"><span class="count">2986</span></div>
-                                    <div class="stat-heading">Clients</div>
+                                    <div class="stat-heading">Users</div>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="box-title">Orders </h4>
+                            <strong class="card-title text-center">ALL BOOKING </strong>
                         </div>
                         <div class="card-body--">
                             <div class="table-stats order-table ov-h">
@@ -93,11 +93,11 @@
                                     <thead>
                                         <tr>
                                             <th class="serial">#</th>
-                                            <th class="avatar">Avatar</th>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Product</th>
-                                            <th>Quantity</th>
+                                            <th class="avatar">Image</th>
+                                            <th>Bike ID</th>
+                                            <th>User Name</th>
+                                            <th>Bike Name</th>
+                                            <th>Brand Name</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
@@ -113,8 +113,8 @@
                                             </td>
                                             <td> #5469 </td>
                                             <td> <span class="name">Louis Stanley</span> </td>
-                                            <td> <span class="product">iMax</span> </td>
-                                            <td><span class="count">231</span></td>
+                                            <td> <span class="product">Duke 390</span> </td>
+                                            <td><span class="">KTM</span></td>
                                             <td>
                                                 <span class="badge badge-complete">Complete</span>
                                             </td>
@@ -130,8 +130,8 @@
                                             </td>
                                             <td> #5468 </td>
                                             <td> <span class="name">Gregory Dixon</span> </td>
-                                            <td> <span class="product">iPad</span> </td>
-                                            <td><span class="count">250</span></td>
+                                            <td> <span class="product">NS 200</span> </td>
+                                            <td><span class="">Bajaj</span></td>
                                             <td>
                                                 <span class="badge badge-complete">Complete</span>
                                             </td>
@@ -147,8 +147,8 @@
                                             </td>
                                             <td> #5467 </td>
                                             <td> <span class="name">Catherine Dixon</span> </td>
-                                            <td> <span class="product">SSD</span> </td>
-                                            <td><span class="count">250</span></td>
+                                            <td> <span class="product">Bullet 350</span> </td>
+                                            <td><span class="">Royal Enfield</span></td>
                                             <td>
                                                 <span class="badge badge-complete">Complete</span>
                                             </td>
@@ -164,8 +164,8 @@
                                             </td>
                                             <td> #5466 </td>
                                             <td> <span class="name">Mary Silva</span> </td>
-                                            <td> <span class="product">Magic Mouse</span> </td>
-                                            <td><span class="count">250</span></td>
+                                            <td> <span class="product">RC 200</span> </td>
+                                            <td><span class="">KTM</span></td>
                                             <td>
                                                 <span class="badge badge-pending">Pending</span>
                                             </td>
@@ -181,8 +181,8 @@
                                             </td>
                                             <td> #5465 </td>
                                             <td> <span class="name">Johnny Stephens</span> </td>
-                                            <td> <span class="product">Monitor</span> </td>
-                                            <td><span class="count">250</span></td>
+                                            <td> <span class="product">NK 300</span> </td>
+                                            <td><span class="">NK</span></td>
                                             <td>
                                                 <span class="badge badge-complete">Complete</span>
                                             </td>

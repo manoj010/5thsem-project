@@ -55,6 +55,10 @@
         color: rgb(75, 82, 82);
         font-size: 14px;
     }
+
+    .font {
+        /* display: none; */
+    }
     </style>
 </head>
 

@@ -10,7 +10,8 @@
 
                     <br>
                     <br>
-                    <h2>Our Range Of <span>{{$category->category_name}}</span> </>
+                    <h2>Our Range Of <span>{{$category->category_name}}</span> {{$category['vehicle']['vehicle_name']}}
+                        </>
                     </h2>
 
                     @endforeach
