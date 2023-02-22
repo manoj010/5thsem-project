@@ -50,21 +50,21 @@
             <div class="loginBox">
                 <div class="glass">
                     <h3 class="lh3">Register</h3>
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" id="myForm" action="{{ route('register') }}">
                         @csrf
-                        <div class="inputBox">
+                        <div class="inputBox form-group">
                             <input type="text" id="name" name="name" placeholder="Username" />
                             <span><i class="fa fa-user"></i></span>
                         </div>
-                        <div class="inputBox">
+                        <div class="inputBox form-group">
                             <input type="text" id="email" name="email" placeholder="Email" />
                             <span><i class="fa fa-mail-bulk"></i></span>
                         </div>
-                        <div class="inputBox">
+                        <div class="inputBox form-group">
                             <input type="password" id="password" name="password" placeholder="Password" />
                             <span><i class="fa fa-lock"></i></span>
                         </div>
-                        <div class="inputBox">
+                        <div class="inputBox form-group">
                             <input type="password" id="password_confirmation" name="password_confirmation"
                                 placeholder="Confirm password" />
                             <span><i class="fa fa-lock"></i></span>
@@ -72,7 +72,7 @@
                         <input type="submit" name="login" value="Register" />
                     </form>
 
-                    <h4>Already have an Account? <a href="{{route('login')}}">Sign In</a></h4>
+                    <!-- <h4>Already have an Account? <a href="{{route('login')}}">Sign In</a></h4> -->
                 </div>
             </div>
         </div>
@@ -107,6 +107,57 @@
     <!-- Global Init -->
     <script src="{{asset('frontend/assets/js/custom.js')}}"></script>
     <script src="{{asset('frontend/assets/js/script.js')}}"></script>
+
+
+    <script src="{{asset('backend/assets/js/validate.min.js')}}"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#myForm').validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                },
+                password: {
+                    required: true,
+                },
+                password_confirmation: {
+                    required: true,
+                },
+
+            },
+            messages: {
+                name: {
+                    required: 'Please Enter Name ',
+                },
+                email: {
+                    required: 'Please Enter Email ',
+                },
+                password: {
+                    required: 'Please Enter Password ',
+                },
+                password_confirmation: {
+                    required: 'Please Enter Confirm Password ',
+                },
+
+            },
+            errorElement: 'danger',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+    </script>
 
 </body>
 

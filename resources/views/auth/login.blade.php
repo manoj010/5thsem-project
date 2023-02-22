@@ -52,13 +52,13 @@
             <div class="loginBox">
                 <div class="glass">
                     <h3 class="lh3">Sign in Here</h3>
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" id="myForm" action="{{ route('login') }}">
                         @csrf
-                        <div class="inputBox">
+                        <div class="inputBox form-group">
                             <input type="text" id="email" name="email" placeholder="Email" required />
                             <span><i class="fa fa-user"></i></span>
                         </div>
-                        <div class="inputBox">
+                        <div class="inputBox form-group">
                             <input type="password" id="password" name="password" placeholder="Password" required />
                             <span><i class="fa fa-lock"></i></span>
                         </div>
@@ -68,14 +68,14 @@
                     <a href="#" class="a">Forget Password</a>
                     <h5 class="l5">Sign Up Using</h5>
                     <ul class="lul">
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-google"></i></a>
-                        </li>
+                        </li> -->
                     </ul>
-                    <h4>Create account? <a href="#">Sign Up</a></h4>
+                    <h4>Create account? <a href="{{route('register')}}">Sign Up</a></h4>
                 </div>
             </div>
         </div>
@@ -113,6 +113,7 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+    <script src="{{asset('backend/assets/js/validate.min.js')}}"></script>
     <script>
     @if(Session::has('message'))
     var type = "{{ Session::get('alert-type','info') }}"
@@ -134,6 +135,41 @@
             break;
     }
     @endif
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#myForm').validate({
+            rules: {
+                email: {
+                    required: true,
+                },
+                password: {
+                    required: true,
+                },
+
+            },
+            messages: {
+                email: {
+                    required: 'Please Enter Email ',
+                },
+                password: {
+                    required: 'Please Enter Password ',
+                },
+
+            },
+            errorElement: 'danger',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
     </script>
 </body>
 

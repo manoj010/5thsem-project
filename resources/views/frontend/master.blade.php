@@ -18,41 +18,43 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/font-awesome.css')}}" />
 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
     <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/assets/css/login.css')}}" />
 
     <style>
-        .bike_name .title {
-            font-size: 20px;
-        }
+    .bike_name .title {
+        font-size: 20px;
+    }
 
-        .price p {
-            color: #24272c;
-            font-size: 15px;
-            line-height: 20px;
-            margin: 5px 0 0;
-            position: relative;
-        }
+    .price p {
+        color: #24272c;
+        font-size: 15px;
+        line-height: 20px;
+        margin: 5px 0 0;
+        position: relative;
+    }
 
-        .nav-bike {
-            background: #fff;
-            box-shadow: 0 2px 1px 0 rgb(36 39 44 / 15%);
-            width: 100%;
-        }
+    .nav-bike {
+        background: #fff;
+        box-shadow: 0 2px 1px 0 rgb(36 39 44 / 15%);
+        width: 100%;
+    }
 
-        .nav-bike .ul-bike {
-            padding: 15px 30px;
+    .nav-bike .ul-bike {
+        padding: 15px 30px;
 
-            font-weight: 400;
-            line-height: 1.5;
-        }
+        font-weight: 400;
+        line-height: 1.5;
+    }
 
 
 
-        .ul-link a {
-            color: rgb(75, 82, 82);
-            font-size: 14px;
-        }
+    .ul-link a {
+        color: rgb(75, 82, 82);
+        font-size: 14px;
+    }
     </style>
 </head>
 
@@ -107,13 +109,46 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-    <!-- script start wishlist -->
     <script type="text/javascript">
-    function addToWishList(model_id) {
-        alert(id);
+    function addToWishlist(id) {
+        $.ajax({
+            type: "POST",
+            dataType: 'json',
+            url: "/add-to-wishlist/" + id,
+            success: function(data) {
+                wishlist();
+                //  Start message 
+
+            }
+        })
     }
     </script>
-    <!-- script end wishlist -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+    @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type','info') }}"
+    switch (type) {
+        case 'info':
+            toastr.info(" {{ Session::get('message') }} ");
+            break;
+
+        case 'success':
+            toastr.success(" {{ Session::get('message') }} ");
+            break;
+
+        case 'warning':
+            toastr.warning(" {{ Session::get('message') }} ");
+            break;
+
+        case 'error':
+            toastr.error(" {{ Session::get('message') }} ");
+            break;
+    }
+    @endif
+    </script>
+
 </body>
 
 </html>

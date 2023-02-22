@@ -35,8 +35,9 @@
                  <div class="cta-content">
                      <h2>Send us a <em>message</em></h2>
                      <p>
-                        We would love to respond to our queries and help you get your new and latest Bikes and Scooters. 
-                        Let us help you, feel free to get in touch with us.
+                         We would love to respond to our queries and help you get your new and latest Bikes and
+                         Scooters.
+                         Let us help you, feel free to get in touch with us.
                      </p>
                      <div class="main-button">
                          <a href="{{route('contact.admin')}}">Contact us</a>

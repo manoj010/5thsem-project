@@ -29,11 +29,11 @@ class ContactpageController extends Controller
         ]);
 
         $notification = array(
-            'message' => 'Message Sent Successfully',
-            'alert-type'=> 'success' 
+            'message' => 'Message sent Success',
+            'alert-type' => 'success'
         );
-        
-        return back()->with($notification);
+
+        return redirect()->back()->with($notification);
     }
 
     public function deleteContactinfo($id){
