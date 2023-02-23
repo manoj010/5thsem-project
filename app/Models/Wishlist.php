@@ -11,7 +11,7 @@ class Wishlist extends Model
     protected $guarded = []; 
 
     
-    public function vehicleModel(){
+    public function model(){
         return $this->belongsTo(VehicleModel::class, 'model_id','id');
     }
     

@@ -26,6 +26,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware('auth','role:user')->group(function() {
+    Route::get('/wishlist',[WishlistController::class,'UserWishlist'])->name('wishlist');
+});
 
 
 Route::get('/',[IndexController::class,'Master'])->name('main');
@@ -37,7 +40,7 @@ Route::middleware('auth')->group(function(){
     
     Route::get('/booking/{id}',[BookingController::class,'booking'])->name('booking');
     Route::post('/booking-submit',[BookingController::class,'bookingSubmit'])->name('bookingSubmit');
-    Route::get('/wishlist',[WishlistController::class,'UserWishlist'])->name('wishlist');
+    
     
 });
 

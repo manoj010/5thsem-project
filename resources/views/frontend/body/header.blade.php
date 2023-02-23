@@ -69,8 +69,14 @@
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" /></a>
 
                         <li>
+                            @php
+                            $totalWishlist = App\Models\Wishlist::where('user_id',Auth::user()->id)->count();
+                            @endphp
+
                             <a href="{{route('wishlist')}}"><img src="{{asset('frontend/assets/images/wishlist.png')}}"
-                                    style="height: 30px; width: 30px; margin-bottom: 5px" alt="" /></a>
+                                    style="height: 30px; width: 30px; margin-bottom: 5px" alt="" />
+                                <span>({{$totalWishlist}})</span>
+                            </a>
                         </li>
 
                         <li>

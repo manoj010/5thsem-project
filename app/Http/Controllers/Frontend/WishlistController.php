@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Wishlist;
+use App\Models\VehicleModel;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -49,9 +50,8 @@ class WishlistController extends Controller
     }
 
     public function UserWishlist(){
-        $wishlist = Wishlist::latest()->get();
-        
-        
+        $wishlist = Wishlist::with('model')->where('user_id',Auth::id())->latest()->get();
+                
         return view('frontend.index.wishlist', compact('wishlist'));
     }
 }
