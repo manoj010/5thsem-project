@@ -98,7 +98,7 @@
                                             <th>User Name</th>
                                             <th>Bike Name</th>
                                             <th>Brand Name</th>
-                                            <th>Status</th>
+                                            <!-- <th>Status</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -115,9 +115,9 @@
                                             <td> <span class="name">Louis Stanley</span> </td>
                                             <td> <span class="product">Duke 390</span> </td>
                                             <td><span class="">KTM</span></td>
-                                            <td>
+                                            <!-- <td>
                                                 <span class="badge badge-complete">Complete</span>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                         <tr>
                                             <td class="serial">2.</td>
@@ -132,9 +132,9 @@
                                             <td> <span class="name">Gregory Dixon</span> </td>
                                             <td> <span class="product">NS 200</span> </td>
                                             <td><span class="">Bajaj</span></td>
-                                            <td>
+                                            <!-- <td>
                                                 <span class="badge badge-complete">Complete</span>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                         <tr>
                                             <td class="serial">3.</td>
@@ -149,9 +149,9 @@
                                             <td> <span class="name">Catherine Dixon</span> </td>
                                             <td> <span class="product">Bullet 350</span> </td>
                                             <td><span class="">Royal Enfield</span></td>
-                                            <td>
+                                            <!-- <td>
                                                 <span class="badge badge-complete">Complete</span>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                         <tr>
                                             <td class="serial">4.</td>
@@ -166,9 +166,9 @@
                                             <td> <span class="name">Mary Silva</span> </td>
                                             <td> <span class="product">RC 200</span> </td>
                                             <td><span class="">KTM</span></td>
-                                            <td>
+                                            <!-- <td>
                                                 <span class="badge badge-pending">Pending</span>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                         <tr class=" pb-0">
                                             <td class="serial">5.</td>
@@ -183,9 +183,9 @@
                                             <td> <span class="name">Johnny Stephens</span> </td>
                                             <td> <span class="product">NK 300</span> </td>
                                             <td><span class="">NK</span></td>
-                                            <td>
+                                            <!-- <td>
                                                 <span class="badge badge-complete">Complete</span>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     </tbody>
                                 </table>

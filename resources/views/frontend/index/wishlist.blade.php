@@ -22,7 +22,7 @@
 </section>
 <!-- ***** Call to Action End ***** -->
 <!-- Wishlist -->
-@foreach($wishlist as $wishlists)
+
 <div class="container">
     <div class="card shadow">
 
@@ -44,12 +44,12 @@
 
                             <th>Image</th>
                             <th>Price</th>
-                            <th>Action</th>
+                            <th class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
 
-
+                        @foreach($wishlist as $key => $wishlists)
                         <tr>
                             <td>{{$key+1}}</td>
 
@@ -59,8 +59,10 @@
 
                             <td><img src="{{ asset( $wishlists->model->model_thumbnail) }}" width="100"> </td>
                             <td>Rs.{{$wishlists['model']['price']}}
-                            <td>
+                            <td class="text-center">
                                 <a href="{{route('wishlist.remove',$wishlists->id)}}" class="btn btn-danger">Remove</a>
+                                <a href="{{ url('model/details/'.$wishlists->model->id.'/'.$wishlists->model->model_slug )}}"
+                                    title="View Bike" class="btn btn-info"><i class="fa-regular fa-eye"></i></a>
                                 <a href="{{ route('booking',$wishlists->model->id) }}"
                                     class="primaryButton  btn-dcb p-2" style="border:1px solid red"><span><i
                                             class="fa fa-cart-plus"> </i> Book Now</a>
@@ -68,7 +70,7 @@
 
                         </tr>
 
-
+                        @endforeach
 
 
 
@@ -80,6 +82,6 @@
         </div>
     </div>
 </div>
-@endforeach
+
 <!-- Wishlist -->
 @endsection
