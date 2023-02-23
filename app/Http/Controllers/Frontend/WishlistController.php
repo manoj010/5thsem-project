@@ -54,4 +54,17 @@ class WishlistController extends Controller
                 
         return view('frontend.index.wishlist', compact('wishlist'));
     }
+    
+    public function RemoveWishlist($id){
+        
+
+        Wishlist::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Wishlist remove Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }

@@ -37,7 +37,8 @@
                         <tr>
                             <th>SN</th>
                             <th>Vehicle Model</th>
-                            <th>Displacement</th>
+
+                            <th>Image</th>
                             <th>Price</th>
                             <th>Action</th>
                         </tr>
@@ -48,13 +49,16 @@
                             <td>{{$key+1}}</td>
 
                             <td>{{$wishlists['model']['model_name']}}</td>
-                            <td>{{$wishlists['model']['displacement']}} CC
+
                             </td>
 
                             <td><img src="{{ asset( $wishlists->model->model_thumbnail) }}" width="100"> </td>
+                            <td>Rs.{{$wishlists['model']['price']}}
                             <td>
-                                <a href="" class="btn btn-danger">Remove</a>
-                                <a href="" class="btn btn-success">Booking</a>
+                                <a href="{{route('wishlist.remove',$wishlists->id)}}" class="btn btn-danger">Remove</a>
+                                <a href="{{ route('booking',$wishlists->model->id) }}"
+                                    class="primaryButton  btn-dcb p-2" style="border:1px solid red"><span><i
+                                            class="fa fa-cart-plus"> </i> Book Now</a>
                             </td>
 
                         </tr>

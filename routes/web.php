@@ -27,7 +27,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth','role:user')->group(function() {
+    Route::post('/add/wishlist', [WishlistController::class, 'AddToWishlist'])->name('add.wishlist');
     Route::get('/wishlist',[WishlistController::class,'UserWishlist'])->name('wishlist');
+    Route::get('/remove/wishlist/{id}',[WishlistController::class,'RemoveWishlist'])->name('wishlist.remove');
 });
 
 
@@ -138,6 +140,3 @@ Route::get('/vehicle/{id}/{slug}',[IndexController::class,'CategoryBike']);
 
 Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
 Route::post('/contact', [ContactpageController::class, 'contact'])->name('contact');
-
-
-Route::post('/add/wishlist', [WishlistController::class, 'AddToWishlist'])->name('add.wishlist');

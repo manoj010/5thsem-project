@@ -75,7 +75,11 @@
 
                             <a href="{{route('wishlist')}}"><img src="{{asset('frontend/assets/images/wishlist.png')}}"
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" />
+                                @if($totalWishlist >0)
                                 <span>({{$totalWishlist}})</span>
+
+                                @else
+                                @endif
                             </a>
                         </li>
 
