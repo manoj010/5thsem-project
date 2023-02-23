@@ -21,17 +21,21 @@
     </div>
 </section>
 <!-- ***** Call to Action End ***** -->
-@foreach($wishlist as $wishlists)
 <!-- Wishlist -->
-@php
-@endphp
+@foreach($wishlist as $wishlists)
 <div class="container">
     <div class="card shadow">
+
         <div class="card body">
+
             <div class="card-header">
                 <strong class="card-title text-center">Wishlist</strong>
             </div>
+
+
+
             <div class="card-body">
+
                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -44,7 +48,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($wishlist as $key => $wishlists)
+
+
                         <tr>
                             <td>{{$key+1}}</td>
 
@@ -62,10 +67,16 @@
                             </td>
 
                         </tr>
-                        @endforeach
+
+
+
+
+
                     </tbody>
                 </table>
             </div>
+
+
         </div>
     </div>
 </div>

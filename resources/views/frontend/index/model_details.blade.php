@@ -140,9 +140,13 @@
                                 style="background-color:#e9e9e9 ;height: 38px; width:39px; border-radius: 50% ; margin-top:22px; margin-left:10px">
                                 <span class="" style=" justify-content: center; ">
 
+                                    @php
+                                    $user_fav =
+                                    App\Models\Wishlist::where('model_id',$models->id)->where('user_id',Auth::id())->first();
+                                    @endphp
 
 
-
+                                    @if(!$user_fav)
                                     <form action="{{route('add.wishlist')}}" method="post">
                                         @csrf
 
@@ -151,11 +155,17 @@
                                         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                         @endauth
 
-                                        <button type="submit" style="border-radius:50%" class="btn btn-secondary ">
+                                        <button type="submit" style="border-radius:50%" class="btn btn-primary ">
+
                                             <i class=" fa-regular fa-heart  "></i>
                                         </button>
 
                                     </form>
+                                    @else
+                                    <a href="" style="border-radius:50%" class="btn btn-primary ">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </a>
+                                    @endif
 
                                 </span>
 
