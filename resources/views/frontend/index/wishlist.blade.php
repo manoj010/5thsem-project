@@ -10,7 +10,7 @@
 
                     <br>
                     <br>
-                    <h2>Our Range Of <span>Wishlist</span> </>
+                    <h2><span>Wishlist</span> </>
                     </h2>
 
 
@@ -21,19 +21,18 @@
     </div>
 </section>
 <!-- ***** Call to Action End ***** -->
-
+@foreach($wishlist as $wishlists)
 <!-- Wishlist -->
+@php
+@endphp
 <div class="container">
     <div class="card shadow">
         <div class="card-body">
-            @if($wishlist->count() > 0)
+            {{$wishlists['vehicleModel']['model_name']}}
 
-            @else
-
-            <h4> There is no model on wishlist </h4>
-            @endif
         </div>
     </div>
 </div>
+@endforeach
 <!-- Wishlist -->
 @endsection

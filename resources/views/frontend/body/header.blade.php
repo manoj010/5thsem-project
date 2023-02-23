@@ -69,7 +69,7 @@
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" /></a>
 
                         <li>
-                            <a href="{{ route('wishlist')}}"><img src="{{asset('frontend/assets/images/wishlist.png')}}"
+                            <a href="{{route('wishlist')}}"><img src="{{asset('frontend/assets/images/wishlist.png')}}"
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" /></a>
                         </li>
 
