@@ -11,7 +11,7 @@ use App\Http\Controllers\Backend\ModelController;
 use App\Http\Controllers\Backend\NewslettersController;
 use App\Http\Controllers\Backend\ContactpageController;
 use App\Http\Controllers\BookingController;
-use App\Http\Controllers\User\WishlistController;
+use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +26,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware('auth','role:user')->group(function() {
+    Route::post('/add/wishlist', [WishlistController::class, 'AddToWishlist'])->name('add.wishlist');
+    Route::get('/wishlist',[WishlistController::class,'UserWishlist'])->name('wishlist');
+    Route::get('/remove/wishlist/{id}',[WishlistController::class,'RemoveWishlist'])->name('wishlist.remove');
+});
 
 
 Route::get('/',[IndexController::class,'Master'])->name('main');
@@ -37,8 +42,8 @@ Route::middleware('auth')->group(function(){
     
     Route::get('/booking/{id}',[BookingController::class,'booking'])->name('booking');
     Route::post('/booking-submit',[BookingController::class,'bookingSubmit'])->name('bookingSubmit');
-    Route::get('/wishlist',[WishlistController::class,'WishlistModels'])->name('wishlist');
-    Route::post('/add-to-wishlist',[WishlistController::class,'AddToWishList']);
+    
+    
 });
 
 Route::middleware('auth')->group(function () {
@@ -135,5 +140,3 @@ Route::get('/vehicle/{id}/{slug}',[IndexController::class,'CategoryBike']);
 
 Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
 Route::post('/contact', [ContactpageController::class, 'contact'])->name('contact');
-
-Route::post('/add-to-wishlist/{id}',[WishlistController::class,'AddToWishList']);

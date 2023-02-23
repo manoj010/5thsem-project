@@ -10,7 +10,7 @@
 
                     <br>
                     <br>
-                    <h2>Our Range Of <span>Wishlist</span> </>
+                    <h2><span>Wishlist</span> </>
                     </h2>
 
 
@@ -21,19 +21,65 @@
     </div>
 </section>
 <!-- ***** Call to Action End ***** -->
-
 <!-- Wishlist -->
+@foreach($wishlist as $wishlists)
 <div class="container">
     <div class="card shadow">
-        <div class="card-body">
-            @if($wishlist->count() > 0)
 
-            @else
+        <div class="card body">
 
-            <h4> There is no model on wishlist </h4>
-            @endif
+            <div class="card-header">
+                <strong class="card-title text-center">Wishlist</strong>
+            </div>
+
+
+
+            <div class="card-body">
+
+                <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>SN</th>
+                            <th>Vehicle Model</th>
+
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        <tr>
+                            <td>{{$key+1}}</td>
+
+                            <td>{{$wishlists['model']['model_name']}}</td>
+
+                            </td>
+
+                            <td><img src="{{ asset( $wishlists->model->model_thumbnail) }}" width="100"> </td>
+                            <td>Rs.{{$wishlists['model']['price']}}
+                            <td>
+                                <a href="{{route('wishlist.remove',$wishlists->id)}}" class="btn btn-danger">Remove</a>
+                                <a href="{{ route('booking',$wishlists->model->id) }}"
+                                    class="primaryButton  btn-dcb p-2" style="border:1px solid red"><span><i
+                                            class="fa fa-cart-plus"> </i> Book Now</a>
+                            </td>
+
+                        </tr>
+
+
+
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
         </div>
     </div>
 </div>
+@endforeach
 <!-- Wishlist -->
 @endsection
