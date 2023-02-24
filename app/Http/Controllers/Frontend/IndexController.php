@@ -58,4 +58,8 @@ class IndexController extends Controller
     public function AllBrandShow(){
         return view('frontend.index.all_brand_show');
     }
+    public function compare(){
+        return view('frontend.index.compare');
+        
+    }
 }
