@@ -30,6 +30,9 @@ Route::middleware('auth','role:user')->group(function() {
     Route::post('/add/wishlist', [WishlistController::class, 'AddToWishlist'])->name('add.wishlist');
     Route::get('/wishlist',[WishlistController::class,'UserWishlist'])->name('wishlist');
     Route::get('/remove/wishlist/{id}',[WishlistController::class,'RemoveWishlist'])->name('wishlist.remove');
+    Route::get('/booking/{id}',[BookingController::class,'booking'])->name('booking');
+    Route::post('/booking-submit',[BookingController::class,'bookingSubmit'])->name('bookingSubmit');
+    Route::get('/remove/booking/{id}',[BookingController::class,'RemoveBooking'])->name('remove.booking');
 });
 
 
@@ -40,8 +43,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/user/password/update',[UserController::class,'UserPasswordUpdate'])->name('user.password.update');
     Route::get('/user/logout',[UserController::class,'UserLogout'])->name('user.logout');
     
-    Route::get('/booking/{id}',[BookingController::class,'booking'])->name('booking');
-    Route::post('/booking-submit',[BookingController::class,'bookingSubmit'])->name('bookingSubmit');
+    
     
     
 });
@@ -136,6 +138,7 @@ Route::middleware('auth','role:admin')->group(function() {
 Route::get('/model/details/{id}/{slug}',[IndexController::class,'ModelDetails']);
 Route::get('/contact',[IndexController::class,'ContactAdmin'])->name('contact.admin');
 Route::get('/vehicle/{id}/{slug}',[IndexController::class,'CategoryBike']);
+Route::get('/all/brand/show',[IndexController::class,'AllBrandShow'])->name('all.brand.show');
 
 
 Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');

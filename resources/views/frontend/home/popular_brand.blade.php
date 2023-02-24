@@ -9,26 +9,35 @@
             </div>
         </div>
         <div class="row">
-            @php
-            $popular_brands =App\Models\Brand::orderBy('brand_name','ASC')->limit(12)->get();
-            @endphp
+            <div class="swiper card_slider">
+                <div class="swiper-wrapper">
+                    @php
+                    $popular_brands =App\Models\Brand::orderBy('brand_name','ASC')->limit(12)->get();
+                    @endphp
 
-            @foreach($popular_brands as $brand)
-            <div class="col-lg-2">
-                <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src="{{asset($brand->brand_logo)}}" alt="" />
+                    @foreach($popular_brands as $brand)
+
+                    <div class="col-lg-2 swiper-slide">
+                        <div class="trainer-item">
+                            <div class="image-thumb">
+                                <img src="{{asset($brand->brand_logo)}}" alt="" />
+                            </div>
+
+                        </div>
                     </div>
 
+                    @endforeach
                 </div>
+                <!-- <div id="sp" class=" swiper-button-next"></div> -->
+                <!-- <div id="sp" class=" swiper-button-prev"></div> -->
             </div>
-            @endforeach
+            <div class="swiper-pagination"></div>
         </div>
 
         <br />
 
         <div class="main-button text-center">
-            <a href="viewbikes.html">All Brand</a>
+            <a href="{{route('all.brand.show')}}">All Brand</a>
         </div>
     </div>
 </section>

@@ -13,7 +13,7 @@
 
 
             @foreach($category_2_model as $bike)
-            <div class="col-lg-3">
+            <div class="col-lg-3 ">
                 <div class="trainer-item">
                     <a href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}} class=" image-thumb">
                         <div><img src="{{asset($bike->model_thumbnail)}}" alt="" /></div>
@@ -44,12 +44,15 @@
             </div>
             @endforeach
 
+
         </div>
 
         <br />
 
         <div class="main-button text-center">
-            <a href="viewscooter.html">View Scooters</a>
+            <a href="{{ url('vehicle/'.$category_4->id.'/'.$category_4->category_slug )}}">All
+                {{$category_2->category_name}}
+                {{$category_2['vehicle']['vehicle_name']}}</a>
         </div>
     </div>
 </section>

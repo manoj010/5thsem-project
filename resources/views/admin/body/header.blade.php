@@ -1,8 +1,8 @@
 <header id="header" class="header">
     <div class="top-left">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{route('admin.dashboard')}}"><img src="{{asset('backend/assets/images/logo.png')}}" alt="Logo"><em
-                    style="position: absolute; width: 69px; height: 34px;left: 145px;top:13px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            <a class="navbar-brand" href="{{route('admin.dashboard')}}"><img
+                    src="{{asset('backend/assets/images/logo.png')}}" alt="Logo"><em style="position: absolute; width: 69px; height: 34px;left: 145px;top:13px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
                             font-style:normal;
                             font-size: 18px;
                             line-height: 34px;
@@ -113,8 +113,8 @@
                         <p class="text-center mb-2">{{Auth::user()->name}}</p>
                     </a>
                     <div class="mt-1 ps-2">
-                        <!-- <a class="nav-link" href="#"><i class="fa fa-bell"></i>Notifications <span
-                                class="count">13</span></a> -->
+                        <a class="nav-link" href="#"><i class="fa fa-bell"></i>Notifications <span
+                                class="count">13</span></a>
                         <a class="nav-link" href="{{route('admin.setting')}}"><i
                                 class="fa-solid fa-gear"></i>Settings</a>
                         <a class="nav-link text-danger" href="{{route('admin.logout')}}"><i

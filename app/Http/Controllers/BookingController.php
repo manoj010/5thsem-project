@@ -27,5 +27,16 @@ class BookingController extends Controller
 
         return redirect()->route('dashboard')->with($notification);
     }
+
+    public function RemoveBooking($id){
+        Booking::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Booking Remove Success',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
     
 }

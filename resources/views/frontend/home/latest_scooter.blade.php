@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
-                    <h2>{{$category_3->category_name}} <em>{{$category_3['vehicle']['vehicle_name']}}</em></h2>
+                    <h2>{{$category_2->category_name}} <em>{{$category_2['vehicle']['vehicle_name']}}</em></h2>
                     <hr>
                 </div>
             </div>
@@ -12,7 +12,7 @@
 
 
 
-            @foreach($category_3_model as $bike)
+            @foreach($category_2_model as $bike)
             <div class="col-lg-3 ">
                 <div class="trainer-item">
                     <a href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}} class=" image-thumb">
@@ -50,9 +50,9 @@
         <br />
 
         <div class="main-button text-center">
-            <a href="{{ url('vehicle/'.$category_3->id.'/'.$category_3->category_slug )}}">All
-                {{$category_3->category_name}}
-                {{$category_3['vehicle']['vehicle_name']}}</a>
+            <a href="{{ url('vehicle/'.$category_2->id.'/'.$category_2->category_slug )}}">All
+                {{$category_2->category_name}}
+                {{$category_2['vehicle']['vehicle_name']}}</a>
         </div>
     </div>
 </section>
