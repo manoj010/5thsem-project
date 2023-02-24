@@ -138,6 +138,7 @@ Route::middleware('auth','role:admin')->group(function() {
 Route::get('/model/details/{id}/{slug}',[IndexController::class,'ModelDetails']);
 Route::get('/contact',[IndexController::class,'ContactAdmin'])->name('contact.admin');
 Route::get('/vehicle/{id}/{slug}',[IndexController::class,'CategoryBike']);
+Route::get('/all/brand',[IndexController::class,'AllBrand'])->name('all.brand');
 
 
 Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');

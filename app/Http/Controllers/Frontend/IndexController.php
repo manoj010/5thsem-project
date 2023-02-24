@@ -54,4 +54,8 @@ class IndexController extends Controller
     public function ContactAdmin(){
         return view('frontend.contact.contact');
     }
+
+    public function AllBrand(){
+        return view('frontend.index.all_brand');
+    }
 }

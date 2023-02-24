@@ -22,11 +22,20 @@
 
     <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/assets/css/login.css')}}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
 
     <style>
     .bike_name .title {
         font-size: 20px;
+
+
+    }
+
+    #sp {
+        height: 20px;
+
+        color: #f9e8d9;
     }
 
     .price p {
@@ -147,6 +156,19 @@
             break;
     }
     @endif
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+    var swiper = new Swiper(".card_slider", {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+
+    });
     </script>
 
 </body>
