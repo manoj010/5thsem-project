@@ -12,9 +12,13 @@
                             <div class="stat-icon dib flat-color-1">
                                 <i class=" fa-solid fa-motorcycle"></i>
                             </div>
+                            @php
+
+                            $totalVehicle =App\Models\VehicleModel::count();
+                            @endphp
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">23569</span></div>
+                                    <div class="stat-text"><span class="count">{{$totalVehicle}}</span></div>
                                     <div class="stat-heading">Total Vehicle</div>
                                 </div>
                             </div>
@@ -30,9 +34,13 @@
                             <div class="stat-icon dib flat-color-2">
                                 <i class="fa fa-cart-plus"></i>
                             </div>
+                            @php
+
+                            $totalBooking =App\Models\Booking::count();
+                            @endphp
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">3435</span></div>
+                                    <div class="stat-text"><span class="count">{{$totalBooking}}</span></div>
                                     <div class="stat-heading">Total Booking</div>
                                 </div>
                             </div>
@@ -48,9 +56,13 @@
                             <div class="stat-icon dib flat-color-3">
                                 <i class="pe-7s-browser"></i>
                             </div>
+                            @php
+
+                            $totalBrand =App\Models\Brand::count();
+                            @endphp
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">100</span></div>
+                                    <div class="stat-text"><span class="count">{{$totalBrand}}</span></div>
                                     <div class="stat-heading">Brands</div>
                                 </div>
                             </div>
@@ -66,9 +78,13 @@
                             <div class="stat-icon dib flat-color-4">
                                 <i class="fa-solid fa-users"></i>
                             </div>
+                            @php
+
+                            $totalUsers =App\Models\User::where('role','user')->count();
+                            @endphp
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">2986</span></div>
+                                    <div class="stat-text"><span class="count">{{$totalUsers}}</span></div>
                                     <div class="stat-heading">Users</div>
                                 </div>
                             </div>
@@ -87,6 +103,9 @@
                         <div class="card-body">
                             <strong class="card-title text-center">ALL BOOKING </strong>
                         </div>
+
+
+
                         <div class="card-body--">
                             <div class="table-stats order-table ov-h">
                                 <table class="table ">
@@ -97,96 +116,39 @@
                                             <th>Bike ID</th>
                                             <th>User Name</th>
                                             <th>Bike Name</th>
-                                            <th>Brand Name</th>
-                                            <!-- <th>Status</th> -->
+                                            <th>Date</th>
+
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
+                                    @php
+                                    $booking = App\Models\Booking::latest()->get();
+                                    @endphp
                                     <tbody>
+                                        @foreach($booking as $key => $user_book )
+
                                         <tr>
-                                            <td class="serial">1.</td>
+                                            <td class="serial">{{$key+1}}.</td>
                                             <td class="avatar">
                                                 <div class="round-img">
                                                     <a href="#"><img class="rounded-circle"
-                                                            src="{{asset('backend/assets/images/avatar/1.jpg')}}"
+                                                            src="{{ url('upload/userImages/' . $user_book->rUser->photo) }}"
                                                             alt=""></a>
                                                 </div>
                                             </td>
-                                            <td> #5469 </td>
-                                            <td> <span class="name">Louis Stanley</span> </td>
-                                            <td> <span class="product">Duke 390</span> </td>
-                                            <td><span class="">KTM</span></td>
-                                            <!-- <td>
+                                            <td> {{$user_book['rUser']['id']}}</td>
+                                            <td> <span class="name">{{$user_book['rUser']['name']}}</span> </td>
+                                            <td> <span class="product">{{$user_book['rBike']['model_name']}}</span>
+                                            </td>
+                                            <td> <span class="product">{{$user_book->created_at}}</span>
+                                            </td>
+
+                                            <td>
                                                 <span class="badge badge-complete">Complete</span>
-                                            </td> -->
-                                        </tr>
-                                        <tr>
-                                            <td class="serial">2.</td>
-                                            <td class="avatar">
-                                                <div class="round-img">
-                                                    <a href="#"><img class="rounded-circle"
-                                                            src="{{asset('backend/assets/images/avatar/2.jpg')}}"
-                                                            alt=""></a>
-                                                </div>
                                             </td>
-                                            <td> #5468 </td>
-                                            <td> <span class="name">Gregory Dixon</span> </td>
-                                            <td> <span class="product">NS 200</span> </td>
-                                            <td><span class="">Bajaj</span></td>
-                                            <!-- <td>
-                                                <span class="badge badge-complete">Complete</span>
-                                            </td> -->
                                         </tr>
-                                        <tr>
-                                            <td class="serial">3.</td>
-                                            <td class="avatar">
-                                                <div class="round-img">
-                                                    <a href="#"><img class="rounded-circle"
-                                                            src="{{asset('backend/assets/images/avatar/3.jpg')}}"
-                                                            alt=""></a>
-                                                </div>
-                                            </td>
-                                            <td> #5467 </td>
-                                            <td> <span class="name">Catherine Dixon</span> </td>
-                                            <td> <span class="product">Bullet 350</span> </td>
-                                            <td><span class="">Royal Enfield</span></td>
-                                            <!-- <td>
-                                                <span class="badge badge-complete">Complete</span>
-                                            </td> -->
-                                        </tr>
-                                        <tr>
-                                            <td class="serial">4.</td>
-                                            <td class="avatar">
-                                                <div class="round-img">
-                                                    <a href="#"><img class="rounded-circle"
-                                                            src="{{asset('backend/assets/images/avatar/4.jpg')}}"
-                                                            alt=""></a>
-                                                </div>
-                                            </td>
-                                            <td> #5466 </td>
-                                            <td> <span class="name">Mary Silva</span> </td>
-                                            <td> <span class="product">RC 200</span> </td>
-                                            <td><span class="">KTM</span></td>
-                                            <!-- <td>
-                                                <span class="badge badge-pending">Pending</span>
-                                            </td> -->
-                                        </tr>
-                                        <tr class=" pb-0">
-                                            <td class="serial">5.</td>
-                                            <td class="avatar pb-0">
-                                                <div class="round-img">
-                                                    <a href="#"><img class="rounded-circle"
-                                                            src="{{asset('backend/assets/images/avatar/6.jpg')}}"
-                                                            alt=""></a>
-                                                </div>
-                                            </td>
-                                            <td> #5465 </td>
-                                            <td> <span class="name">Johnny Stephens</span> </td>
-                                            <td> <span class="product">NK 300</span> </td>
-                                            <td><span class="">NK</span></td>
-                                            <!-- <td>
-                                                <span class="badge badge-complete">Complete</span>
-                                            </td> -->
-                                        </tr>
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div> <!-- /.table-stats -->
