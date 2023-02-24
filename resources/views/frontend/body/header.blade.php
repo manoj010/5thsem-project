@@ -51,7 +51,7 @@
                         <li><a href="{{route('dashboard')}}">Booking</a>
                         </li>
 
-                        <li><a href="about.html">Compare</a></li>
+                        <li><a href="{{route('compare')}}">Compare</a></li>
 
                         <li><a href="{{route('contact.admin')}}">Contact</a></li>
                     </ul>

@@ -139,3 +139,5 @@ Route::get('/all/brand/show',[IndexController::class,'AllBrandShow'])->name('all
 
 
 Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
+
+Route::get('/compare', [IndexController::class, 'compare'])->name('compare');
