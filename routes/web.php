@@ -27,26 +27,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth','role:user')->group(function() {
+    Route::get('/dashboard',[UserController::class,'UserDashboard'])->name('dashboard');
+    Route::post('/user/profile/store',[UserController::class,'UserProfileStore'])->name('user.profile.store');
+    Route::post('/user/password/update',[UserController::class,'UserPasswordUpdate'])->name('user.password.update');
+    Route::get('/user/logout',[UserController::class,'UserLogout'])->name('user.logout');
+    
     Route::post('/add/wishlist', [WishlistController::class, 'AddToWishlist'])->name('add.wishlist');
     Route::get('/wishlist',[WishlistController::class,'UserWishlist'])->name('wishlist');
     Route::get('/remove/wishlist/{id}',[WishlistController::class,'RemoveWishlist'])->name('wishlist.remove');
     Route::get('/booking/{id}',[BookingController::class,'booking'])->name('booking');
     Route::post('/booking-submit',[BookingController::class,'bookingSubmit'])->name('bookingSubmit');
     Route::get('/remove/booking/{id}',[BookingController::class,'RemoveBooking'])->name('remove.booking');
+    //user only contact to admin 
+    Route::post('/contact', [ContactpageController::class, 'contact'])->name('contact');
 });
-
-
 Route::get('/',[IndexController::class,'Master'])->name('main');
-Route::middleware('auth')->group(function(){
-    Route::get('/dashboard',[UserController::class,'UserDashboard'])->name('dashboard');
-    Route::post('/user/profile/store',[UserController::class,'UserProfileStore'])->name('user.profile.store');
-    Route::post('/user/password/update',[UserController::class,'UserPasswordUpdate'])->name('user.password.update');
-    Route::get('/user/logout',[UserController::class,'UserLogout'])->name('user.logout');
-    
-    
-    
-    
-});
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -142,4 +139,3 @@ Route::get('/all/brand/show',[IndexController::class,'AllBrandShow'])->name('all
 
 
 Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
-Route::post('/contact', [ContactpageController::class, 'contact'])->name('contact');
