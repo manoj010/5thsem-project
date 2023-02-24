@@ -32,11 +32,7 @@
 
     }
 
-    #sp {
-        height: 20px;
 
-        color: #f9e8d9;
-    }
 
     .price p {
         color: #24272c;
@@ -161,7 +157,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
     var swiper = new Swiper(".card_slider", {
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 20,
         navigation: {
             nextEl: ".swiper-button-next",

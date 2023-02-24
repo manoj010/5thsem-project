@@ -28,8 +28,8 @@
 
                     @endforeach
                 </div>
-                <div id="sp" class=" swiper-button-next"></div>
-                <div id="sp" class=" swiper-button-prev"></div>
+                <!-- <div id="sp" class=" swiper-button-next"></div> -->
+                <!-- <div id="sp" class=" swiper-button-prev"></div> -->
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -37,7 +37,7 @@
         <br />
 
         <div class="main-button text-center">
-            <a href="{{route('all.brand')}}">All Brand</a>
+            <a href="{{route('all.brand.show')}}">All Brand</a>
         </div>
     </div>
 </section>

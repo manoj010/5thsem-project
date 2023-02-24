@@ -6,6 +6,9 @@
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="cta-content">
+                    <h2>All <em>Brand</em></h2>
+                    <br>
+                    <br>
 
 
                 </div>
@@ -25,10 +28,10 @@
 
         <div class="row">
             @php
-            $popular_brands =App\Models\Brand::orderBy('brand_name','ASC')->get();
+            $brands =App\Models\Brand::orderBy('brand_name','ASC')->get();
             @endphp
 
-            @foreach($popular_brands as $brand)
+            @foreach($brands as $brand)
 
             <div class="col-lg-2 ">
                 <div class="trainer-item">

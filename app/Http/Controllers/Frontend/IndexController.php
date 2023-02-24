@@ -55,7 +55,7 @@ class IndexController extends Controller
         return view('frontend.contact.contact');
     }
 
-    public function AllBrand(){
-        return view('frontend.index.all_brand');
+    public function AllBrandShow(){
+        return view('frontend.index.all_brand_show');
     }
 }

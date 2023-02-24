@@ -282,7 +282,7 @@ $(document).ready(function() {
             var data = $(this)[0].files; //this file data
 
             $.each(data, function(index, file) { //loop though each file
-                if (/(\.|\/)(gif|jpeg|jpg|png)$/i.test(file
+                if (/(\.|\/)(gif|jpeg|jpg|png|webp)$/i.test(file
                         .type)) { //check supported file type
                     var fRead = new FileReader(); //new filereader
                     fRead.onload = (function(file) { //trigger function on successful read
