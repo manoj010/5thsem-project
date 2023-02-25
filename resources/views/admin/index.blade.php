@@ -102,6 +102,7 @@
                     <div class="card">
                         <div class="card-body">
                             <strong class="card-title text-center">ALL BOOKING </strong>
+
                         </div>
 
 
@@ -111,7 +112,7 @@
                                 <table class="table ">
                                     <thead>
                                         <tr>
-                                            <th class="serial">#</th>
+                                            <th class="serial">SN</th>
                                             <th class="avatar">Image</th>
                                             <th>Bike ID</th>
                                             <th>User Name</th>

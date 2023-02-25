@@ -15,7 +15,6 @@ class IndexController extends Controller
 {
 
     public function Master(){
-
         $category_1 = Category::skip(0)->first();
         $category_1_model = VehicleModel::where('category_id',$category_1->id)->orderBy('model_name','ASC')->get();
 
