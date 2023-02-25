@@ -112,7 +112,7 @@
                             alt="User Avatar">
                         <p class="text-center mb-2">{{Auth::user()->name}}</p>
                     </a>
-                    <div class="mt-1 ps-2">
+                    <div class="mt-1 ps-2 ">
                         <a class="nav-link" href="#"><i class="fa fa-bell"></i>Notifications <span
                                 class="count">13</span></a>
                         <a class="nav-link" href="{{route('admin.setting')}}"><i

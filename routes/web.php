@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\NewslettersController;
 use App\Http\Controllers\Backend\ContactpageController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Frontend\WishlistController;
+use App\Http\Controllers\Frontend\RatingController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,7 @@ Route::middleware('auth','role:user')->group(function() {
     Route::get('/remove/booking/{id}',[BookingController::class,'RemoveBooking'])->name('remove.booking');
     //user only contact to admin 
     Route::post('/contact', [ContactpageController::class, 'contact'])->name('contact');
+    Route::post('/add/rating', [RatingController::class, 'AddRating'])->name('add.rating');
 });
 Route::get('/',[IndexController::class,'Master'])->name('main');
 

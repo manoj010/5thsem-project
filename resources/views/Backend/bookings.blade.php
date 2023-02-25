@@ -50,7 +50,9 @@
                                     <td>{{ $loop->index+1 }}</td>
                                     <td>{{ $item->rUser->name }}</td>
                                     <td>
+
                                         <img src="{{ url('upload/userImages/' . $item->rUser->photo) }}" width="100">
+
                                     </td>
                                     <td>{{ $item->rBike->model_name }}</td>
                                     <td>{{ $item->created_at }}</td>
