@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\ContactpageController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Frontend\RatingController;
+use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,9 @@ Route::middleware('auth','role:user')->group(function() {
     //user only contact to admin 
     Route::post('/contact', [ContactpageController::class, 'contact'])->name('contact');
     Route::post('/add/rating', [RatingController::class, 'AddRating'])->name('add.rating');
+    Route::get('/add-review/{model_slug}', [ReviewController::class, 'AddReview'])->name('add.review');
+    Route::post('/post-review', [ReviewController::class, 'PostReview'])->name('post.review');
+    Route::get('/edit-review/{model_slug}/userreview', [ReviewController::class, 'EditReview'])->name('edit.review');
 });
 Route::get('/',[IndexController::class,'Master'])->name('main');
 
@@ -134,7 +138,7 @@ Route::middleware('auth','role:admin')->group(function() {
 });
 
 
-Route::get('/model/details/{id}/{slug}',[IndexController::class,'ModelDetails']);
+Route::get('/model/details/{id}/{slug}',[IndexController::class,'ModelDetails'])->name('model.details');
 Route::get('/contact',[IndexController::class,'ContactAdmin'])->name('contact.admin');
 Route::get('/vehicle/{id}/{slug}',[IndexController::class,'CategoryBike']);
 Route::get('/all/brand/show',[IndexController::class,'AllBrandShow'])->name('all.brand.show');

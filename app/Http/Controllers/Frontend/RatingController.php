@@ -13,8 +13,7 @@ class RatingController extends Controller
     public function AddRating(Request $request){
         $user_rating = $request->product_rating;  
         $model_id = $request->model_id;
-        
-        $user_id = Auth::id();
+
 
         $rating_check = Rating::where('user_id',Auth::id())->where('model_id',$model_id)->first();
 
@@ -24,7 +23,7 @@ class RatingController extends Controller
         }
         else{
             Rating::insert([
-                'user_id'=>$user_id,
+                'user_id'=>Auth::id(),
                 'model_id'=>$model_id,
                 'stars_rated'=>$user_rating,
                 'created_at'=>Carbon::now(),

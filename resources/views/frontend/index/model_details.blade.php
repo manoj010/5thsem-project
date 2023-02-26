@@ -577,28 +577,70 @@
 
 
 
-                                <h4>Give Rating of <strong>{{$models->model_name}}</strong> </h4>
+                                <h4> <strong>{{$models->model_name}}</strong> </h4>
                                 <hr>
+                                <div class="rating">
+                                    @for($i =1; $i<=$ratedNo; $i++) <i class="fa fa-star checked"></i>
 
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                    Rating this Bike
-                                </button>
+                                        @endfor
+                                        @for($j = $ratedNo+1; $j<=5; $j++) <i class="fa fa-star"></i>@endfor
+
+                                            <span>{{$ratings->count() }} Rating</span>
+                                </div>
 
 
-                                <div class="rating-css">
+                                <div class="col-md-6">
 
                                 </div>
 
 
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Rating this {{$models['vehicle']['vehicle_name']}}
+                            </button>
+                            <a href="{{url('/add-review/'.$models->model_slug)}}">
+                                Review this {{$models['vehicle']['vehicle_name']}}
+                            </a>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="user-review">
+                                @foreach($reviews as $review)
+                                <label for="">{{$review['user']['name']}}</label>
+                                @if($review->user_id== Auth::id())
+                                <a href="{{route('edit-user',$models->slug,'userreview')}}">edit</a>
+                                @endif
+                                @if($review->rating)
+                                @php
+                                $ratedNo =$review['rating']['stars_rated'];
+                                @endphp
+                                @for($i =1; $i<=$ratedNo; $i++) <i class="fa fa-star checked"></i> @endfor
+                                    @for($j = $ratedNo+1; $j<=5; $j++) <i class="fa fa-star"></i>@endfor
+                                        @endif
+                                        <small>Review on {{$review->created_at->format('d M Y')}}</small>
+                                        <p>{{$review->user_review}}</p>
+                                        @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <br />
-        <br />
+
 
         <div class="right"></div>
     </div>
