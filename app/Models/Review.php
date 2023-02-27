@@ -17,4 +17,8 @@ class Review extends Model
     public function rating(){
         return $this->belongsTo(Rating::class, 'user_id','user_id');
     }
+
+    public function model(){
+        return $this->belongsTo(VehicleModel::class, 'model_id','id');
+    }
 }

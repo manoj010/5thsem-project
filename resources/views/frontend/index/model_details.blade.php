@@ -622,11 +622,16 @@
                                 @foreach($reviews as $review)
                                 <label for="">{{$review['user']['name']}}</label>
                                 @if($review->user_id== Auth::id())
-                                <a href="{{route('edit-user',$models->slug,'userreview')}}">edit</a>
+                                <a href="{{ url('/edit-review/'.$models->id.'/'.$models->model_slug)}}">Edit</a>
                                 @endif
-                                @if($review->rating)
+                                <br>
                                 @php
-                                $ratedNo =$review['rating']['stars_rated'];
+                                $rating =
+                                App\Models\Rating::where('model_id',$models->id)->where('user_id',$review['user']['id'])->first();
+                                @endphp
+                                @if($rating)
+                                @php
+                                $ratedNo =$rating->stars_rated;
                                 @endphp
                                 @for($i =1; $i<=$ratedNo; $i++) <i class="fa fa-star checked"></i> @endfor
                                     @for($j = $ratedNo+1; $j<=5; $j++) <i class="fa fa-star"></i>@endfor

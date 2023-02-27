@@ -45,7 +45,8 @@ Route::middleware('auth','role:user')->group(function() {
     Route::post('/add/rating', [RatingController::class, 'AddRating'])->name('add.rating');
     Route::get('/add-review/{model_slug}', [ReviewController::class, 'AddReview'])->name('add.review');
     Route::post('/post-review', [ReviewController::class, 'PostReview'])->name('post.review');
-    Route::get('/edit-review/{model_slug}/userreview', [ReviewController::class, 'EditReview'])->name('edit.review');
+    Route::get('/edit-review/{id}/{model_slug}', [ReviewController::class, 'EditReview'])->name('edit.review');
+    Route::post('/update/review', [ReviewController::class, 'UpdateReview'])->name('update.review');
 });
 Route::get('/',[IndexController::class,'Master'])->name('main');
 

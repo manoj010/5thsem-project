@@ -35,12 +35,11 @@ class ReviewController extends Controller
         $model_id = $request->model_id;
         $user_review = $request->user_review;
         
-        $review_check = Review::where('user_id',Auth::id())->where('model_id',$model_id)->first();
+        $review = Review::where('user_id',Auth::id())->where('model_id',$model_id)->first();
         
 
-        if($review_check){
-            $review_check->user_review = $user_review;
-            $review_check->update();
+        if($review){
+            return view("frontend.index.review.edit_review",compact('review'));
             
         }else{
             Review::insert([
@@ -60,5 +59,38 @@ class ReviewController extends Controller
         }
     }
 
-    public function EditReview()
+    public function EditReview($id,$model_slug){
+        $models=VehicleModel::findOrFail($id);
+        
+        $review= Review::where('user_id',Auth::id())->where('model_id',$models->id)->first();
+        
+        if($review){
+            
+            return view("frontend.index.review.edit_review",compact('review','models'));
+        }else{
+            $notification = array(
+                'message' => 'The link is broken so you need to login first',
+                'alert-type'=> 'success' 
+            );
+            
+            return redirect()->back()->with($notification);
+        }
+         
+    }
+
+    public function UpdateReview(Request $request){
+        $review_id = $request->review_id;
+        $user_review = $request->user_review;
+        
+        Review::findOrFail($review_id)->update([
+            'user_review'=>$user_review,
+        ]);
+            $notification = array(
+                'message' => 'Review Update Successfully',
+                'alert-type'=> 'success' 
+            );
+            
+            return redirect()->back()->with($notification);
+       
+    }
 }
