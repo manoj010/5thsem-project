@@ -41,6 +41,9 @@
         <div class="modal-content">
             <form action="{{route('add.rating')}}" method="post">
                 @csrf
+
+                <input type="hidden" value="{{$models->id}}" name="model_id">
+
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Rates this {{$models->model_name}}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -48,17 +51,33 @@
                 <div class="modal-body">
                     <div class="rating-css">
                         <div class="star-icon">
-                            <input type="radio" value="1" name="product_rating" checked id="rating1">
-                            <label for="rating1" class="fa fa-star"></label>
-                            <input type="radio" value="2" name="product_rating" id="rating2">
-                            <label for="rating2" class="fa fa-star"></label>
-                            <input type="radio" value="3" name="product_rating" id="rating3">
-                            <label for="rating3" class="fa fa-star"></label>
-                            <input type="radio" value="4" name="product_rating" id="rating4">
-                            <label for="rating4" class="fa fa-star"></label>
-                            <input type="radio" value="5" name="product_rating" id="rating5">
-                            <label for="rating5" class="fa fa-star"></label>
-                            <p class="span">Your rating</p>
+                            @if($user_rating)
+                            @for($i =1; $i<=$user_rating->stars_rated; $i++)
+                                <input type="radio" value="{{$i}}" name="product_rating" checked id="rating{{$i}}">
+                                <label for="rating{{$i}}" class="fa fa-star"></label>
+                                @endfor
+                                @for($j = $user_rating->stars_rated+1; $j<=5; $j++) <input type="radio" value="{{$j}}"
+                                    name="product_rating" id="rating{{$j}}">
+                                    <label for="rating{{$j}}" class="fa fa-star"></label>
+                                    @endfor
+
+
+                                    @else
+                                    <input type="radio" value="1" name="product_rating" checked id="rating1">
+                                    <label for="rating1" class="fa fa-star"></label>
+                                    <input type="radio" value="2" name="product_rating" id="rating2">
+                                    <label for="rating2" class="fa fa-star"></label>
+                                    <input type="radio" value="3" name="product_rating" id="rating3">
+                                    <label for="rating3" class="fa fa-star"></label>
+                                    <input type="radio" value="4" name="product_rating" id="rating4">
+                                    <label for="rating4" class="fa fa-star"></label>
+                                    <input type="radio" value="5" name="product_rating" id="rating5">
+                                    <label for="rating5" class="fa fa-star"></label>
+                                    @endif
+
+
+
+                                    <p class="span">Your rating</p>
 
                         </div>
 
@@ -186,11 +205,24 @@
 
                                 <h5> <strong>{{$models->model_name}}</strong> </h5>
 
-
                                 <div class="span">
                                     <span style="color:rgb(199, 80, 25)">Rs.
                                         3,59,900
                                     </span>
+
+                                    @php
+                                    $ratedNo = number_format($rating_value);
+                                    @endphp
+                                    <div class="rating">
+                                        @for($i =1; $i<=$ratedNo; $i++) <i class="fa fa-star checked"></i>
+
+                                            @endfor
+                                            @for($j = $ratedNo+1; $j<=5; $j++) <i class="fa fa-star"></i>@endfor
+
+                                                <span>{{$ratings->count() }} Rating</span>
+                                    </div>
+
+
 
                                     <ul class="social-icons mt-2">
                                         <span class="primaryButton  btn-dcb p-2"
@@ -545,28 +577,75 @@
 
 
 
-                                <h4>Give Rating of <strong>{{$models->model_name}}</strong> </h4>
+                                <h4> <strong>{{$models->model_name}}</strong> </h4>
                                 <hr>
+                                <div class="rating">
+                                    @for($i =1; $i<=$ratedNo; $i++) <i class="fa fa-star checked"></i>
 
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                    Rating this Bike
-                                </button>
+                                        @endfor
+                                        @for($j = $ratedNo+1; $j<=5; $j++) <i class="fa fa-star"></i>@endfor
+
+                                            <span>{{$ratings->count() }} Rating</span>
+                                </div>
 
 
-                                <div class="rating-css">
+                                <div class="col-md-6">
 
                                 </div>
 
 
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Rating this {{$models['vehicle']['vehicle_name']}}
+                            </button>
+                            <a href="{{url('/add-review/'.$models->model_slug)}}">
+                                Review this {{$models['vehicle']['vehicle_name']}}
+                            </a>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="user-review">
+                                @foreach($reviews as $review)
+                                <label for="">{{$review['user']['name']}}</label>
+                                @if($review->user_id== Auth::id())
+                                <a href="{{ url('/edit-review/'.$models->id.'/'.$models->model_slug)}}">Edit</a>
+                                @endif
+                                <br>
+                                @php
+                                $rating =
+                                App\Models\Rating::where('model_id',$models->id)->where('user_id',$review['user']['id'])->first();
+                                @endphp
+                                @if($rating)
+                                @php
+                                $ratedNo =$rating->stars_rated;
+                                @endphp
+                                @for($i =1; $i<=$ratedNo; $i++) <i class="fa fa-star checked"></i> @endfor
+                                    @for($j = $ratedNo+1; $j<=5; $j++) <i class="fa fa-star"></i>@endfor
+                                        @endif
+                                        <small>Review on {{$review->created_at->format('d M Y')}}</small>
+                                        <p>{{$review->user_review}}</p>
+                                        @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <br />
-        <br />
+
 
         <div class="right"></div>
     </div>

@@ -9,6 +9,9 @@ use App\Models\Brand;
 use App\Models\Vehicle;
 use App\Models\Category;
 use App\Models\MultiImage;
+use App\Models\Rating;
+use App\Models\Review;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 
@@ -35,10 +38,23 @@ class IndexController extends Controller
     
     public function ModelDetails($id,$slug){
         $models= VehicleModel::findOrFail($id);
+        $ratings = Rating::where('model_id',$models->id)->get();
+        $rating_sum = $ratings->sum('stars_rated');
+        $user_rating = Rating::where('model_id',$models->id)->where('user_id',Auth::id())->first();
+        $reviews = Review::where('model_id',$models->id)->get();
+        
+
+        if($ratings->count()>0){
+            $rating_value = $rating_sum/$ratings->count();
+        }
+        else {
+            $rating_value = 0;
+        }
+       
         
         $multiImg = MultiImage::where('model_id',$id)->get();
 
-        return view('frontend.index.model_details',compact('models','multiImg'));
+        return view('frontend.index.model_details',compact('models','multiImg','ratings','rating_value','user_rating','reviews'));
     }
     
     public function CategoryBike($id,$slug){
