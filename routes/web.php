@@ -48,9 +48,13 @@ Route::middleware('auth','role:user')->group(function() {
     Route::get('/edit-review/{id}/{model_slug}', [ReviewController::class, 'EditReview'])->name('edit.review');
     Route::post('/update/review', [ReviewController::class, 'UpdateReview'])->name('update.review');
 });
-Route::get('/',[IndexController::class,'Master'])->name('main');
 
 
+Route::controller('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -147,4 +151,14 @@ Route::get('/all/brand/show',[IndexController::class,'AllBrandShow'])->name('all
 
 Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
 
-Route::get('/compare', [IndexController::class, 'compare'])->name('compare');
+Route::get('/compare', [IndexController::class, 'Compare'])->name('compare');
+
+
+
+Route::controller(IndexController::class)->group(function(){
+    Route::get('/', 'Master')->name('main');
+    Route::post('/search','ModelSearch')->name('model.search');
+    Route::get('/models-list', 'SearchModels');
+    Route::post('/compare/models', 'CompareModel')->name('compare.models');
+    
+});

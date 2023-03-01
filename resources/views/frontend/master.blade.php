@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <meta name="csrf-token" content="{{csrf_token()}}" />
+
     <link
         href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
         rel="stylesheet" />
@@ -25,6 +27,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{{asset('frontend/assets/css/compare.css')}}" />
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <style>
+    .inputBox {
+        display: none;
+    }
+
+    .inputBox active {
+        display: block;
+    }
+    </style>
 
 
 
@@ -103,6 +116,8 @@
     <!-- jQuery -->
     <script src="{{asset('frontend/assets/js/jquery-2.1.0.min.js')}}"></script>
 
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
+
     <!-- Bootstrap -->
     <script src="{{asset('frontend/assets/js/popper.js')}}"></script>
     <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
@@ -115,22 +130,19 @@
     <script src="{{asset('frontend/assets/js/mixitup.js')}}"></script>
     <script src="{{asset('frontend/assets/js/accordions.js')}}"></script>
 
+
     <!-- Global Init -->
     <script src="{{asset('frontend/assets/js/custom.js')}}"></script>
     <script src="{{asset('frontend/assets/js/script.js')}}"></script>
+    <!-- <script src="{{asset('frontend/assets/js/search.js')}}"></script> -->
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
 
 
-    <script>
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    </script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
@@ -169,6 +181,47 @@
 
     });
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+    var availableTags = [];
+    $.ajax({
+        method: "GET",
+        url: "/models-list",
+        success: function(response) {
+            startAutoComplete(response)
+        }
+    });
+
+    function startAutoComplete(availableTags) {
+        $("#search-box").autocomplete({
+            source: availableTags
+        });
+        $("#search-compare_1").autocomplete({
+            source: availableTags
+        });
+        $("#search-compare_2").autocomplete({
+            source: availableTags
+        });
+    }
+    </script>
+
+    <script>
+    const addBtn = document.querySelector('.search-form');
+
+    const box = document.querySelector('#search-btn');
+
+
+    addBtn.addEventListener('hover', () => {
+        box.classList.toggle('active');
+    });
+    </script>
+
+
+
+
+
 
 </body>
 
