@@ -93,4 +93,15 @@ class ReviewController extends Controller
             return redirect()->back()->with($notification);
        
     }
+
+    public function DeleteReview($id){
+        Review::findOrFail($id)->delete();
+        $notification = array(
+            'message' => 'Review Delete Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->back()->with($notification);
+        
+    }
 }

@@ -322,34 +322,23 @@
                         <div class="col-lg-8">
                             <div class=" bike-content" style="padding: 20px; margin: 10px; line-height: 40px;">
 
-
                                 <h5> <strong>{{$models->model_name}}</strong> </h5>
 
-
                                 <div class="span" style="color:rgb(199, 80, 25)">
-
-                                    <!-- rating -->
-                                    <!-- end rating -->
                                     <ul class="social-icons mt-2">
                                         <a href="{{ route('booking',$models->id) }}" class="primaryButton  btn-dcb p-2"
                                             style="border:1px solid red"><span><i class="fa fa-cart-plus"> </i> Book
                                                 Now</a>
                                     </ul>
-                                    <!-- <div class="short-desc">
-                                        <span ">Don't miss out on the best offers this February</span>
-                </div> -->
                                 </div>
-
-
-
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- end div -->
 
 
-
-                <div class=" tab-pane fade show" role="tab-pane" id="specs" aria-labelledby="specs-tab">
+                <div class="tab-pane fade show" role="tab-pane" id="specs" aria-labelledby="specs-tab">
                     <div class="row" id="tab">
                         <div class="col-lg-4">
                             <ul>
@@ -546,8 +535,6 @@
                                 </article>
                                 <article id="tabs-5">
                                     <h4>Electricals</h4>
-
-
                                 </article>
                                 <article id="tabs-6">
                                     <h4>Tyres and Brakes</h4>
@@ -616,13 +603,19 @@
                             <a href="{{url('/add-review/'.$models->model_slug)}}">
                                 Review this {{$models['vehicle']['vehicle_name']}}
                             </a>
+
                         </div>
                         <div class="col-lg-8">
                             <div class="user-review">
                                 @foreach($reviews as $review)
                                 <label for="">{{$review['user']['name']}}</label>
                                 @if($review->user_id== Auth::id())
-                                <a href="{{ url('/edit-review/'.$models->id.'/'.$models->model_slug)}}">Edit</a>
+                                <a href="{{ url('/edit-review/'.$models->id.'/'.$models->model_slug)}}"><i
+                                        class="fa-solid fa-pen-to-square text-info"></i></a>
+
+                                <a href="{{route('delete.review',$review->id)}}">
+                                    <i class="fa-solid fa-trash text-danger"></i>
+                                </a>
                                 @endif
                                 <br>
                                 @php
@@ -646,8 +639,6 @@
             </div>
         </div>
 
-
-        <div class="right"></div>
     </div>
 </section>
 <!-- ***** Fleet Ends ***** -->
