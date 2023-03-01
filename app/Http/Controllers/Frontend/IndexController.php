@@ -73,8 +73,66 @@ class IndexController extends Controller
     public function AllBrandShow(){
         return view('frontend.index.all_brand_show');
     }
-    public function compare(){
-        return view('frontend.index.compareSpecification');
-        
+    public function Compare(){
+        return view('frontend.index.compare');     
     }
+
+    public function ModelSearch(Request $request){
+        $request->validate(['search'=> "required"]);
+        $vehicle = $request->search;
+
+        $models = VehicleModel::where('model_name','LIKE',"%$vehicle%")->get();
+        $brands = Brand::where('brand_name','LIKE',"%$vehicle%")->get();
+        return view('frontend.index.search.all_search',compact('models','vehicle','brands'));
+    }
+
+   public function SearchModels(){
+    $models = VehicleModel::select('model_name')->get();
+
+    $data = [];
+
+    foreach ($models as $item){
+        $data[] = $item['model_name'];
+    }
+    return $data;
+   }
+
+   public function CompareModel(Request $request){
+    $request->validate(['model_1'=> "required"]);
+    $request->validate(['model_2'=> "required"]);
+    $vehicle_1 = $request->model_1;
+    $vehicle_2 = $request->model_2;
+    
+    $models_1 = VehicleModel::where('model_name',$vehicle_1)->first();
+    $models_2 = VehicleModel::where('model_name',$vehicle_2)->first();
+    // dd($models_1);
+
+    //model -1
+        $ratings_model_1 = Rating::where('model_id',$models_1->id)->get();
+        $rating_sum_model_1 = $ratings_model_1->sum('stars_rated');
+        $reviews_count = Review::where('model_id',$models_1->id)->count();
+
+        // dd($reviews_count);
+        if($ratings_model_1->count()>0){
+            $rating_value_model_1 = $rating_sum_model_1/$ratings_model_1->count();
+        }
+        else {
+            $rating_value_model_1 = 0;
+        }
+
+    //Model-2
+    $ratings_models_2 = Rating::where('model_id',$models_2->id)->get();
+    $rating_sum_models_2 = $ratings_models_2->sum('stars_rated');
+    $reviews_count2 = Review::where('model_id',$models_2->id)->count();
+
+    // dd($reviews_count);
+    if($ratings_models_2->count()>0){
+        $rating_value_models_2 = $rating_sum_models_2/$ratings_models_2->count();
+    }
+    else {
+        $rating_value_models_2 = 0;
+    }
+
+    return view('frontend.index.compareSpecification',compact('models_1','models_2','rating_value_model_1','reviews_count','rating_value_models_2','reviews_count2'));
+   }
 }

@@ -58,7 +58,9 @@
                     <ul class="nav-auth">
                         <li>
                             <a>
-                                <div class="fas fa-search" id="search-btn"></div>
+                                <div class="fas fa-search" id="search-btn">
+
+                                </div>
                             </a>
                         </li>
 
@@ -122,8 +124,13 @@
             </div>
         </div>
     </div>
-    <div class="search-form">
-        <input type="search" id="search-box" placeholder="Search" />
-        <label for="search-box" class="fas fa-search"></label>
-    </div>
+    <form action="{{route('model.search')}}" method="post">
+        @csrf
+        <div class="search-form">
+            <input type="search" name="search" id="search-box" placeholder="Search" />
+            <span for="search-box" id="search-btn" class=" fas fa-search"></span>
+
+            <!-- <button type="submit"><i class="fas fa-search"></i></button> -->
+        </div>
+    </form>
 </header>
