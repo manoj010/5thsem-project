@@ -49,8 +49,9 @@ class BookingController extends Controller
     
 
     public function BookingVerify($id){
+      
 
-        Booking::findOrFail($id)->update(['status'=>'1']);
+        Booking::where('id',$id)->update(['status'=>'1']);
 
         $notification = array(
             'message' => 'Booking Verify Successfully',
@@ -59,7 +60,8 @@ class BookingController extends Controller
         return redirect()->back()->with($notification);
     }
     public function RemoveVerify($id){
-        $booking_id = Booking::findOrFail($id)->update(['status'=>'0']); 
+        
+        $booking_id = Booking::where('id',$id)->update(['status'=>'0']); 
 
         $notification = array(
             'message' => 'Remove Verify Booking Successfully',

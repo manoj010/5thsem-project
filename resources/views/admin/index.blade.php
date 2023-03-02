@@ -145,7 +145,7 @@
                                             </td>
 
                                             <td>
-                                                @if($user_book->status == 1)
+                                                @if($user_book->status == '1')
 
                                                 <a href="{{route('remove.verify',$user_book->id)}}"><span
                                                         class="badge badge-complete">Complete</span></a>
