@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\VehicleModel;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
@@ -68,6 +69,12 @@ class BookingController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
+    }
+
+    public function UserBooking(){
+        $userBooking = Booking::with('rBike')->where('user_id',Auth::id())->latest()->get();
+
+        return view('frontend.index.booking.user_booking', compact('userBooking'));
     }
     
 }

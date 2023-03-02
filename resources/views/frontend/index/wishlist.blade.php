@@ -28,8 +28,8 @@
 
         <div class="card body">
 
-            <div class="card-header">
-                <strong class="card-title text-center">Wishlist</strong>
+            <div class="card-header text-center">
+                <strong class="card-title ">Your Wishlist</strong>
             </div>
 
 
@@ -60,7 +60,8 @@
                             <td><img src="{{ asset( $wishlists->model->model_thumbnail) }}" width="100"> </td>
                             <td>Rs.{{$wishlists['model']['price']}}
                             <td class="text-center">
-                                <a href="{{route('wishlist.remove',$wishlists->id)}}" class="btn btn-danger">Remove</a>
+                                <a href="{{route('wishlist.remove',$wishlists->id)}}" class="btn btn-danger"><i
+                                        class="fa-solid fa-trash"></i></a>
                                 <a href="{{ url('model/details/'.$wishlists->model->id.'/'.$wishlists->model->model_slug )}}"
                                     title="View Bike" class="btn btn-info"><i class="fa-regular fa-eye"></i></a>
                                 <a href="{{ route('booking',$wishlists->model->id) }}"

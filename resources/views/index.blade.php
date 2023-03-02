@@ -93,8 +93,14 @@
                                             <td>Rs.{{$booking['rBike']['price']}}
                                             </td>
                                             <td class="">
+                                                @if($booking->status == 1)
+                                                <a class="btn btn-success" disabled><i
+                                                        class="fa-solid fa-check"></i></a>
+                                                @else
                                                 <a href=" {{route('remove.booking',$booking->id)}}"
-                                                    class="btn btn-danger">Remove</a>
+                                                    class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                                @endif
+
 
                                             </td>
                                             <td class="text-center">

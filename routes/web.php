@@ -40,6 +40,7 @@ Route::middleware('auth','role:user')->group(function() {
     Route::get('/booking/{id}',[BookingController::class,'booking'])->name('booking');
     Route::post('/booking-submit',[BookingController::class,'bookingSubmit'])->name('bookingSubmit');
     Route::get('/remove/booking/{id}',[BookingController::class,'RemoveBooking'])->name('remove.booking');
+    Route::get('/all/booking',[BookingController::class,'UserBooking'])->name('user.booking');
     //user only contact to admin 
     Route::post('/contact', [ContactpageController::class, 'contact'])->name('contact');
     Route::post('/add/rating', [RatingController::class, 'AddRating'])->name('add.rating');
