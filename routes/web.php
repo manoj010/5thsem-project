@@ -40,6 +40,7 @@ Route::middleware('auth','role:user')->group(function() {
     Route::get('/booking/{id}',[BookingController::class,'booking'])->name('booking');
     Route::post('/booking-submit',[BookingController::class,'bookingSubmit'])->name('bookingSubmit');
     Route::get('/remove/booking/{id}',[BookingController::class,'RemoveBooking'])->name('remove.booking');
+    Route::get('/all/booking',[BookingController::class,'UserBooking'])->name('user.booking');
     //user only contact to admin 
     Route::post('/contact', [ContactpageController::class, 'contact'])->name('contact');
     Route::post('/add/rating', [RatingController::class, 'AddRating'])->name('add.rating');
@@ -47,6 +48,7 @@ Route::middleware('auth','role:user')->group(function() {
     Route::post('/post-review', [ReviewController::class, 'PostReview'])->name('post.review');
     Route::get('/edit-review/{id}/{model_slug}', [ReviewController::class, 'EditReview'])->name('edit.review');
     Route::post('/update/review', [ReviewController::class, 'UpdateReview'])->name('update.review');
+    Route::get('/delete/review/{id}', [ReviewController::class, 'DeleteReview'])->name('delete.review');
 });
 
 
@@ -72,7 +74,7 @@ Route::middleware('auth','role:admin')->group(function() {
     Route::get('/admin/setting',[AdminController::class, 'AdminSetting'])->name('admin.setting');
     Route::get('/admin/change/password',[AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
     Route::post('/admin/password/update',[AdminController::class, 'AdminPasswordUpdate'])->name('password.update');
-    Route::get('all-bookings',[AdminController::class,'showBookings'])->name('showBookings');
+   
 });
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class);
@@ -140,6 +142,16 @@ Route::middleware('auth','role:admin')->group(function() {
         Route::get('/contactpage','contactpage')->name('contactpage');
         Route::get('/delete/{id}','deleteContactinfo');
     });
+    
+    Route::controller(BookingController::class)->group(function(){
+        Route::get('all-bookings','showBookings')->name('showBookings');
+        Route::get('/verify/booking/{id}','BookingVerify')->name('booking.verify');
+        Route::get('/remove/verify/booking/{id}','RemoveVerify')->name('remove.verify');
+    });
+
+    // Route::get('/model/details/{id}/{slug}',[AdminController::class,'ModelDetails'])->name('model.details');
+
+    Route::get('/all/users',[AdminController::class,'AllUsers'])->name('all.users');
 });
 
 

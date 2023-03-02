@@ -48,7 +48,7 @@
                         </li>
                         @endforeach
 
-                        <li><a href="{{route('dashboard')}}">Booking</a>
+                        <li><a href="{{route('user.booking')}}">Booking</a>
                         </li>
 
                         <li><a href="{{route('compare')}}">Compare</a></li>

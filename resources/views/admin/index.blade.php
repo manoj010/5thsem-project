@@ -19,7 +19,7 @@
                             <div class="stat-content">
                                 <div class="text-left dib">
                                     <div class="stat-text"><span class="count">{{$totalVehicle}}</span></div>
-                                    <div class="stat-heading">Total Vehicle</div>
+                                    <a href="{{route('all.model')}}" class="stat-heading">Total Vehicle</a>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                             <div class="stat-content">
                                 <div class="text-left dib">
                                     <div class="stat-text"><span class="count">{{$totalBrand}}</span></div>
-                                    <div class="stat-heading">Brands</div>
+                                    <a href="{{route('all.brand')}}" class="stat-heading">Brands</a>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +145,17 @@
                                             </td>
 
                                             <td>
-                                                <span class="badge badge-complete">Complete</span>
+                                                @if($user_book->status == '1')
+
+                                                <a href="{{route('remove.verify',$user_book->id)}}"><span
+                                                        class="badge badge-complete">Complete</span></a>
+                                                @else
+
+                                                <a href="{{route('booking.verify',$user_book->id)}}"><span
+                                                        class="badge badge-danger">Verify</span></a>
+
+                                                @endif
+
                                             </td>
                                         </tr>
                                         @endforeach

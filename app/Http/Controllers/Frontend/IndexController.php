@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\MultiImage;
 use App\Models\Rating;
 use App\Models\Review;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
@@ -18,6 +19,8 @@ class IndexController extends Controller
 {
 
     public function Master(){
+        $id = Auth::user()->id;
+        $userData = User::find($id);
         $category_1 = Category::skip(0)->first();
         $category_1_model = VehicleModel::where('category_id',$category_1->id)->orderBy('model_name','ASC')->get();
 
@@ -33,7 +36,7 @@ class IndexController extends Controller
        
    
         return view('frontend.index',compact('category_1','category_1_model','category_2','category_2_model',
-        'category_3','category_3_model','category_4','category_4_model'));
+        'category_3','category_3_model','category_4','category_4_model','userData'));
     }
     
     public function ModelDetails($id,$slug){
