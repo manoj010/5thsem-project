@@ -131,9 +131,4 @@ class AdminController extends Controller
         return redirect()->route('admin.dashboard')->with($notification);
     }
 
-    public function showBookings(){
-        $bookings = Booking::with('rBike')->with('rUser')->get();
-        return view('Backend.bookings',compact('bookings'));
-    }
-    
 }

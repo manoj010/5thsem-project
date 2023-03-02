@@ -73,7 +73,7 @@ Route::middleware('auth','role:admin')->group(function() {
     Route::get('/admin/setting',[AdminController::class, 'AdminSetting'])->name('admin.setting');
     Route::get('/admin/change/password',[AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
     Route::post('/admin/password/update',[AdminController::class, 'AdminPasswordUpdate'])->name('password.update');
-    Route::get('all-bookings',[AdminController::class,'showBookings'])->name('showBookings');
+   
 });
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class);
@@ -140,6 +140,12 @@ Route::middleware('auth','role:admin')->group(function() {
     Route::controller(ContactpageController::class)->group(function(){
         Route::get('/contactpage','contactpage')->name('contactpage');
         Route::get('/delete/{id}','deleteContactinfo');
+    });
+    
+    Route::controller(BookingController::class)->group(function(){
+        Route::get('all-bookings','showBookings')->name('showBookings');
+        Route::get('/verify/booking/{id}','BookingVerify')->name('booking.verify');
+        Route::get('/remove/verify/booking/{id}','RemoveVerify')->name('remove.verify');
     });
 });
 

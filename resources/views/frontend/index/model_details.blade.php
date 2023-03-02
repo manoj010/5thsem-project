@@ -5,7 +5,7 @@
 /* rating */
 .rating-css div {
     color: #ffe400;
-    font-size: 10px;
+    font-size: 20px;
     font-family: sans-serif;
     font-weight: 800;
     text-align: center;
@@ -13,6 +13,7 @@
     padding: 20px 0;
     height: 100px;
     width: 200px;
+    margin-left: 105px;
 }
 
 .rating-css input {
@@ -20,8 +21,8 @@
 }
 
 .rating-css input+label {
-    font-size: 20px;
-    text-shadow: 1px 1px 0 #8f8420;
+    font-size: 30px;
+    text-shadow: 2px 1px 0 #8f8420;
     cursor: pointer;
 }
 

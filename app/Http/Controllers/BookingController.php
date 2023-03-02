@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\VehicleModel;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class BookingController extends Controller
 {
@@ -36,6 +37,34 @@ class BookingController extends Controller
             'alert-type' => 'success'
         );
 
+        return redirect()->back()->with($notification);
+    }
+
+
+    
+    public function showBookings(){
+        $bookings = Booking::with('rBike')->with('rUser')->get();
+        return view('Backend.bookings',compact('bookings'));
+    }
+    
+
+    public function BookingVerify($id){
+
+        Booking::findOrFail($id)->update(['status'=>'1']);
+
+        $notification = array(
+            'message' => 'Booking Verify Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function RemoveVerify($id){
+        $booking_id = Booking::findOrFail($id)->update(['status'=>'0']); 
+
+        $notification = array(
+            'message' => 'Remove Verify Booking Successfully',
+            'alert-type' => 'success'
+        );
         return redirect()->back()->with($notification);
     }
     
