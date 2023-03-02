@@ -147,6 +147,10 @@ Route::middleware('auth','role:admin')->group(function() {
         Route::get('/verify/booking/{id}','BookingVerify')->name('booking.verify');
         Route::get('/remove/verify/booking/{id}','RemoveVerify')->name('remove.verify');
     });
+
+    // Route::get('/model/details/{id}/{slug}',[AdminController::class,'ModelDetails'])->name('model.details');
+
+    Route::get('/all/users',[AdminController::class,'AllUsers'])->name('all.users');
 });
 
 

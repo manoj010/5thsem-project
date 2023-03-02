@@ -131,4 +131,10 @@ class AdminController extends Controller
         return redirect()->route('admin.dashboard')->with($notification);
     }
 
+    public function AllUsers(){
+        $users = User::where('role','user')->latest()->get();
+        
+        return view('Backend.Users.all_users',compact('users'));
+    }
+
 }

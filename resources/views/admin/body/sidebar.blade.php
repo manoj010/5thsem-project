@@ -36,6 +36,11 @@
                     <a href="{{route('contactpage')}}"> <i class="menu-icon fa-sharp fa-solid fa-c"></i>Contact</a>
                 </li>
 
+                <li>
+                    <a href="{{route('all.users')}}"> <i class="menu-icon fa-solid fa-users"></i>Users</a>
+                </li>
+
+
                 <!---
 
                 <li class=" menu-title">Bike and Scooter</li>
