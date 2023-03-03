@@ -44,7 +44,7 @@
                             <th>Image</th>
                             <th>Price</th>
                             <th>Action</th>
-                            <th>Status</th>
+                            <th class="text-center">Status</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -148,9 +148,7 @@ Route::middleware('auth','role:admin')->group(function() {
         Route::get('/verify/booking/{id}','BookingVerify')->name('booking.verify');
         Route::get('/remove/verify/booking/{id}','RemoveVerify')->name('remove.verify');
     });
-
-    // Route::get('/model/details/{id}/{slug}',[AdminController::class,'ModelDetails'])->name('model.details');
-
+    
     Route::get('/all/users',[AdminController::class,'AllUsers'])->name('all.users');
 });
 
@@ -163,14 +161,16 @@ Route::get('/all/brand/show',[IndexController::class,'AllBrandShow'])->name('all
 
 Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
 
-Route::get('/compare', [IndexController::class, 'Compare'])->name('compare');
+
 
 
 
 Route::controller(IndexController::class)->group(function(){
     Route::get('/', 'Master')->name('main');
+    Route::get('/compare', 'Compare')->name('compare');
+    Route::post('/compare/models', 'CompareModel')->name('compare.models');
     Route::post('/search','ModelSearch')->name('model.search');
     Route::get('/models-list', 'SearchModels');
-    Route::post('/compare/models', 'CompareModel')->name('compare.models');
+    Route::get('/brand/{id}/{slug}', 'BrandModel')->name('brand.show');
     
 });

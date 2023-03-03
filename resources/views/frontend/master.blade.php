@@ -172,8 +172,8 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
     var swiper = new Swiper(".card_slider", {
-        slidesPerView: 4,
-        spaceBetween: 20,
+        slidesPerView: 2,
+
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",

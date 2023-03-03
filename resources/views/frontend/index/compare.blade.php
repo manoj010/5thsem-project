@@ -8,7 +8,7 @@
                 <div class="cta-content">
                     <br>
                     <br>
-                    <h2>Confused? <em>Easy Way to Compare</em> Bikes</h2>
+                    <h2>Confused? <em>Easy Way to Compare</em> Bikes and Scooters</h2>
 
                 </div>
             </div>

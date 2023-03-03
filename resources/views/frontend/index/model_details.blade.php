@@ -208,7 +208,7 @@
 
                                 <div class="span">
                                     <span style="color:rgb(199, 80, 25)">Rs.
-                                        3,59,900
+                                        {{$models->price}}
                                     </span>
 
                                     @php

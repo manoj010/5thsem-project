@@ -6,15 +6,14 @@
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="cta-content">
-                    @foreach($categories as $category)
+
 
                     <br>
                     <br>
-                    <h2>Our Range Of <em>{{$category->category_name}}</em>
-                        <span> {{$category['vehicle']['vehicle_name']}}</span>
+                    <h2> <em>{{$brand->brand_name}}</em><span> Brand</span>
                     </h2>
 
-                    @endforeach
+
 
                 </div>
             </div>
