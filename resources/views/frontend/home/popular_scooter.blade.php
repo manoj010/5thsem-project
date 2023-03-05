@@ -15,7 +15,7 @@
             @foreach($category_4_model as $bike)
             <div class="col-lg-3 ">
                 <div class="trainer-item">
-                    <a href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}} class=" image-thumb">
+                    <a href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}" class=" image-thumb">
                         <div><img src="{{asset($bike->model_thumbnail)}}" alt="" /></div>
                     </a>
                     <div class="down-content">

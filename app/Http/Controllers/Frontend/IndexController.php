@@ -19,8 +19,7 @@ class IndexController extends Controller
 {
 
     public function Master(){
-        $id = Auth::user()->id;
-        $userData = User::find($id);
+        
         $category_1 = Category::skip(0)->first();
         $category_1_model = VehicleModel::where('category_id',$category_1->id)->orderBy('model_name','ASC')->get();
 
@@ -36,8 +35,27 @@ class IndexController extends Controller
        
    
         return view('frontend.index',compact('category_1','category_1_model','category_2','category_2_model',
-        'category_3','category_3_model','category_4','category_4_model','userData'));
+        'category_3','category_3_model','category_4','category_4_model'));
     }
+
+
+    public function BrandModel(Request $request,$id,$slug){
+        $brand = Brand::findOrFail($id);
+        
+        $models = VehicleModel::query()->where('brand_id',$brand->id)->latest()->get();
+
+        $all_category = Category::all();
+
+  
+        $category = Category::where('category_name','Upcoming')->first();
+        // $category_id = Category::where('id',$category->id)->get();
+        // dd($category_id);
+        
+        $model_Upcoming = VehicleModel::where('brand_id',$brand->id)->where('category_id',$category->id)->limit(3)->latest()->get();
+        
+        return view('frontend.index.show_brand.show_brand',compact('brand','models','model_Upcoming','all_category'));
+    }
+
     
     public function ModelDetails($id,$slug){
         $models= VehicleModel::findOrFail($id);

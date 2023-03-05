@@ -9,8 +9,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="swiper card_slider">
-                <div class="swiper-wrapper">
+            <div class="card shadow swiper card_slider">
+                <div class="swiper-wrapper mt-4">
                     @php
                     $popular_brands =App\Models\Brand::orderBy('brand_name','ASC')->limit(12)->get();
                     @endphp
@@ -19,9 +19,9 @@
 
                     <div class="col-lg-2 swiper-slide">
                         <div class="trainer-item">
-                            <div class="image-thumb">
+                            <a href="{{ url('/brand/'.$brand->id.'/'.$brand->brand_slug )}}" class="image-thumb">
                                 <img src="{{asset($brand->brand_logo)}}" alt="" />
-                            </div>
+                            </a>
 
                         </div>
                     </div>
@@ -33,6 +33,7 @@
             </div>
             <div class="swiper-pagination"></div>
         </div>
+
 
         <br />
 

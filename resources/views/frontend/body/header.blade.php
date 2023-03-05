@@ -78,12 +78,16 @@
                             <a href="{{route('wishlist')}}"><img src="{{asset('frontend/assets/images/wishlist.png')}}"
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" />
                                 @if($totalWishlist >0)
+
                                 <span>({{$totalWishlist}})</span>
 
                                 @else
                                 @endif
                             </a>
                         </li>
+                        @php
+                        $userData = App\Models\User::where('id',Auth::user()->id)->first();
+                        @endphp
 
                         <li>
                             <a href="#" class="dropdown-toggle active text-center" data-toggle="dropdown"

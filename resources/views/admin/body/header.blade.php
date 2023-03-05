@@ -24,7 +24,7 @@
                     </form>
                 </div>
 
-                <!-- <div class="dropdown for-notification">
+                <div class="dropdown for-notification">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="notification"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-bell"></i>
@@ -45,9 +45,9 @@
                             <p>Server #3 overloaded.</p>
                         </a>
                     </div>
-                </div> -->
+                </div>
 
-                <!-- <div class="dropdown for-message">
+                <div class="dropdown for-message">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-envelope"></i>
@@ -90,7 +90,7 @@
                             </div>
                         </a>
                     </div>
-                </div> -->
+                </div>
             </div>
 
             @php
