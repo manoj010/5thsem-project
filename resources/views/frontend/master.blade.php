@@ -211,13 +211,7 @@
     const addBtn = document.querySelector('.search-form');
 
     const box = document.querySelector('#search-btn');
-
-
-    addBtn.addEventListener('hover', () => {
-        box.classList.toggle('active');
-    });
     </script>
-
 
 
 

@@ -42,12 +42,23 @@
                     <button class="btn btn-link" style="color:dark-blue;">Read More </button>
                     <div class="col-12 card-header">
                         <div class="row">
-                            <div class="col-lg-9">
+                            <div class="col-lg-8">
                                 <h5>Latest Bike</h5>
                             </div>
-                            <div class="col-lg-3">
-                                Select Category
-                                <select name="" id=""></select>
+                            <div class="col-lg-4">
+                                <select name="category" id="category">
+                                    <option value="">Change Category</option>
+                                    @if(count($all_category) >0)
+                                    @foreach($all_category as $category)
+                                    <option value="{{$category->id}}">{{$category->category_name}}
+                                        {{$category['vehicle']['vehicle_name']}}
+                                    </option>
+                                    @endforeach
+                                    @endif
+                                </select>
+                                <button class="btn btn-info">
+                                    Filter
+                                </button>
                             </div>
                         </div>
 

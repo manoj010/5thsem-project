@@ -171,6 +171,6 @@ Route::controller(IndexController::class)->group(function(){
     Route::post('/compare/models', 'CompareModel')->name('compare.models');
     Route::post('/search','ModelSearch')->name('model.search');
     Route::get('/models-list', 'SearchModels');
-    Route::get('/brand/{id}/{slug}', 'BrandModel')->name('brand.show');
+    Route::get('/brand/{id}/{slug}', 'BrandModel')->name('brand.model');
     
 });
