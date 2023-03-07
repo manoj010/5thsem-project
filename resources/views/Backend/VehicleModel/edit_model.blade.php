@@ -126,6 +126,14 @@
                                             <input type="text" name="tyre_rear" class="form-control" id="tyre_rear"
                                                 value="{{$models->tyre_rear}}">
                                         </div>
+
+
+                                        <div class="mb-3">
+                                            <label for="top_speed" class="form-label">Top Speed</label>
+                                            <input type="text" name="top_speed" class="form-control" id="top_speed"
+                                                value="{{$models->top_speed}}">
+                                        </div>
+
                                         <div class="mb-3">
                                             <label for="braking" class="form-label">Body Type</label>
                                             <div class="col col-md-6">
@@ -598,6 +606,55 @@
                                                                 <input type="radio" id="No" name="riding_mode"
                                                                     value="No" class="form-check-input"
                                                                     {{ $models->riding_mode == 'No' ? 'checked' : '' }}>No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Rain Mode</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Yes" class="form-check-label ">
+                                                                <input type="radio" id="Yes" name="rain_mode"
+                                                                    value="Yes" class="form-check-input"
+                                                                    {{ $models->rain_mode == 'Yes' ? 'checked' : '' }}>Yes
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="No" class="form-check-label mb-3">
+                                                                <input type="radio" id="No" name="rain_mode" value="No"
+                                                                    class="form-check-input"
+                                                                    {{ $models->rain_mode == 'No' ? 'checked' : '' }}>No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">ABS</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Single Channel" class="form-check-label ">
+                                                                <input type="radio" id="Single Channel" name="abs"
+                                                                    value="Single Channel" class="form-check-input"
+                                                                    {{ $models->abs == 'Single Channel' ? 'checked' : '' }}>Single
+                                                                Channel
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Dual Channel" class="form-check-label mb-3">
+                                                                <input type="radio" id="Dual Channel" name="abs"
+                                                                    value="Dual Channel" class="form-check-input"
+                                                                    {{ $models->abs == 'Dual Channel' ? 'checked' : '' }}>Dual
+                                                                Channel
                                                             </label>
                                                         </div>
                                                     </div>

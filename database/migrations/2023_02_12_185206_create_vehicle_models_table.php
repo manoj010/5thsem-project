@@ -56,6 +56,9 @@ return new class extends Migration
             $table->string('tyre_front')->nullable();
             $table->string('tyre_rear')->nullable();
             $table->string('riding_mode')->nullable();
+            $table->string('rain_mode')->nullable();
+            $table->string('abs')->nullable();
+            $table->string('top_speed')->nullable();
             $table->text('description')->nullable();
             $table->string('price');
             $table->integer('offer')->nullable();

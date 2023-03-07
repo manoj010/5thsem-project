@@ -74,6 +74,9 @@ class ModelController extends Controller
             'tyre_front' => $request->tyre_front,
             'tyre_rear' => $request->tyre_rear,
             'riding_mode' => $request->riding_mode,
+            'rain_mode' => $request->rain_mode,
+            'abs' => $request->abs,
+            'top_speed' => $request->top_speed,
             'created_at' =>Carbon::now(),
         ]);
 
@@ -156,6 +159,9 @@ class ModelController extends Controller
             'tyre_front' => $request->tyre_front,
             'tyre_rear' => $request->tyre_rear,
             'riding_mode' => $request->riding_mode,
+            'rain_mode' => $request->rain_mode,
+            'abs' => $request->abs,
+            'top_speed' => $request->top_speed,
             'updated_at' => Carbon::now(),
         ]);
 

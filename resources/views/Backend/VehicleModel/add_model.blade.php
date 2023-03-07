@@ -559,6 +559,51 @@
 
 
                                             <div class="col-md-6">
+                                                <label for="braking" class="form-label">Rain Mode</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Yes" class="form-check-label ">
+                                                                <input type="radio" id="Yes" name="rain_mode"
+                                                                    value="Yes" class="form-check-input">Yes
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="No" class="form-check-label mb-3">
+                                                                <input type="radio" id="No" name="rain_mode" value="No"
+                                                                    class="form-check-input">No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">ABS</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Single Channel" class="form-check-label ">
+                                                                <input type="radio" id="Single Channel" name="abs"
+                                                                    value="Single Channel"
+                                                                    class="form-check-input">Single Channel
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Dual Channel" class="form-check-label mb-3">
+                                                                <input type="radio" id="Dual Channel" name="abs"
+                                                                    value="Dual Channel" class="form-check-input">Dual
+                                                                Channel
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
                                                 <label for="gear_box" class="form-label">Gear Box</label>
                                                 <input type="text" name="gear_box" class="form-control" id="gear_box"
                                                     placeholder="Enter No of Gear Box">
@@ -568,6 +613,12 @@
                                                 <label for="fuel_capacity" class="form-label">Fuel Capacity</label>
                                                 <input type="text" name="fuel_capacity" class="form-control"
                                                     id="fuel_capacity" placeholder="Enter Fuel Capacity">
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="top_speed" class="form-label">Top Speed</label>
+                                                <input type="text" name="top_speed" class="form-control" id="top_speed"
+                                                    placeholder="Enter Top Speed">
                                             </div>
 
 
