@@ -424,11 +424,13 @@
                                             <p>{{$models->braking_type}} </p>
                                         </div>
 
-                                        <div class="col-sm-6">
-                                            <label>Color</label>
 
-                                            <p>Black-Orange</p>
+                                        <div class="col-sm-6">
+                                            <label>ABS</label>
+
+                                            <p>{{$models->abs}}</p>
                                         </div>
+
 
                                     </div>
                                 </article>
@@ -437,79 +439,74 @@
 
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <label>Engine Type</label>
+                                            <label>Speedometer</label>
 
-                                            <p>{{$models->engine_type}}</p>
+                                            <p>{{$models->speedometer}}</p>
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <label>Displacement</label>
+                                            <label>Tripmeter</label>
 
-                                            <p>{{$models->displacement}}<span> CC
+                                            <p>{{$models->tripmeter}}<span>
                                                 </span> </p>
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <label> Max Power</label>
+                                            <label>Odometer</label>
 
-                                            <p>{{$models->max_power}}</p>
+                                            <p>{{$models->odometer}}</p>
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <label>Max Torque</label>
+                                            <label>Techometer </label>
 
-                                            <p>{{$models->max_torque}}</p>
+                                            <p>{{$models->techometer }}</p>
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <label>Mileage</label>
+                                            <label>Seat Type</label>
 
-                                            <p>{{$models->mileage}} <span> KMpl</span></p>
+                                            <p>{{$models->seat_type}} </p>
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <label>Emission Type</label>
+                                            <label>Riding Mode </label>
 
-                                            <p>{{$models->emission_type}} </p>
+                                            <p>{{$models->riding_mode}} </p>
 
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label> Rain Mode</label>
+
+                                            <p>{{$models->rain_mode}} </p>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <label>Braking Type</label>
 
-                                            <p>{{$models->braking_type}} </p>
+                                            <p>{{$models->braking_type}}</p>
                                         </div>
 
-                                        <div class="col-sm-6">
-                                            <label>Color</label>
-
-                                            <p>Black-Orange</p>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <label>Color</label>
-
-                                            <p>Black-Orange</p>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <label>Color</label>
-
-                                            <p>Black-Orange</p>
-                                        </div>
                                     </div>
                                 </article>
                                 <article id="tabs-3">
                                     <h4>Mileage and Performance</h4>
-
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <p>ABS</p>
+                                            <label>Mileage </label>
+
+                                            <p>{{$models->mileage}}</p>
                                         </div>
+
+
                                         <div class="col-sm-6">
-                                            <p>Digita Screen View</p>
+                                            <label>Top Speed </label>
+
+                                            <p>{{$models->top_speed}} <span> KM/H</span></p>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <p>F.I system</p>
-                                        </div>
+
+
                                     </div>
                                 </article>
                                 <article id="tabs-4">
@@ -517,34 +514,119 @@
 
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <label>Name</label>
+                                            <label>Fuel Capacity</label>
 
-                                            <p>Ram Prasad</p>
+                                            <p>{{$models->fuel_capacity}}</p>
                                         </div>
                                         <div class="col-sm-6">
-                                            <label>Phone</label>
+                                            <label>Width</label>
 
-                                            <p>9852146523</p>
+                                            <p>{{$models->width}}</p>
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <label>Email</label>
-                                            <p><a href="#">ramprasad@gmail.com</a>
-                                            </p>
+                                            <label>Weight </label>
+
+                                            <p>{{$models->weight}}</p>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label>Length</label>
+
+                                            <p>{{$models->length}}</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Height</label>
+
+                                            <p>{{$models->height}}</p>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label>Saddle Height</label>
+
+                                            <p>{{$models->saddle_height}}</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Ground Clearance </label>
+
+                                            <p>{{$models->ground_clearance}}</p>
                                         </div>
                                     </div>
                                 </article>
                                 <article id="tabs-5">
                                     <h4>Electricals</h4>
+                                    <div class="row">
+
+                                        <div class="col-sm-6">
+                                            <label>Headlight</label>
+
+                                            <p>{{$models->headlight}}</p>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label>Tail Light</label>
+
+                                            <p>{{$models->tail_light}}</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Tail Light</label>
+
+                                            <p>{{$models->brake_front}}</p>
+                                        </div>
+
+                                    </div>
                                 </article>
                                 <article id="tabs-6">
                                     <h4>Tyres and Brakes</h4>
+                                    <div class="row">
 
+                                        <div class="col-sm-6">
+                                            <label>Front Brake</label>
+
+                                            <p>{{$models->brake_front}}</p>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label>Rear Brake</label>
+
+                                            <p>{{$models->brake_rear}}</p>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label>Front Tyre </label>
+
+                                            <p>{{$models->tyre_front}}</p>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label>Rear Tyre </label>
+
+                                            <p>{{$models->tyre_rear}}</p>
+                                        </div>
+
+                                    </div>
 
                                 </article>
                                 <article id="tabs-7">
                                     <h4>Underpinnings</h4>
 
+                                    <div class="row">
+
+                                        <div class="col-sm-6">
+                                            <label>Suspension Front </label>
+
+                                            <p>{{$models->suspension_front}}</p>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label>Suspension Rear </label>
+
+                                            <p>{{$models->suspension_rear}}</p>
+                                        </div>
+
+
+
+                                    </div>
 
                                 </article>
                             </section>

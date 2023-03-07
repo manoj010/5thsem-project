@@ -17,7 +17,7 @@
                         <ol class="breadcrumb text-right">
                             <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                             <li><a href="{{route('all.model')}}">All Model</a></li>
-                            <li class="active">Add Model</li>
+                            <li class="active">Edit Model</li>
                         </ol>
                     </div>
                 </div>
@@ -62,6 +62,137 @@
                                             <label for="mileage" class="form-label">Mileage</label>
                                             <input type="text" name="mileage" class="form-control" id="mileage"
                                                 value="{{$models->mileage}}">
+                                        </div>
+
+
+                                        <div class="mb-3">
+                                            <label for="width" class="form-label">Width</label>
+                                            <input type="text" name="width" class="form-control" id="width"
+                                                value="{{$models->width}}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="height" class="form-label">Height</label>
+                                            <input type="text" name="height" class="form-control" id="height"
+                                                value="{{$models->height}}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="saddle_height" class="form-label">Saddle Height</label>
+                                            <input type="text" name="saddle_height" class="form-control"
+                                                id="saddle_height" value="{{$models->saddle_height}}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="ground_clearance" class="form-label">Ground Clearance</label>
+                                            <input type="text" name="ground_clearance" class="form-control"
+                                                id="ground_clearance" value="{{$models->ground_clearance}}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="length" class="form-label">Length</label>
+                                            <input type="text" name="length" class="form-control" id="length"
+                                                value="{{$models->length}}">
+                                        </div>
+
+
+
+                                        <div class="mb-3">
+                                            <label for="seat_type" class="form-label">Seat Types</label>
+                                            <input type="text" name="seat_type" class="form-control" id="seat_type"
+                                                value="{{$models->seat_type}}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="suspension_front" class="form-label">Suspension Front</label>
+                                            <input type="text" name="suspension_front" class="form-control"
+                                                id="suspension_front" value="{{$models->suspension_front}}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="suspension_rear" class="form-label">Suspension Rear</label>
+                                            <input type="text" name="suspension_rear" class="form-control"
+                                                id="suspension_rear" value="{{$models->suspension_rear}}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="tyre_front" class="form-label">Front Tyre Size</label>
+                                            <input type="text" name="tyre_front" class="form-control" id="tyre_front"
+                                                value="{{$models->tyre_front}}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="tyre_rear" class="form-label">Rear Tyre Size</label>
+                                            <input type="text" name="tyre_rear" class="form-control" id="tyre_rear"
+                                                value="{{$models->tyre_rear}}">
+                                        </div>
+
+
+                                        <div class="mb-3">
+                                            <label for="top_speed" class="form-label">Top Speed</label>
+                                            <input type="text" name="top_speed" class="form-control" id="top_speed"
+                                                value="{{$models->top_speed}}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="braking" class="form-label">Body Type</label>
+                                            <div class="col col-md-6">
+                                                <div class="form-check">
+                                                    <div class="row">
+                                                        <div class="col col-md-9">
+                                                            <div class="radio">
+                                                                <label for="Sport" class="form-check-label ">
+                                                                    <input type="radio" id="Sport" name="body_type"
+                                                                        value="Sport" class="form-check-input"
+                                                                        {{ $models->body_type == 'Sport' ? 'checked' : '' }}>
+                                                                    Sport
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label for="Cruiser" class="form-check-label ">
+                                                                    <input type="radio" id="Cruiser" name="body_type"
+                                                                        value="Cruiser" class="form-check-input"
+                                                                        {{ $models->body_type == 'Cruiser' ? 'checked' : '' }}>Cruiser
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label for="Dual Purpose" class="form-check-label ">
+                                                                    <input type="radio" id="Dual Purpose"
+                                                                        name="body_type" value="Dual Purpose"
+                                                                        class="form-check-input"
+                                                                        {{ $models->body_type == 'Dual Purpose' ? 'checked' : '' }}>Dual
+                                                                    Purpose
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col col-md-3">
+                                                            <div class="radio">
+                                                                <label for="Naked" class="form-check-label ">
+                                                                    <input type="radio" id="Naked" name="body_type"
+                                                                        value="Naked" class="form-check-input"
+                                                                        {{ $models->body_type == 'Naked' ? 'checked' : '' }}>Naked
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label for="Offroad" class="form-check-label ">
+                                                                    <input type="radio" id="Offroad" name="body_type"
+                                                                        value="Offroad" class="form-check-input"
+                                                                        {{ $models->body_type == 'Offroad' ? 'checked' : '' }}>Offroad
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label for="Scooter" class="form-check-label ">
+                                                                    <input type="radio" id="Scooter" name="body_type"
+                                                                        value="Scooter" class="form-check-input"
+                                                                        {{ $models->body_type == 'Scooter' ? 'checked' : '' }}>Scooter
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
                                         </div>
 
 
@@ -140,14 +271,16 @@
                                                     <div class="form-check">
                                                         <div class="radio">
                                                             <label for="radio1" class="form-check-label ">
-                                                                <input type="radio" id="radio1" name="braking_type"
-                                                                    value="ABS" class="form-check-input">ABS
+                                                                <input class="form-check-input" type="radio" id="radio1"
+                                                                    name="braking_type" value="ABS"
+                                                                    {{ $models->braking_type == 'ABS' ? 'checked' : '' }}>ABS
                                                             </label>
                                                         </div>
                                                         <div class="radio">
                                                             <label for="radio2" class="form-check-label mb-3">
-                                                                <input type="radio" id="radio2" name="braking_type"
-                                                                    value="Non ABS" class="form-check-input ">Non
+                                                                <input class="form-check-input " type="radio"
+                                                                    id="radio2" name="braking_type" value="Non ABS"
+                                                                    {{ $models->braking_type == 'Non ABS' ? 'checked' : '' }}>Non
                                                                 ABS
                                                             </label>
                                                         </div>
@@ -160,17 +293,19 @@
                                                     <div class="form-check">
                                                         <div class="radio">
                                                             <label for="radio1" class="form-check-label ">
-                                                                <input type="radio" id="radio1" name="fuel_supply"
-                                                                    value="{{$models->fuel_supply}}"
-                                                                    class="form-check-input">Fuel
+                                                                <input class="form-check-input" type="radio"
+                                                                    id="Fuel Injection" name="fuel_supply"
+                                                                    value="Fuel Injection"
+                                                                    {{ $models->fuel_supply == 'Fuel Injection' ? 'checked' : '' }}>Fuel
                                                                 Injection
                                                             </label>
                                                         </div>
                                                         <div class="radio">
                                                             <label for="radio2" class="form-check-label mb-3">
-                                                                <input type="radio" id="radio2" name="fuel_supply"
-                                                                    value="{{$models->fuel_supply}}"
-                                                                    class="form-check-input">Carboretor
+                                                                <input class="form-check-input" type="radio"
+                                                                    id="Carboretor" name="fuel_supply"
+                                                                    value="Carboretor"
+                                                                    {{ $models->fuel_supply == 'Carboretor' ? 'checked' : '' }}>Carboretor
                                                             </label>
                                                         </div>
                                                     </div>
@@ -183,22 +318,359 @@
                                                     <div class="form-check">
                                                         <div class="radio">
                                                             <label for="radio1" class="form-check-label ">
-                                                                <input type="radio" id="radio1" name="starting"
-                                                                    value="Self Start" class="form-check-input">Self
+                                                                <input class=" form-check-input" type="radio"
+                                                                    id="radio1" name="starting" value="Self Start"
+                                                                    {{ $models->starting == 'Self Start' ? 'checked' : '' }}>Self
                                                                 Start
 
                                                             </label>
                                                         </div>
                                                         <div class="radio">
                                                             <label for="radio2" class="form-check-label mb-3">
-                                                                <input type="radio" id="radio2" name="starting"
-                                                                    value="Kick and Self Start"
-                                                                    class="form-check-input">Kick and
+                                                                <input class="form-check-input" type="radio" id="radio2"
+                                                                    name="starting" value="Kick and Self Start"
+                                                                    {{ $models->starting == 'Kick and Self Start' ? 'checked' : '' }}>Kick
+                                                                and
                                                                 Self Start
                                                             </label>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Cooling System </label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Liquid Cooled" class="form-check-label ">
+                                                                <input type="radio" id="Liquid Cooled"
+                                                                    name="cooling_system" value="Liquid Cooled"
+                                                                    class="form-check-input"
+                                                                    {{ $models->cooling_system == 'Liquid Cooled' ? 'checked' : '' }}>Liquid
+                                                                Cooled
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Air Cooled" class="form-check-label mb-3">
+                                                                <input type="radio" id="Air Cooled"
+                                                                    name="cooling_system" value="Air Cooled"
+                                                                    class="form-check-input"
+                                                                    {{ $models->cooling_system == 'Air Cooled' ? 'checked' : '' }}>Air
+                                                                Cooled
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Speedometer</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Digital" class="form-check-label ">
+                                                                <input type="radio" id="Digital" name="speedometer"
+                                                                    value="Digital" class="form-check-input"
+                                                                    {{ $models->speedometer == 'Digital' ? 'checked' : '' }}>Digital
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Analog" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analog" name="speedometer"
+                                                                    value="Analog" class="form-check-input"
+                                                                    {{ $models->speedometer == 'Analog' ? 'checked' : '' }}>Analog
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Techometer</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Digital" class="form-check-label ">
+                                                                <input type="radio" id="Digital" name="techometer"
+                                                                    value="Digital" class="form-check-input"
+                                                                    {{ $models->techometer == 'Digital' ? 'checked' : '' }}>Digital
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Analog" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analog" name="techometer"
+                                                                    value="Analog" class="form-check-input"
+                                                                    {{ $models->techometer == 'Analog' ? 'checked' : '' }}>Analog
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Odometer</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Digital" class="form-check-label ">
+                                                                <input type="radio" id="Digital" name="odometer"
+                                                                    value="Digital" class="form-check-input"
+                                                                    {{ $models->odometer == 'Digital' ? 'checked' : '' }}>Digital
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Analog" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analog" name="odometer"
+                                                                    value="Analog" class="form-check-input"
+                                                                    {{ $models->odometer == 'Analog' ? 'checked' : '' }}>Analog
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Tripmeter</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Digital" class="form-check-label ">
+                                                                <input type="radio" id="Digital" name="tripmeter"
+                                                                    value="Digital" class="form-check-input"
+                                                                    {{ $models->tripmeter == 'Digital' ? 'checked' : '' }}>Digital
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Analog" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analog" name="tripmeter"
+                                                                    value="Analog" class="form-check-input"
+                                                                    {{ $models->tripmeter == 'Analog' ? 'checked' : '' }}>Analog
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Fuel Gauge</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Digital" class="form-check-label ">
+                                                                <input type="radio" id="Digital" name="fuel_gauge"
+                                                                    value="Digital" class="form-check-input"
+                                                                    {{ $models->fuel_gauge == 'Digital' ? 'checked' : '' }}>Digital
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Analog" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analog" name="fuel_gauge"
+                                                                    value="Analog" class="form-check-input"
+                                                                    {{ $models->fuel_gauge == 'Analog' ? 'checked' : '' }}>Analog
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Head Light</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="LED" class="form-check-label ">
+                                                                <input type="radio" id="LED" name="headlight"
+                                                                    value="LED" class="form-check-input"
+                                                                    {{ $models->headlight == 'LED' ? 'checked' : '' }}>LED
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Halogen" class="form-check-label ">
+                                                                <input type="radio" id="Halogen" name="headlight"
+                                                                    value="Halogen" class="form-check-input"
+                                                                    {{ $models->headlight == 'Halogen' ? 'checked' : '' }}>Halogen
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Bulb" class="form-check-label mb-3">
+                                                                <input type="radio" id="Bulb" name="headlight"
+                                                                    value="Bulb" class="form-check-input"
+                                                                    {{ $models->headlight == 'Bulb' ? 'checked' : '' }}>Bulb
+                                                            </label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Tail Light</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="LED" class="form-check-label ">
+                                                                <input type="radio" id="LED" name="tail_light"
+                                                                    value="LED" class="form-check-input"
+                                                                    {{ $models->tail_light == 'LED' ? 'checked' : '' }}>LED
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Halogen" class="form-check-label ">
+                                                                <input type="radio" id="Halogen" name="tail_light"
+                                                                    value="Halogen" class="form-check-input"
+                                                                    {{ $models->tail_light == 'Halogen' ? 'checked' : '' }}>Halogen
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Bulb" class="form-check-label mb-3">
+                                                                <input type="radio" id="Bulb" name="tail_light"
+                                                                    value="Bulb" class="form-check-input"
+                                                                    {{ $models->tail_light == 'Bulb' ? 'checked' : '' }}>Bulb
+                                                            </label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Brake Front</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Disc" class="form-check-label ">
+                                                                <input type="radio" id="Disc" name="brake_front"
+                                                                    value="Disc" class="form-check-input"
+                                                                    {{ $models->brake_front == 'Disc' ? 'checked' : '' }}>Disc
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Drum" class="form-check-label mb-3">
+                                                                <input type="radio" id="Drum" name="brake_front"
+                                                                    value="Drum" class="form-check-input"
+                                                                    {{ $models->brake_front == 'Drum' ? 'checked' : '' }}>Drum
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Brake Rear</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Disc" class="form-check-label ">
+                                                                <input type="radio" id="Disc" name="brake_rear"
+                                                                    value="Disc" class="form-check-input"
+                                                                    {{ $models->brake_rear == 'Disc' ? 'checked' : '' }}>Disc
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Drum" class="form-check-label mb-3">
+                                                                <input type="radio" id="Drum" name="brake_rear"
+                                                                    value="Drum" class="form-check-input"
+                                                                    {{ $models->brake_rear == 'Drum' ? 'checked' : '' }}>Drum
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Riding Mode</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Yes" class="form-check-label ">
+                                                                <input type="radio" id="Yes" name="riding_mode"
+                                                                    value="Yes" class="form-check-input"
+                                                                    {{ $models->riding_mode == 'Yes' ? 'checked' : '' }}>Yes
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="No" class="form-check-label mb-3">
+                                                                <input type="radio" id="No" name="riding_mode"
+                                                                    value="No" class="form-check-input"
+                                                                    {{ $models->riding_mode == 'No' ? 'checked' : '' }}>No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Rain Mode</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Yes" class="form-check-label ">
+                                                                <input type="radio" id="Yes" name="rain_mode"
+                                                                    value="Yes" class="form-check-input"
+                                                                    {{ $models->rain_mode == 'Yes' ? 'checked' : '' }}>Yes
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="No" class="form-check-label mb-3">
+                                                                <input type="radio" id="No" name="rain_mode" value="No"
+                                                                    class="form-check-input"
+                                                                    {{ $models->rain_mode == 'No' ? 'checked' : '' }}>No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">ABS</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Single Channel" class="form-check-label ">
+                                                                <input type="radio" id="Single Channel" name="abs"
+                                                                    value="Single Channel" class="form-check-input"
+                                                                    {{ $models->abs == 'Single Channel' ? 'checked' : '' }}>Single
+                                                                Channel
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Dual Channel" class="form-check-label mb-3">
+                                                                <input type="radio" id="Dual Channel" name="abs"
+                                                                    value="Dual Channel" class="form-check-input"
+                                                                    {{ $models->abs == 'Dual Channel' ? 'checked' : '' }}>Dual
+                                                                Channel
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="gear_box" class="form-label">Gear Box</label>
+                                                <input type="text" name="gear_box" class="form-control" id="gear_box"
+                                                    value="{{$models->gear_box}}">
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="fuel_capacity" class="form-label">Fuel Capacity</label>
+                                                <input type="text" name="fuel_capacity" class="form-control"
+                                                    id="fuel_capacity" value="{{$models->fuel_capacity}}">
                                             </div>
 
 

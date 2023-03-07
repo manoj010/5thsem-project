@@ -75,6 +75,121 @@
                                         </div>
 
 
+
+                                        <div class="mb-3">
+                                            <label for="width" class="form-label">Width</label>
+                                            <input type="text" name="width" class="form-control" id="width"
+                                                placeholder="Enter Width">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="height" class="form-label">Height</label>
+                                            <input type="text" name="height" class="form-control" id="height"
+                                                placeholder="Enter Height">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="saddle_height" class="form-label">Saddle Height</label>
+                                            <input type="text" name="saddle_height" class="form-control"
+                                                id="saddle_height" placeholder="Enter Saddle Height">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="ground_clearance" class="form-label">Ground Clearance</label>
+                                            <input type="text" name="ground_clearance" class="form-control"
+                                                id="ground_clearance" placeholder="Enter Ground Clearance">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="length" class="form-label">Length</label>
+                                            <input type="text" name="length" class="form-control" id="length"
+                                                placeholder="Enter Length">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="seat_type" class="form-label">Seat Types</label>
+                                            <input type="text" name="seat_type" class="form-control" id="seat_type"
+                                                placeholder="Enter Seat Type">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="suspension_front" class="form-label">Suspension Front</label>
+                                            <input type="text" name="suspension_front" class="form-control"
+                                                id="suspension_front" placeholder="Enter Suspension Front Type">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="suspension_rear" class="form-label">Suspension Rear</label>
+                                            <input type="text" name="suspension_rear" class="form-control"
+                                                id="suspension_rear" placeholder="Enter Suspension Rear Type">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="tyre_front" class="form-label">Front Tyre Size</label>
+                                            <input type="text" name="tyre_front" class="form-control" id="tyre_front"
+                                                placeholder="Enter Front Tyre Size">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="tyre_rear" class="form-label">Rear Tyre Size</label>
+                                            <input type="text" name="tyre_rear" class="form-control" id="tyre_rear"
+                                                placeholder="Enter Rear Tyre Size">
+                                        </div>
+
+
+                                        <div class="mb-3">
+                                            <label for="braking" class="form-label">Body Type</label>
+                                            <div class="col col-md-6">
+                                                <div class="form-check">
+                                                    <div class="row">
+                                                        <div class="col col-md-9">
+                                                            <div class="radio">
+                                                                <label for="Sport" class="form-check-label ">
+                                                                    <input type="radio" id="Sport" name="body_type"
+                                                                        value="Sport" class="form-check-input">Sport
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label for="Cruiser" class="form-check-label ">
+                                                                    <input type="radio" id="Cruiser" name="body_type"
+                                                                        value="Cruiser" class="form-check-input">Cruiser
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label for="Dual Purpose" class="form-check-label ">
+                                                                    <input type="radio" id="Dual Purpose"
+                                                                        name="body_type" value="Dual Purpose"
+                                                                        class="form-check-input">Dual Purpose
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col col-md-3">
+                                                            <div class="radio">
+                                                                <label for="Naked" class="form-check-label ">
+                                                                    <input type="radio" id="Naked" name="body_type"
+                                                                        value="Naked" class="form-check-input">Naked
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label for="Offroad" class="form-check-label ">
+                                                                    <input type="radio" id="Offroad" name="body_type"
+                                                                        value="Offroad" class="form-check-input">Offroad
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label for="Scooter" class="form-check-label ">
+                                                                    <input type="radio" id="Scooter" name="body_type"
+                                                                        value="Scooter" class="form-check-input">Scooter
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -198,6 +313,314 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Cooling System </label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Liquid Cooled" class="form-check-label ">
+                                                                <input type="radio" id="Liquid Cooled"
+                                                                    name="cooling_system" value="Liquid Cooled"
+                                                                    class="form-check-input">Liquid Cooled
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Air Cooled" class="form-check-label mb-3">
+                                                                <input type="radio" id="Air Cooled"
+                                                                    name="cooling_system" value="Air Cooled"
+                                                                    class="form-check-input">Air Cooled
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Speedometer</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Digital" class="form-check-label ">
+                                                                <input type="radio" id="Digital" name="speedometer"
+                                                                    value="Digital" class="form-check-input">Digital
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Analog" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analog" name="speedometer"
+                                                                    value="Analog" class="form-check-input">Analog
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Techometer</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Digital" class="form-check-label ">
+                                                                <input type="radio" id="Digital" name="techometer"
+                                                                    value="Digital" class="form-check-input">Digital
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Analog" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analog" name="techometer"
+                                                                    value="Analog" class="form-check-input">Analog
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Odometer</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Digital" class="form-check-label ">
+                                                                <input type="radio" id="Digital" name="odometer"
+                                                                    value="Digital" class="form-check-input">Digital
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Analog" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analog" name="odometer"
+                                                                    value="Analog" class="form-check-input">Analog
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Tripmeter</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Digital" class="form-check-label ">
+                                                                <input type="radio" id="Digital" name="tripmeter"
+                                                                    value="Digital" class="form-check-input">Digital
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Analog" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analog" name="tripmeter"
+                                                                    value="Analog" class="form-check-input">Analog
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Fuel Gauge</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Digital" class="form-check-label ">
+                                                                <input type="radio" id="Digital" name="fuel_gauge"
+                                                                    value="Digital" class="form-check-input">Digital
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Analog" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analog" name="fuel_gauge"
+                                                                    value="Analog" class="form-check-input">Analog
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Head Light</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="LED" class="form-check-label ">
+                                                                <input type="radio" id="LED" name="headlight"
+                                                                    value="LED" class="form-check-input">LED
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Halogen" class="form-check-label ">
+                                                                <input type="radio" id="Halogen" name="headlight"
+                                                                    value="Halogen" class="form-check-input">Halogen
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Bulb" class="form-check-label mb-3">
+                                                                <input type="radio" id="Bulb" name="headlight"
+                                                                    value="Bulb" class="form-check-input">Bulb
+                                                            </label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Tail Light</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="LED" class="form-check-label ">
+                                                                <input type="radio" id="LED" name="tail_light"
+                                                                    value="LED" class="form-check-input">LED
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Halogen" class="form-check-label ">
+                                                                <input type="radio" id="Halogen" name="tail_light"
+                                                                    value="Halogen" class="form-check-input">Halogen
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Bulb" class="form-check-label mb-3">
+                                                                <input type="radio" id="Bulb" name="tail_light"
+                                                                    value="Bulb" class="form-check-input">Bulb
+                                                            </label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Brake Front</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Disc" class="form-check-label ">
+                                                                <input type="radio" id="Disc" name="brake_front"
+                                                                    value="Disc" class="form-check-input">Disc
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Drum" class="form-check-label mb-3">
+                                                                <input type="radio" id="Drum" name="brake_front"
+                                                                    value="Drum" class="form-check-input">Drum
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Brake Rear</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Disc" class="form-check-label ">
+                                                                <input type="radio" id="Disc" name="brake_rear"
+                                                                    value="Disc" class="form-check-input">Disc
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Drum" class="form-check-label mb-3">
+                                                                <input type="radio" id="Drum" name="brake_rear"
+                                                                    value="Drum" class="form-check-input">Drum
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Riding Mode</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Yes" class="form-check-label ">
+                                                                <input type="radio" id="Yes" name="riding_mode"
+                                                                    value="Yes" class="form-check-input">Yes
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="No" class="form-check-label mb-3">
+                                                                <input type="radio" id="No" name="riding_mode"
+                                                                    value="No" class="form-check-input">No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Rain Mode</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Yes" class="form-check-label ">
+                                                                <input type="radio" id="Yes" name="rain_mode"
+                                                                    value="Yes" class="form-check-input">Yes
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="No" class="form-check-label mb-3">
+                                                                <input type="radio" id="No" name="rain_mode" value="No"
+                                                                    class="form-check-input">No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">ABS</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Single Channel" class="form-check-label ">
+                                                                <input type="radio" id="Single Channel" name="abs"
+                                                                    value="Single Channel"
+                                                                    class="form-check-input">Single Channel
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Dual Channel" class="form-check-label mb-3">
+                                                                <input type="radio" id="Dual Channel" name="abs"
+                                                                    value="Dual Channel" class="form-check-input">Dual
+                                                                Channel
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <label for="gear_box" class="form-label">Gear Box</label>
+                                                <input type="text" name="gear_box" class="form-control" id="gear_box"
+                                                    placeholder="Enter No of Gear Box">
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="fuel_capacity" class="form-label">Fuel Capacity</label>
+                                                <input type="text" name="fuel_capacity" class="form-control"
+                                                    id="fuel_capacity" placeholder="Enter Fuel Capacity">
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="top_speed" class="form-label">Top Speed</label>
+                                                <input type="text" name="top_speed" class="form-control" id="top_speed"
+                                                    placeholder="Enter Top Speed">
+                                            </div>
+
 
 
 

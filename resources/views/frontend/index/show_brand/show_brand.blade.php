@@ -42,23 +42,30 @@
                     <button class="btn btn-link" style="color:dark-blue;">Read More </button>
                     <div class="col-12 card-header">
                         <div class="row">
-                            <div class="col-lg-8">
+                            <div class="col-lg-9">
                                 <h5>Latest Bike</h5>
                             </div>
-                            <div class="col-lg-4">
-                                <select name="category" id="category">
-                                    <option value="">Change Category</option>
-                                    @if(count($all_category) >0)
-                                    @foreach($all_category as $category)
-                                    <option value="{{$category->id}}">{{$category->category_name}}
-                                        {{$category['vehicle']['vehicle_name']}}
-                                    </option>
-                                    @endforeach
-                                    @endif
-                                </select>
-                                <button class="btn btn-info">
-                                    Filter
-                                </button>
+                            <div class="col-lg-3">
+                                <form action="{{ url('/brand/'.$brand->id.'/'.$brand->brand_slug )}}" method="POST">
+
+
+                                    <select name="category_filter" id="select" class="form-control ">
+                                        <option disabled="" selected="">Change Category</option>
+                                        @if(count($all_category) >0)
+                                        @foreach($all_category as $category)
+
+                                        <option value="{{$category->id}}">{{$category->category_name}}
+                                            {{$category['vehicle']['vehicle_name']}}
+                                        </option>
+
+                                        @endforeach
+                                        @endif
+                                    </select>
+                                    <button type="submit" class="btn btn-info btn-sm mt-2">
+                                        Filter
+                                    </button>
+
+                                </form>
                             </div>
                         </div>
 
@@ -105,6 +112,7 @@
                                 </div>
                             </div>
                             @endforeach
+
                         </div>
 
                     </div>
