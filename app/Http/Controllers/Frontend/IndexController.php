@@ -42,18 +42,16 @@ class IndexController extends Controller
     public function BrandModel(Request $request,$id,$slug){
         $brand = Brand::findOrFail($id);
         
-        $models = VehicleModel::query()->where('brand_id',$brand->id)->latest()->get();
-
-        $all_category = Category::all();
-
-  
         $category = Category::where('category_name','Upcoming')->first();
-        // $category_id = Category::where('id',$category->id)->get();
-        // dd($category_id);
+        $all_category = Category::all();
         
+        $models = VehicleModel::where('brand_id',$brand->id)->where('category_id','!=',$category->id)->latest()->get();
+  
+
+    
         $model_Upcoming = VehicleModel::where('brand_id',$brand->id)->where('category_id',$category->id)->limit(3)->latest()->get();
-        
-        return view('frontend.index.show_brand.show_brand',compact('brand','models','model_Upcoming','all_category'));
+
+        return view('frontend.index.show_brand.show_brand',compact('brand','models','model_Upcoming','all_category','category'));
     }
 
     
