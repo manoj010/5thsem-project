@@ -1,7 +1,7 @@
 @extends('admin.admin_dashboard')
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<div class="breadcrumbs">
+<div class="breadcrumbs mt-5">
     <div class="breadcrumbs-inner">
         <div class="row m-1">
             <div class="col-sm-4">

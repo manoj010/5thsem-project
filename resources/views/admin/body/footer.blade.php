@@ -1,4 +1,4 @@
-<footer class="site-footer">
+<footer class="site-footer mt-4">
     <div class="footer-inner bg-white">
         <div class="row">
             <div class="col-sm-6">

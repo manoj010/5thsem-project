@@ -1,14 +1,21 @@
 @extends('admin.admin_dashboard')
 @section('content')
 <div class="page-content">
-    <!--breadcrumb-->
-    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3 px-4">
-        <div class="breadcrumb-title  h3 ">Admin Profile</div>
-
-
+    <div class="breadcrumbs">
+        <div class="breadcrumbs-inner">
+            <div class="row m-0">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Admin Profile</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!--end breadcrumb-->
-    <div class="container">
+    <div class="container content">
         <div class="main-body">
             <div class="row">
                 <div class="col-lg-4">
