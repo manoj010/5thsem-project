@@ -1,7 +1,7 @@
 @extends('admin.admin_dashboard')
 @section('content')
 <div class="page-content">
-    <div class="breadcrumbs">
+    <div class="breadcrumbs mt-5">
         <div class="breadcrumbs-inner">
             <div class="row m-0">
                 <div class="col-sm-4">
@@ -27,11 +27,8 @@
                                 <div class="mt-3">
                                     <h4 class="mb-2">{{$adminData->name}}</h4>
                                     <p class="text-muted font-size-sm">{{$adminData->address}}</p>
-
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
