@@ -73,6 +73,12 @@
 
                                             </div>
                                         </div>
+                                        <div class=" mb-3">
+                                            <label for="model_color" class="form-label">Model
+                                                Color</label>
+                                            <input type="text" name="model_color" class="form-control visually-hidden"
+                                                data-role="tagsinput" value="Red, Green , Blue ">
+                                        </div>
 
 
 

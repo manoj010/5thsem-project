@@ -7,6 +7,7 @@ use App\Models\VehicleModel;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class BookingController extends Controller
 {
@@ -18,9 +19,19 @@ class BookingController extends Controller
         return view('booking',compact('bike'));
     }
     public function bookingSubmit(Request $request){
-        Booking::create([
+        Booking::insert([
             'user_id'=>auth()->user()->id,
             'bike_id'=>$request->bike_id,
+            'first_name'=>$request->first_name,
+            'last_name'=>$request->last_name,
+            'email'=>$request->email,
+            'phone_no'=>$request->phone_no,
+            'zone'=>$request->zone,
+            'district'=>$request->district,
+            'city'=>$request->city,
+            'address'=>$request->address,
+            'model_color'=>$request->model_color,
+            'created_at' => Carbon::now(),
         ]);
         $notification = array(
             'message' => 'Booking Success',

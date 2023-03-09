@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('model_slug');
             $table->string('model_no')->nullable();
             $table->string('model_thumbnail');
+            $table->string('model_color');
             $table->string('engine_type');
             $table->string('displacement');
             $table->string('fuel_supply')->nullable();

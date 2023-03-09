@@ -21,7 +21,7 @@
         <div class="col-lg-12 ">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="text-center">Booking Detail</h3>
+                    <h3 class="text-center">Booking Form</h3>
                 </div>
                 <div class="card-body">
                     <div class="text-center">
@@ -30,37 +30,101 @@
                     <div class="detail">
                         <form action="{{ route('bookingSubmit') }}" method="post">
                             @csrf
+                            <input type="hidden" name="bike_id" id="id" value="{{ $bike->id }}" class="form-control">
+
+                            <div class="card shadow ">
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="text-center">Model: <strong>{{$bike->model_name}}</strong></h3>
+                                    </div>
+
+                                    <div class="card-body m-4 p-3">
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="firstname"> <span class="text-danger align-middle">* </span>
+                                                    <strong>First Name</strong> :</label>
+                                                <input type="text" class="form-control" id="firstname"
+                                                    placeholder="First Name" name="first_name">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="lastname"><span class="text-danger align-middle">*
+                                                    </span><strong>Last
+                                                        Name:</strong> </label>
+                                                <input type="text" class="form-control" id="lastname"
+                                                    placeholder="Last Name" name="last_name">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="email"><span class="text-danger align-middle">*
+                                                    </span><strong>Email:</strong> </label>
+                                                <input type="email" class="form-control" id="email" name="email"
+                                                    placeholder="Enter Email Address">
+
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="phone"><span class="text-danger align-middle">*
+                                                    </span><strong>Mobile:</strong> </label>
+                                                <input type="tel" class="form-control" id="phone" name="phone_no"
+                                                    placeholder="Enter Mobile Number">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6 ">
+                                                <label for="district"><span class="text-danger align-middle">*
+                                                    </span><strong>District:</strong> </label>
+                                                <input type="text" class="form-control" id="district" name="district"
+                                                    placeholder="District Name">
+
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label for="city"><span class="text-danger align-middle">*
+                                                    </span><strong>City:</strong> </label>
+                                                <input type="text" class="form-control" id="city" name="city"
+                                                    placeholder="City Name">
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6 ">
+                                                <label for="zone"><span class="text-danger align-middle">*
+                                                    </span><strong>Zone:</strong></label>
+                                                <input type="text" class="form-control" id="zone" name="zone"
+                                                    placeholder="Zone Name">
+
+                                            </div>
+                                            <div class="form-group col">
+                                                <label for="location"><span class="text-danger align-middle">*
+                                                    </span><strong>Location:</strong> </label>
+                                                <input type="text" class="form-control" id="location" name="address"
+                                                    placeholder="Location Name">
+
+                                            </div>
+                                            <div class="form-group col">
+                                                <label for="color"><span class="text-danger align-middle">*
+                                                    </span><strong>Model Color:</strong> </label>
+                                                <input type="text" class="form-control" id="color" name="model_color"
+                                                    placeholder="Location Name">
+
+                                            </div>
 
 
-                            <!-- //// -->
-                            <div class="card-body card-block">
-                                <div class="form-group "><label for="id" class=" form-control-label">Bike Id
-                                    </label><input type="text" name="bike_id" id="id" value="{{ $bike->id }}"
-                                        class="form-control">
-                                </div>
-                                <div class="form-group "><label for="bike" class=" form-control-label">Bike Name
-                                    </label><input type="text" name="model_name" id="bike" class="form-control"
-                                        value="{{ $bike->model_name }}">
-                                </div>
-                                <div class="form-group "><label for="user_name" class=" form-control-label">User Name
-                                    </label><input type="text" name="name" id="user_name"
-                                        value="{{ auth()->user()->name }}" class="form-control">
-                                </div>
-                                <div class="form-group "><label for="email" class=" form-control-label">User Email
-                                    </label><input type="email" name="email" id="email"
-                                        value="{{ auth()->user()->email }}" class="form-control">
-                                </div>
-                                <div class="form-group "><label for="phone" class=" form-control-label">User Phone
-                                    </label><input type="text" name="phone" id="phone"
-                                        value="{{ auth()->user()->phone }}" class="form-control">
-                                </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary d-block ">Submit</button>
 
-                                <div class="col-sm-6 text-secondary">
-                                    <input type="submit" class="btn btn-primary px-4 mt-2" value="Submit" />
+
+
+
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- ///////// -->
 
                         </form>
                     </div>
