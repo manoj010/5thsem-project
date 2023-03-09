@@ -177,3 +177,4 @@ Route::controller(IndexController::class)->group(function(){
 });
 
 Route::get('/test/ride',[TestRideController::class,'TestRide'])->name('test.ride');
+Route::post('/add/test/ride',[TestRideController::class,'AddTestRide'])->name('add.test.ride');
