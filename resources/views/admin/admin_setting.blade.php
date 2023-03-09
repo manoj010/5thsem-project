@@ -54,7 +54,7 @@
                             </div>
                         </div>
                     </a> 
-                    <a href="">
+                    <a href="{{route('all.admins')}}">
                         <div class="form-group my-4">
                             <div class="input-group">
                                 <div class="input-group-addon px-4 mr-1" style="width: 200px;">View All Admin</div>

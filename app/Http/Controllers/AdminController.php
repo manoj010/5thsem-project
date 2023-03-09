@@ -137,4 +137,10 @@ class AdminController extends Controller
         return view('Backend.Users.all_users',compact('users'));
     }
 
+    public function allAdmins(){
+        $admins = User::where('role','admin')->latest()->get();
+        
+        return view('Backend.Admins.all_admins',compact('admins'));
+    }
+
 }
