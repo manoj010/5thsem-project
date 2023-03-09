@@ -46,26 +46,23 @@
                                 <h5>Latest Bike</h5>
                             </div>
                             <div class="col-lg-3">
-                                <form action="{{ url('/brand/'.$brand->id.'/'.$brand->brand_slug )}}" method="POST">
 
 
-                                    <select name="category_filter" id="select" class="form-control ">
-                                        <option disabled="" selected="">Change Category</option>
-                                        @if(count($all_category) >0)
-                                        @foreach($all_category as $category)
+                                <select name="category_filter" id="select" class="form-control ">
+                                    <option disabled="" selected="">Change Category</option>
+                                    @if(count($brands) >0)
+                                    @foreach($brands as $brand)
 
-                                        <option value="{{$category->id}}">{{$category->category_name}}
-                                            {{$category['vehicle']['vehicle_name']}}
-                                        </option>
+                                    <option>
+                                        <a
+                                            href="{{ url('/brand/'.$brand->id.'/'.$brand->brand_slug )}}">{{$brand->brand_name}}</a>
 
-                                        @endforeach
-                                        @endif
-                                    </select>
-                                    <button type="submit" class="btn btn-info btn-sm mt-2">
-                                        Filter
-                                    </button>
+                                    </option>
 
-                                </form>
+                                    @endforeach
+                                    @endif
+                                </select>
+
                             </div>
                         </div>
 

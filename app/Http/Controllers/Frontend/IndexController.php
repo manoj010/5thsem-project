@@ -39,19 +39,21 @@ class IndexController extends Controller
     }
 
 
-    public function BrandModel(Request $request,$id,$slug){
+    public function BrandModel($id,$slug){
+        
         $brand = Brand::findOrFail($id);
         
         $category = Category::where('category_name','Upcoming')->first();
-        $all_category = Category::all();
+        $brands = Brand::all();
         
-        $models = VehicleModel::where('brand_id',$brand->id)->where('category_id','!=',$category->id)->latest()->get();
+        $models = VehicleModel::where('brand_id',$brand->id)->where('category_id','!=',$category->id)->orderBy('model_name','asc')->latest()->get();
+        
   
 
     
         $model_Upcoming = VehicleModel::where('brand_id',$brand->id)->where('category_id',$category->id)->limit(3)->latest()->get();
 
-        return view('frontend.index.show_brand.show_brand',compact('brand','models','model_Upcoming','all_category','category'));
+        return view('frontend.index.show_brand.show_brand',compact('brand','models','model_Upcoming','brands','category'));
     }
 
     
@@ -76,10 +78,24 @@ class IndexController extends Controller
         return view('frontend.index.model_details',compact('models','multiImg','ratings','rating_value','user_rating','reviews'));
     }
     
-    public function CategoryBike($id,$slug){
+    public function CategoryBike(Request $request,$id,$slug){
+        $brand = $request->brand_select;
+        $selectByCC = $request->select_cc;
+       
+        
+        
         $categories = Category::where('id',$id)->get();
         
+
         $models = VehicleModel::where('category_id',$id)->get();
+
+        
+            
+            
+        
+        
+        
+        
         
     
        return view('frontend.index.bike_categories',compact('categories','models'));
