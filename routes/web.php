@@ -151,6 +151,7 @@ Route::middleware('auth','role:admin')->group(function() {
     });
     
     Route::get('/all/users',[AdminController::class,'AllUsers'])->name('all.users');
+    Route::get('/all/admins',[AdminController::class,'allAdmins'])->name('all.admins');
 });
 
 

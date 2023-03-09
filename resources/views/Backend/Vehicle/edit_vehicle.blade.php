@@ -1,6 +1,6 @@
 @extends('admin.admin_dashboard')
 @section('content')
-<div class="breadcrumbs">
+<div class="breadcrumbs mt-5">
     <div class="breadcrumbs-inner">
         <div class="row m-0">
             <div class="col-sm-4">

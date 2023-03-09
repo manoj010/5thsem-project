@@ -1,12 +1,12 @@
 @extends('admin.admin_dashboard')
 @section('content')
-<div class="breadcrumbs">
+<div class="breadcrumbs mt-5">
     <div class="breadcrumbs-inner">
         <div class="row m-0">
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <strong class="card-title text-center">All Users </strong>
+                        <h1>All Users</h1>
                     </div>
                 </div>
             </div>

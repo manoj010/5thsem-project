@@ -1,14 +1,21 @@
 @extends('admin.admin_dashboard')
 @section('content')
 <div class="page-content">
-    <!--breadcrumb-->
-    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3 px-4">
-        <div class="breadcrumb-title  h3 ">Admin Profile</div>
-
-
+    <div class="breadcrumbs mt-5">
+        <div class="breadcrumbs-inner">
+            <div class="row m-0">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Admin Profile</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!--end breadcrumb-->
-    <div class="container">
+    <div class="container content">
         <div class="main-body">
             <div class="row">
                 <div class="col-lg-4">
@@ -20,11 +27,8 @@
                                 <div class="mt-3">
                                     <h4 class="mb-2">{{$adminData->name}}</h4>
                                     <p class="text-muted font-size-sm">{{$adminData->address}}</p>
-
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>

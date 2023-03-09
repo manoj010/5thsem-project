@@ -1,14 +1,29 @@
 @extends('admin.admin_dashboard')
 @section('content')
-<div class="animated fadeIn">
 
+<div class="breadcrumbs mt-5">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Admin Change Password</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <div class="row">
-
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header h3 text-center">Admin Change Password</div>
-                <div class="card-body card-block">
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Change Password</strong>
+                    </div>
+                    <div class="card-body">
                     <form method="post" action="{{route('password.update')}}">
                         @csrf
 
@@ -54,10 +69,10 @@
                         <div class="form-actions form-group"><button type="submit"
                                 class="btn btn-success btn-sm">Change</button></div>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 @endsection
