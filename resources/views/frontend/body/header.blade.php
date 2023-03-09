@@ -50,6 +50,8 @@
 
                         <li><a href="{{route('user.booking')}}">Booking</a>
                         </li>
+                        <li><a href="{{route('test.ride')}}">Test Ride</a>
+                        </li>
 
                         <li><a href="{{route('compare')}}">Compare</a></li>
 

@@ -19,6 +19,15 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('bike_id');
             $table->foreign('bike_id')->references('id')->on('vehicle_models')->onDelete('cascade');
+            table->string('first_name');
+            table->string('last_name');
+            table->string('email');
+            table->string('phone_no');
+            table->string('zone');
+            table->string('district');
+            table->string('city');
+            table->string('address');
+            table->string('model_color');
             $table->integer('status')->default(0);
             $table->timestamps();
         });

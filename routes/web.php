@@ -14,6 +14,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Frontend\RatingController;
 use App\Http\Controllers\Frontend\ReviewController;
+use App\Http\Controllers\Frontend\TestRideController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 
@@ -174,3 +175,5 @@ Route::controller(IndexController::class)->group(function(){
     Route::get('/brand/{id}/{slug}', 'BrandModel')->name('brand.model');
     
 });
+
+Route::get('/test/ride',[TestRideController::class,'TestRide'])->name('test.ride');

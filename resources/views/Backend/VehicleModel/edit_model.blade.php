@@ -58,6 +58,14 @@
                                             <input type="text" name="displacement" class="form-control"
                                                 id="displacement" value="{{$models->displacement}}">
                                         </div>
+
+                                        <div class=" mb-3">
+                                            <label for="model_color" class="form-label">Model
+                                                Color</label>
+                                            <input type="text" name="model_color" class="form-control visually-hidden"
+                                                data-role="tagsinput" value="{{$models->model_color}} ">
+                                        </div>
+
                                         <div class="mb-3">
                                             <label for="mileage" class="form-label">Mileage</label>
                                             <input type="text" name="mileage" class="form-control" id="mileage"
