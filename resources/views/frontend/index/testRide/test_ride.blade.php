@@ -70,13 +70,13 @@
                         <div class="form-group col-md-6">
                             <label for="model_name" class="col-form-label"><span class="text-danger align-middle">*
                                 </span>Model Name:</label>
-                            <input class="form-control" name="bike_id" type="text" id="model_name"
+                            <input class="form-control" name="model_name" type="text" id="model_name"
                                 placeholder="Enter Models Name">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="example-date-input" class="col-form-label"><span
-                                    class="text-danger align-middle">* </span>Date:</label>
-                            <input class="form-control" name="book_time" type="datetime-local" id="example-date-input"
+                            <label for="datetime-local" class="col-form-label"><span class="text-danger align-middle">*
+                                </span>Date:</label>
+                            <input class="form-control" name="book_time" type="datetime-local" id="datetime-local"
                                 required>
                         </div>
                     </div>

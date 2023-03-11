@@ -204,6 +204,9 @@
         $("#search-compare_2").autocomplete({
             source: availableTags
         });
+        $("#model_name").autocomplete({
+            source: availableTags
+        });
     }
     </script>
 
