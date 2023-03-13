@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Frontend\RatingController;
 use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\TestRideController;
+use App\Http\Controllers\Frontend\FilterController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 
@@ -154,10 +155,7 @@ Route::middleware('auth','role:admin')->group(function() {
 });
 
 
-Route::get('/model/details/{id}/{slug}',[IndexController::class,'ModelDetails'])->name('model.details');
-Route::get('/contact',[IndexController::class,'ContactAdmin'])->name('contact.admin');
-Route::get('/vehicle/{id}/{slug}',[IndexController::class,'CategoryBike']);
-Route::get('/all/brand/show',[IndexController::class,'AllBrandShow'])->name('all.brand.show');
+
 
 
 Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
@@ -173,8 +171,24 @@ Route::controller(IndexController::class)->group(function(){
     Route::post('/search','ModelSearch')->name('model.search');
     Route::get('/models-list', 'SearchModels');
     Route::get('/brand/{id}/{slug}', 'BrandModel')->name('brand.model');
+
+    //
+    Route::get('/model/details/{id}/{slug}','ModelDetails')->name('model.details');
+    Route::get('/contact','ContactAdmin')->name('contact.admin');
+    Route::get('/vehicle/{id}/{slug}','CategoryBike');
+    Route::get('/all/brand/show','AllBrandShow')->name('all.brand.show');
     
 });
 
-Route::get('/test/ride',[TestRideController::class,'TestRide'])->name('test.ride');
-Route::post('/add/test/ride',[TestRideController::class,'AddTestRide'])->name('add.test.ride');
+
+Route::controller(TestRideController::class)->group(function(){
+    Route::get('/test/ride','TestRide')->name('test.ride');
+    Route::post('/add/test/ride','AddTestRide')->name('add.test.ride');
+    
+});
+
+Route::controller(FilterController::class)->group(function(){
+    Route::get('/all/filter/bikes&scooters','FilterBikesAndScooters')->name('all.filter.bikes&scooters');
+    Route::post('/all/filter/','AllFilter')->name('all.filter');
+    
+});

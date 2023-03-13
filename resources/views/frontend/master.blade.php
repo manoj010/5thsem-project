@@ -27,21 +27,84 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{{asset('frontend/assets/css/compare.css')}}" />
 
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/slider-range.css')}}" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
+
+
+
     <style>
+    .sidebar-widget {
+        position: relative;
+        padding: 30px;
+        border: 1px solid #ececec;
+        border-radius: 15px;
+        -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-title.style-1 {
+        position: relative;
+        border-bottom: 1px solid #ececec;
+        padding-bottom: 20px;
+        font-size: 24px;
+    }
+
+    .mb-30 {
+        margin-bottom: 30px !important;
+    }
+
+    .range .price-filter {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .range #slider-range {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border: none;
+        height: 4px;
+        border-radius: 0px;
+        background: #3BB77E;
+        color: #3BB77E;
+    }
+
+    .text-brand {
+        color: #3BB77E !important;
+
+    }
+
+
+
+    .range .list-group {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+        border-radius: .25rem;
+    }
+
+    .list-group-item {
+        padding: 1rem 2.5rem;
+    }
+
+    .btn.btn-sm,
+    .button.btn-sm {
+        padding: 8px 18px;
+        font-size: 12px;
+        text-transform: none;
+        line-height: 1.8;
+    }
+
     .inputBox {
+
         display: none;
     }
 
     .inputBox active {
         display: block;
     }
-    </style>
 
-
-
-    <style>
     .bike_name .title {
         font-size: 20px;
 
@@ -114,7 +177,8 @@
     <!-- serachbar -->
 
     <!-- jQuery -->
-    <script src="{{asset('frontend/assets/js/jquery-2.1.0.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/jquery-2.1.0.min.js')}}">
+    </script>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
 
@@ -129,6 +193,7 @@
     <script src="{{asset('frontend/assets/js/imgfix.min.js')}}"></script>
     <script src="{{asset('frontend/assets/js/mixitup.js')}}"></script>
     <script src="{{asset('frontend/assets/js/accordions.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/slider-range.js')}}"></script>
 
 
     <!-- Global Init -->
