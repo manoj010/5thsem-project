@@ -1,6 +1,7 @@
 @extends('frontend.master')
 @section('main')
 <!-- ***** Call to Action Start ***** -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/bike-landscape.jpg)">
     <div class="container">
         <div class="row">
@@ -42,27 +43,27 @@
                         <div class="sidebar-widget price_range range mb-30">
                             <div class="price-filter mb-4">
                                 <div class="price-filter-inner">
-                                    <div id="slider-range"
-                                        class="mb-20 noUi-target noUi-ltr noUi-horizontal noUi-background">
-                                        <div class="noUi-base">
-                                            <div class="noUi-origin noUi-connect" style="left: 1.05%;">
-                                                <div class="noUi-handle noUi-handle-lower"></div>
-                                            </div>
-                                            <div class="noUi-origin noUi-background" style="left: 90.8%;">
-                                                <div class="noUi-handle noUi-handle-upper"></div>
-                                            </div>
-                                        </div>
+                                    <div id="slider-range" class=" mb-2 price-filter-range" data-min="0"
+                                        data-max="2000000">
                                     </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="caption">From: <strong id="slider-range-value1"
-                                                class="text-brand">$21</strong></div>
-                                        <div class="caption">To: <strong id="slider-range-value2"
-                                                class="text-brand">$1,816</strong></div>
-                                    </div>
+
+                                    <input type="hidden" class="form-control input-sm" id="price_range"
+                                        name="price_range" value="">
+                                    <input type="text" class="form-control input-sm" id="amount"
+                                        value="Rs. 0 - Rs. 2000000" readonly="">
+
+                                    <br>
+
+                                    <button type="submit" class="btn btn-sm btn-success ">Filters</button>
+
+
                                 </div>
                             </div>
                             <div class="list-group">
+
                                 <div class="list-group-item mb-10 mt-10">
+
+                                    <div class="card-header mb-2 p-3"><strong>Brand</strong> </div>
 
                                     @if(!empty($_GET['brand']))
                                     @php
@@ -88,10 +89,37 @@
 
 
                                 </div>
+                                <div class="list-group-item mb-10 mt-10">
+
+                                    <div class="card-header mb-2 p-3"> <strong>Vehicle</strong> </div>
+
+                                    @if(!empty($_GET['vehicle']))
+                                    @php
+                                    $filterVehicle = explode(',',$_GET['vehicle']);
+                                    @endphp
+                                    @endif
+                                    <div class="custome-checkbox">
+                                        @foreach($vehicles as $vehicle)
+                                        @php
+                                        $model =App\Models\VehicleModel::where('vehicle_id',$vehicle->id)->get();
+                                        @endphp
+                                        <input class="form-check-input " type="checkbox" name="vehicle[]"
+                                            id="exampleVehicle{{$vehicle->id}}" value="{{$vehicle->vehicle_slug}}"
+                                            @if(!empty($filterVehicle) &&
+                                            in_array($vehicle->vehicle_slug,$filterVehicle))
+                                        checked @endif
+                                        onchange="this.form.submit()">
+                                        <label class="form-check-label mb-2"
+                                            for="exampleVehicle{{$vehicle->id}}"><span>{{$vehicle->vehicle_name}}
+                                                ({{count($model)}})</span></label>
+                                        <br>
+                                        @endforeach
+                                    </div>
+
+
+                                </div>
                             </div>
-                            <a href="shop-grid-right.html" class="btn ml-5 btn-primary text-center"><i
-                                    class="fi-rs-filter mr-5 "></i>
-                                Fillter</a>
+
                         </div>
                     </form>
 
@@ -179,4 +207,36 @@
     </div>
 </section>
 <!-- ***** Fleet Ends ***** -->
+
+<!-- price-range-slider -->
+<script type="text/javascript">
+$(document).ready(function() {
+    if ($('#slider-range').length > 0) {
+        const min_price = parseInt($('#slider-range').data('min'));
+        const max_price = parseInt($('#slider-range').data('max'));
+        let price_range = min_price + "-" + max_price;
+
+
+        let price = price_range.split('-');
+
+
+
+        $("#slider-range").slider({
+            range: true,
+
+            min: min_price,
+            max: max_price,
+            values: price,
+
+
+            slide: function(event, ui) {
+
+                $("#amount").val('Rs. ' + ui.values[0] + "-" + 'Rs. ' + ui.values[1]);
+                $("#price_range").val(ui.values[0] + "-" + ui.values[1]);
+
+            }
+        });
+    }
+})
+</script>
 @endsection

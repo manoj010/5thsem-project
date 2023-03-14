@@ -23,16 +23,31 @@ class FilterController extends Controller
         if (!empty($_GET['brand'])){
             $slugs = explode(',',$_GET['brand']);
             $brandId = Brand::select('id')->whereIn('brand_slug',$slugs)->pluck('id')->toArray();
-            $models = VehicleModel::whereIn('brand_id',$brandId)->orderBy('id','DESC')->get();
-        }
+            $models = VehicleModel::whereIn('brand_id',$brandId)->orderBy('model_name','ASC')->get();
+        } else if (!empty($_GET['vehicle'])){
+            $slugs = explode(',',$_GET['vehicle']);
+            $vehicleId = Vehicle::select('id')->whereIn('vehicle_slug',$slugs)->pluck('id')->toArray();
+            $models = VehicleModel::whereIn('vehicle_id',$vehicleId)->orderBy('model_name','ASC')->get();
+        } 
+        
         else {
-            $models = VehicleModel::orderBy('id','DESC')->get();
+            $models = VehicleModel::orderBy('model_name','ASC')->get();
+        }
+
+        if(!empty($_GET['price'])){
+            $price = explode('-', $_GET['price']);
+            $models = $models->whereBetween('price',$price);   
+
         }
 
         
-        $brands = Brand::latest()->get();
         
-        return view('frontend.index.search.filter_all_bikes&scooters',compact('models','brands'));
+
+        
+        $brands = Brand::orderBy('brand_name','ASC')->get();
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        
+        return view('frontend.index.search.filter_all_bikes&scooters',compact('models','brands','vehicles'));
     }
 
     public function AllFilter(Request $request){
@@ -52,6 +67,29 @@ class FilterController extends Controller
             }
         }
 
-        return redirect()->route('all.filter.bikes&scooters',$brandUrl);
+
+         //filter for vehicle
+
+         $vehicleUrl = "";
+
+         if(!empty($data['vehicle'])) {
+             foreach($data['vehicle'] as $vehicle){
+                 if(empty($vehicleUrl)) {
+                     $vehicleUrl .= '&vehicle='.$vehicle;
+                 }else {
+                     $vehicleUrl .= ','.$vehicle;
+                 }
+             }
+         }
+
+         //filter for the price range
+
+         $priceRangeUrl = "";
+         if(!empty($data['price_range'])){
+            $priceRangeUrl .= '&price='.$data['price_range'];
+            
+         }
+
+        return redirect()->route('all.filter.bikes&scooters',$brandUrl.$vehicleUrl.$priceRangeUrl);
     }
 }

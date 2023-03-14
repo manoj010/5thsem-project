@@ -27,8 +27,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{{asset('frontend/assets/css/compare.css')}}" />
 
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/slider-range.css')}}" />
+    <!-- <link rel="stylesheet" href="{{asset('frontend/assets/css/slider-range.css')}}" /> -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <!-- price range slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css"
+        media="all" />
 
 
 
@@ -85,7 +89,7 @@
     }
 
     .list-group-item {
-        padding: 1rem 2.5rem;
+        padding: 1rem 3.5rem;
     }
 
     .btn.btn-sm,
@@ -193,7 +197,10 @@
     <script src="{{asset('frontend/assets/js/imgfix.min.js')}}"></script>
     <script src="{{asset('frontend/assets/js/mixitup.js')}}"></script>
     <script src="{{asset('frontend/assets/js/accordions.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/slider-range.js')}}"></script>
+    <!-- <script src="{{asset('frontend/assets/js/slider-range.js')}}"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript">
+    </script>
 
 
     <!-- Global Init -->
