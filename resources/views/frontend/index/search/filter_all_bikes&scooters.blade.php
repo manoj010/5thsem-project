@@ -11,7 +11,7 @@
 
                     <br>
                     <br>
-                    <h2>Filter by <em> Bikes <em> and</em> Scooters</em>
+                    <h2>Filter <em> Bikes <em> and</em> Scooters</em>
                     </h2>
 
 
@@ -32,7 +32,7 @@
             <div class="col-lg-3 col-12 card">
 
                 <div class="card-header">
-                    <h4 class="text-center">Filter By Brand</h4>
+                    <h4 class="text-center">Filter</h4>
                 </div>
 
                 <div class="row">
@@ -43,6 +43,7 @@
                         <div class="sidebar-widget price_range range mb-30">
                             <div class="price-filter mb-4">
                                 <div class="price-filter-inner">
+                                    <h5 class="mb-4 text-center">Filter by Price</h5>
                                     <div id="slider-range" class=" mb-2 price-filter-range" data-min="0"
                                         data-max="2000000">
                                     </div>
@@ -144,7 +145,9 @@
                     <div class="col-12 card-header">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h5>Latest Bike</h5>
+
+
+                                <h5>All</h5>
                             </div>
 
                         </div>
