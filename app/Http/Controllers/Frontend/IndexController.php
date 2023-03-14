@@ -170,4 +170,7 @@ class IndexController extends Controller
 
     return view('frontend.index.compareSpecification',compact('models_1','models_2','rating_value_model_1','reviews_count','rating_value_models_2','reviews_count2'));
    }
+
+  
+   
 }

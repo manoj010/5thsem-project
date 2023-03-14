@@ -5,6 +5,10 @@
  @include('frontend.home.main_banner')
  <!-- ***** Header Area End ***** -->
 
+ <!-- ***** Header Area Start ***** -->
+ @include('frontend.home.bike_in_spotlight')
+ <!-- ***** Header Area End ***** -->
+
  <!-- ***** popular brand Starts ***** -->
  @include('frontend.home.popular_brand')
  <!-- ***** popular brand Ends ***** -->

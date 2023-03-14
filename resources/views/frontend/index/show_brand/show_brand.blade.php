@@ -1,6 +1,7 @@
 @extends('frontend.master')
 @section('main')
 <!-- ***** Call to Action Start ***** -->
+
 <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/bike-landscape.jpg)">
     <div class="container">
         <div class="row">
@@ -120,51 +121,50 @@
             <!-- upcoming vehicle -->
 
             <div class="col-lg-3 col-12 card">
-                <div class=" ">
-                    <div class="card-header text-center">
-                        <h5><strong>Upcoming Bike </strong></h5>
-                    </div>
-                    <div class="row">
 
-                        @foreach($model_Upcoming as $bike)
-                        <div class=" col-lg-10 m-3">
-                            <div class="trainer-item">
-                                <a href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}"
-                                    class=" image-thumb">
-                                    <div><img src="{{asset($bike->model_thumbnail)}}" alt="" /></div>
-                                </a>
-                                <div class="down-content">
+                <div class="card-header text-center">
+                    <h5><strong>Upcoming Bike </strong></h5>
+                </div>
+                <div class="row">
 
-                                    <div class="bike_name">
-                                        <a class="title" title="Model Name"
-                                            href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}">{{$bike->model_name}}
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <p>Rs. {{$bike->price}} </p>
-                                    </div>
+                    @foreach($model_Upcoming as $bike)
+                    <div class=" col-lg-10 m-3">
+                        <div class="trainer-item">
+                            <a href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}" class=" image-thumb">
+                                <div><img src="{{asset($bike->model_thumbnail)}}" alt="" /></div>
+                            </a>
+                            <div class="down-content">
 
-                                    <p>Expected Launch: June
-                                    </p>
-
-                                    <ul class="social-icons text-center">
-                                        <a href="{{ route('booking',$bike->id) }}" class="primaryButton  btn-dcb p-2"
-                                            style="border:1px solid red"><span><i class="fa fa-cart-plus"> </i>
-                                                Pre Booking
-                                        </a>
-                                    </ul>
+                                <div class="bike_name">
+                                    <a class="title" title="Model Name"
+                                        href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}">{{$bike->model_name}}
+                                    </a>
                                 </div>
+                                <div class="price">
+                                    <p>Rs. {{$bike->price}} </p>
+                                </div>
+
+                                <p>Expected Launch: June
+                                </p>
+
+                                <ul class="social-icons text-center">
+                                    <a href="{{ route('booking',$bike->id) }}" class="primaryButton  btn-dcb p-2"
+                                        style="border:1px solid red"><span><i class="fa fa-cart-plus"> </i>
+                                            Pre Booking
+                                    </a>
+                                </ul>
                             </div>
                         </div>
-                        @endforeach
                     </div>
+                    @endforeach
                 </div>
             </div>
-
-            <!--end upcoming vehicle -->
-
-
         </div>
+
+        <!--end upcoming vehicle -->
+
+
+    </div>
     </div>
 </section>
 <!-- ***** Fleet Ends ***** -->
