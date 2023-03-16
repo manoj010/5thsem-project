@@ -21,6 +21,13 @@ class IndexController extends Controller
     public function Master(){
         
         $category_1 = Category::skip(0)->first();
+        $popular_category = Category::where('category_name','Popular')->first();
+        $popular_bikes = VehicleModel::where('category_id',$popular_category->id)->orderBy('model_name','ASC')->get();
+        $off_road = VehicleModel::where('body_type','Off Road')->orderBy('model_name','ASC')->get();
+        $sport = VehicleModel::where('body_type','Sport')->orderBy('model_name','ASC')->get();
+        $best_mileage =VehicleModel::whereBetween('mileage', [50,80] )->orderBy('model_name','ASC')->get();
+        $cruiser =VehicleModel::where('body_type','Cruiser' )->orderBy('model_name','ASC')->get();
+        $commuter =VehicleModel::where('body_type','Commuter' )->orderBy('model_name','ASC')->get();
         $category_1_model = VehicleModel::where('category_id',$category_1->id)->orderBy('model_name','ASC')->get();
 
         $category_2 = Category::skip(1)->first();
@@ -31,11 +38,16 @@ class IndexController extends Controller
         
         $category_4= Category::skip(3)->first();
         $category_4_model = VehicleModel::where('category_id',$category_4->id)->orderBy('model_name','ASC')->get();
+
+        
+
+        
+
         
        
    
-        return view('frontend.index',compact('category_1','category_1_model','category_2','category_2_model',
-        'category_3','category_3_model','category_4','category_4_model'));
+        return view('frontend.index',compact('popular_bikes','category_1','category_1_model','category_2','category_2_model',
+        'category_3','category_3_model','category_4','category_4_model','off_road','sport','best_mileage','cruiser','commuter'));
     }
 
 

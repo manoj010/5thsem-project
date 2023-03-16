@@ -21,9 +21,9 @@
  @include('frontend.home.scooters_feature')
  <!-- ***** Scooter Ends ***** -->
 
- <!-- *****Popular Scooter Starts ***** -->
- @include('frontend.home.popular_bikes')
- <!-- ***** Scooter Ends ***** -->
+ <!-- *****Latest Scooter Starts ***** -->
+ @include('frontend.home.top_scooters')
+ <!-- ***** Latest Scooter Ends ***** -->
 
  <!-- *****Popular Scooter Starts ***** -->
  @include('frontend.home.popular_scooter')

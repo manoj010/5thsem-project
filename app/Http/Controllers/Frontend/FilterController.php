@@ -24,15 +24,18 @@ class FilterController extends Controller
             $slugs = explode(',',$_GET['brand']);
             $brandId = Brand::select('id')->whereIn('brand_slug',$slugs)->pluck('id')->toArray();
             $models = VehicleModel::whereIn('brand_id',$brandId)->orderBy('model_name','ASC')->get();
-        } else if (!empty($_GET['vehicle'])){
-            $slugs = explode(',',$_GET['vehicle']);
-            $vehicleId = Vehicle::select('id')->whereIn('vehicle_slug',$slugs)->pluck('id')->toArray();
-            $models = VehicleModel::whereIn('vehicle_id',$vehicleId)->orderBy('model_name','ASC')->get();
-        } 
+        }  
         
         else {
             $models = VehicleModel::orderBy('model_name','ASC')->get();
         }
+
+        if (!empty($_GET['vehicle'])){
+            $slugs = explode(',',$_GET['vehicle']);
+            $vehicleId = Vehicle::select('id')->whereIn('vehicle_slug',$slugs)->pluck('id')->toArray();
+            $models = $models->whereIn('vehicle_id',$vehicleId);
+        } 
+
 
         if(!empty($_GET['price'])){
             $price = explode('-', $_GET['price']);

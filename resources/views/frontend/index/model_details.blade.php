@@ -158,12 +158,8 @@
             <div class="tab-content" id="myTabControl">
                 <div class="tab-pane fade show active" role="tab-pane" id="bike" aria-labelledby="bike-tab">
                     <div class="d-flex">
-                        <div class="row justify-content-start" style="
-                  max-height: 400px;
-                  width: 400px;
-                  margin-left: 20px;
-                  margin-bottom: 20px;
-                ">
+                        <div class="row justify-content-start"
+                            style="max-height: 400px; width: 400px; margin-left: 20px; margin-bottom: 20px;">
 
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 <ol class="carousel-indicators">

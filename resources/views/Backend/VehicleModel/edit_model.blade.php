@@ -156,11 +156,13 @@
                                                                     Sport
                                                                 </label>
                                                             </div>
+
                                                             <div class="radio">
-                                                                <label for="Cruiser" class="form-check-label ">
-                                                                    <input type="radio" id="Cruiser" name="body_type"
-                                                                        value="Cruiser" class="form-check-input"
-                                                                        {{ $models->body_type == 'Cruiser' ? 'checked' : '' }}>Cruiser
+                                                                <label for="Off Road" class="form-check-label ">
+                                                                    <input type="radio" id="Off Road" name="body_type"
+                                                                        value="Off Road" class="form-check-input"
+                                                                        {{ $models->body_type == 'Off Road' ? 'checked' : '' }}>Off
+                                                                    Road
                                                                 </label>
                                                             </div>
                                                             <div class="radio">
@@ -172,6 +174,14 @@
                                                                     Purpose
                                                                 </label>
                                                             </div>
+                                                            <div class="radio">
+                                                                <label for="Adventure" class="form-check-label ">
+                                                                    <input type="radio" id="Adventure"
+                                                                        name="body_type" value="Adventure"
+                                                                        class="form-check-input"
+                                                                        {{ $models->body_type == 'Adventure' ? 'checked' : '' }}>Adventure
+                                                                </label>
+                                                            </div>
                                                         </div>
                                                         <div class="col col-md-3">
                                                             <div class="radio">
@@ -181,18 +191,28 @@
                                                                         {{ $models->body_type == 'Naked' ? 'checked' : '' }}>Naked
                                                                 </label>
                                                             </div>
-                                                            <div class="radio">
-                                                                <label for="Offroad" class="form-check-label ">
-                                                                    <input type="radio" id="Offroad" name="body_type"
-                                                                        value="Offroad" class="form-check-input"
-                                                                        {{ $models->body_type == 'Offroad' ? 'checked' : '' }}>Offroad
-                                                                </label>
-                                                            </div>
+
                                                             <div class="radio">
                                                                 <label for="Scooter" class="form-check-label ">
                                                                     <input type="radio" id="Scooter" name="body_type"
                                                                         value="Scooter" class="form-check-input"
                                                                         {{ $models->body_type == 'Scooter' ? 'checked' : '' }}>Scooter
+                                                                </label>
+                                                            </div>
+
+                                                            <div class="radio">
+                                                                <label for="Cruiser" class="form-check-label ">
+                                                                    <input type="radio" id="Cruiser" name="body_type"
+                                                                        value="Cruiser" class="form-check-input"
+                                                                        {{ $models->body_type == 'Cruiser' ? 'checked' : '' }}>Cruiser
+                                                                </label>
+                                                            </div>
+
+                                                            <div class="radio">
+                                                                <label for="Commuter" class="form-check-label ">
+                                                                    <input type="radio" id="Commuter" name="body_type"
+                                                                        value="Commuter" class="form-check-input"
+                                                                        {{ $models->body_type == 'Commuter' ? 'checked' : '' }}>Commuter
                                                                 </label>
                                                             </div>
                                                         </div>
