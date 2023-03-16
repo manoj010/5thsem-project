@@ -155,16 +155,25 @@
                                                                 </label>
                                                             </div>
                                                             <div class="radio">
-                                                                <label for="Cruiser" class="form-check-label ">
-                                                                    <input type="radio" id="Cruiser" name="body_type"
-                                                                        value="Cruiser" class="form-check-input">Cruiser
-                                                                </label>
+                                                                <label for="Off Road" class="form-check-label ">
+                                                                    <input type="radio" id="Off Road" name="body_type"
+                                                                        value="Off Road" class="form-check-input">Off
+                                                                    Road</label>
                                                             </div>
+
                                                             <div class="radio">
                                                                 <label for="Dual Purpose" class="form-check-label ">
                                                                     <input type="radio" id="Dual Purpose"
                                                                         name="body_type" value="Dual Purpose"
                                                                         class="form-check-input">Dual Purpose
+                                                                </label>
+                                                            </div>
+
+                                                            <div class="radio">
+                                                                <label for="Adventure" class="form-check-label ">
+                                                                    <input type="radio" id="Adventure"
+                                                                        name="body_type" value="Adventure"
+                                                                        class="form-check-input">Adventure
                                                                 </label>
                                                             </div>
                                                         </div>
@@ -175,16 +184,23 @@
                                                                         value="Naked" class="form-check-input">Naked
                                                                 </label>
                                                             </div>
-                                                            <div class="radio">
-                                                                <label for="Offroad" class="form-check-label ">
-                                                                    <input type="radio" id="Offroad" name="body_type"
-                                                                        value="Offroad" class="form-check-input">Offroad
-                                                                </label>
-                                                            </div>
+
                                                             <div class="radio">
                                                                 <label for="Scooter" class="form-check-label ">
                                                                     <input type="radio" id="Scooter" name="body_type"
                                                                         value="Scooter" class="form-check-input">Scooter
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label for="Cruiser" class="form-check-label ">
+                                                                    <input type="radio" id="Cruiser" name="body_type"
+                                                                        value="Cruiser" class="form-check-input">Cruiser
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label for="Commuter" class="form-check-label ">
+                                                                    <input type="radio" id="Commuter" name="body_type"
+                                                                        value="Commuter" class="form-check-input">Commuter
                                                                 </label>
                                                             </div>
                                                         </div>
