@@ -84,6 +84,10 @@
                                                         </p>
 
                                                         <ul class="social-icons text-center">
+                                                            @if($bike['category']['category_name'] == "Upcoming")
+                                                            <h1>pre booking</h1>
+                                                            @else
+                                                            
                                                             <a href="{{ route('booking',$bike->id) }}"
                                                                 class="primaryButton  btn-dcb p-2"
                                                                 style="border:1px solid red"><span><i
@@ -91,6 +95,7 @@
                                                                     </i>
                                                                     Book
                                                                     Now</a>
+                                                                    @endif
                                                         </ul>
                                                     </div>
                                                 </div>

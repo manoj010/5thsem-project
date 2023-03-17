@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\ModelController;
 use App\Http\Controllers\Backend\NewslettersController;
 use App\Http\Controllers\Backend\ContactpageController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\Frontend\PreBookingController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Frontend\RatingController;
 use App\Http\Controllers\Frontend\ReviewController;
@@ -39,10 +40,17 @@ Route::middleware('auth','role:user')->group(function() {
     Route::post('/add/wishlist', [WishlistController::class, 'AddToWishlist'])->name('add.wishlist');
     Route::get('/wishlist',[WishlistController::class,'UserWishlist'])->name('wishlist');
     Route::get('/remove/wishlist/{id}',[WishlistController::class,'RemoveWishlist'])->name('wishlist.remove');
+    //booking by user 
     Route::get('/booking/{id}',[BookingController::class,'booking'])->name('booking');
     Route::post('/booking-submit',[BookingController::class,'bookingSubmit'])->name('bookingSubmit');
     Route::get('/remove/booking/{id}',[BookingController::class,'RemoveBooking'])->name('remove.booking');
     Route::get('/all/booking',[BookingController::class,'UserBooking'])->name('user.booking');
+    
+    //preBooking by user
+    Route::get('/prebook/{id}',[PreBookingController::class,'PreBook'])->name('prebook');
+    Route::post('/add/prebook',[PreBookingController::class,'AddPrebook'])->name('add.prebook');
+    //end preBooking
+    
     //user only contact to admin 
     Route::post('/contact', [ContactpageController::class, 'contact'])->name('contact');
     Route::post('/add/rating', [RatingController::class, 'AddRating'])->name('add.rating');

@@ -323,9 +323,24 @@
 
                                 <div class="span" style="color:rgb(199, 80, 25)">
                                     <ul class="social-icons mt-2">
-                                        <a href="{{ route('booking',$models->id) }}" class="primaryButton  btn-dcb p-2"
-                                            style="border:1px solid red"><span><i class="fa fa-cart-plus"> </i> Book
+                                        @if($models['category']['category_name'] == "Upcoming")
+                                        <a href="{{ route('prebook',$models->id) }}"
+                                            class="primaryButton  btn-dcb p-2"
+                                            style="border:1px solid red"><span><i
+                                                    class="fa fa-cart-plus">
+                                                </i>
+                                                PreBook
                                                 Now</a>
+                                        @else
+                                        
+                                        <a href="{{ route('booking',$models->id) }}"
+                                            class="primaryButton  btn-dcb p-2"
+                                            style="border:1px solid red"><span><i
+                                                    class="fa fa-cart-plus">
+                                                </i>
+                                                Book
+                                                Now</a>
+                                                @endif
                                     </ul>
                                 </div>
                             </div>
