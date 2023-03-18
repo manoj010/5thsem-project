@@ -67,4 +67,12 @@ class CategoryController extends Controller
   
           return redirect()->back()->with($notification);
     }
+
+
+    public function allAdmins(){
+        $admins = User::where('role','admin')->latest()->get();
+        
+        return view('Backend.Admins.all_admins',compact('admins'));
+    }
+
 }
