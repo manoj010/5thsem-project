@@ -4,100 +4,67 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Brand;
-use Image;
+use App\Models\Vehicle;
+use App\Models\Category;
 
-class BrandController extends Controller
+class CategoryController extends Controller
 {
-    public function AllBrand(){
-        $brands = Brand::latest()->get();
-        return view('Backend.Brand.all_brand',compact('brands'));
+    public function AllCategory(){
+        $categories = Category::latest()->get();
+        return view('Backend.Category.all_category',compact('categories'));
     }
 
-    public function AddBrand(){
-        return view('Backend.Brand.add_brand');
+    public function AddCategory(){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        return view('Backend.Category.add_category',compact('vehicles'));
     }
 
-    public function StoreBrand(Request $request){
-        $logo = $request->file('brand_logo');
-        $img_name_gen = hexdec(uniqid()).'.'.$logo->getClientOriginalExtension();
-        Image::make($logo)->resize(960,720)->save('upload/brandImage/'.$img_name_gen);
-        $save_img_url = 'upload/brandImage/'.$img_name_gen;
-
-        Brand::insert([
-            'brand_name'=>$request->brand_name,
-            'brand_slug'=>strtolower(str_replace(' ','-',$request->brand_name)),
-            'brand_logo'=>$save_img_url,
+    public function StoreCategory(Request $request){
+        Category::insert([
+           'vehicle_id'=>$request->vehicle_name, 
+           'category_name'=>$request->category_name,
+           'category_slug'=>strtolower(str_replace(' ','-',$request->category_name)),
         ]);
 
+        
         $notification = array(
-            'message' => 'Brand Inserted Successfully',
+            'message' => 'Vehicle Category Inserted Successfully',
             'alert-type'=> 'success' 
         );
         
-        return redirect()->route('all.brand')->with($notification);
+        return redirect()->route('all.category')->with($notification);
     }
 
-    public function EditBrand($id){
-        $brands = Brand::find($id);
-        return view('Backend.Brand.edit_brand', compact('brands'));
+    public function EditCategory($id){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        $category = Category::find($id);
+        return view('Backend.Category.edit_category',compact('vehicles','category'));
     }
 
-    public function UpdateBrand(Request $request){
-        $brand_id = $request->id;
-        $old_logo = $request->old_img;
+    public function UpdateCategory(Request $request){
+        $category_id = $request->id;
+        
+        Category::find($category_id)->update([
+            'vehicle_id' => $request->vehicle_name,
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
 
-        if($request->file('brand_logo')){
-            
-            $logo = $request->file('brand_logo');
-            $img_name_gen = hexdec(uniqid()).'.'.$logo->getClientOriginalExtension();
-            Image::make($logo)->resize(300,300)->save('upload/brandImage/'.$img_name_gen);
-            $save_img_url = 'upload/brandImage/'.$img_name_gen;
-
-            if(file_exists($old_logo)){
-                unlink($old_logo);
-            }
-
-            Brand::find($brand_id)->update([
-                'brand_name'=>$request->brand_name,
-                'brand_slug'=>strtolower(str_replace(' ','-',$request->brand_name)),
-                'brand_logo'=>$save_img_url,
-            ]);
-
-            $notification = array(
-                'message' => 'Brand update with Image Successfully',
-                'alert-type'=> 'success' 
-            );
-            
-            return redirect()->route('all.brand')->with($notification);
-        }
-        else {
-            Brand::find($brand_id)->update([
-                'brand_name'=>$request->brand_name,
-                'brand_slug'=>strtolower(str_replace(' ','-',$request->brand_name)),
-            ]);
-
-            $notification = array(
-                'message' => 'Brand updated without Logo Successfully',
-                'alert-type'=> 'success' 
-            );
-            
-            return redirect()->route('all.brand')->with($notification);
-        }
-    }
-
-    public function DeleteBrand($id){
-        $brands = Brand::find($id);
-        $logo = $brands->brand_logo;
-        unlink($logo);
-
-        Brand::find($id)->delete();
-
-        $notification = array(
-            'message' => 'Brand Deleted Successfully',
-            'alert-type' => 'success'
+        $notification = array (
+          'message' => 'Category Updated Successfully',
+          'alert-type' => 'success'  
         );
 
-        return redirect()->back()->with($notification);
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function DeleteCategory($id){
+        Category::find($id)->delete();
+        $notification = array (
+            'message' => 'Category Deleted Successfully',
+            'alert-type' => 'success'  
+          );
+  
+          return redirect()->back()->with($notification);
     }
 }

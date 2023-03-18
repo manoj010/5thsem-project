@@ -1,63 +1,70 @@
-@extends('admin.admin_dashboard')
-@section('content')
-<div class="animated fadeIn">
+<?php
 
+namespace App\Http\Controllers\Backend;
 
-    <div class="row">
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Vehicle;
+use App\Models\Category;
 
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header h3 text-center">Admin Change Password</div>
-                <div class="card-body card-block">
-                    <form method="post" action="{{route('admin.password.update')}}">
-                        @csrf
+class CategoryController extends Controller
+{
+    public function AllCategory(){
+        $categories = Category::latest()->get();
+        return view('Backend.Category.all_category',compact('categories'));
+    }
 
+    public function AddCategory(){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        return view('Backend.Category.add_category',compact('vehicles'));
+    }
 
-                        @if(session('success'))
-                        <div class="alert alert-success" role="alert">
-                            {{session('success')}}
-                        </div>
-                        @elseif(session('error'))
-                        <div class="alert alert-danger" role="alert">{{session('error')}}</div>
-                        @endif
+    public function StoreCategory(Request $request){
+        Category::insert([
+           'vehicle_id'=>$request->vehicle_name, 
+           'category_name'=>$request->category_name,
+           'category_slug'=>strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
 
-                        <div class=" form-group">
-                            <div class="input-group">
-                                <div class="input-group-addon"><i class="fa-sharp fa-solid fa-key"></i></div>
-                                <input type="password" name="old_password" class="form-control  @error('old_password')is-invalid
-                                            @enderror " id="current_password" placeholder="Old Password">
-                                @error('old_password')
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
-                            </div>
+        
+        $notification = array(
+            'message' => 'Vehicle Category Inserted Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->route('all.category')->with($notification);
+    }
 
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-addon"><i class="fa-sharp fa-solid fa-key"></i></div>
-                                <input type="password" name="new_password" placeholder="New Password" class="form-control @error('new_password')is-invalid
-                                            @enderror " id="new_password">
-                                @error('new_password')
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
-                            </div>
+    public function EditCategory($id){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        $category = Category::find($id);
+        return view('Backend.Category.edit_category',compact('vehicles','category'));
+    }
 
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-addon"><i class="fa-sharp fa-solid fa-key"></i></div>
-                                <input type="password" name="new_password_confirmation" class="form-control"
-                                    placeholder=" Confirm Password" id="new_password_confirmation">
-                            </div>
-                        </div>
+    public function UpdateCategory(Request $request){
+        $category_id = $request->id;
+        
+        Category::find($category_id)->update([
+            'vehicle_id' => $request->vehicle_name,
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
 
-                        <div class="form-actions form-group"><button type="submit"
-                                class="btn btn-success btn-sm">Change</button></div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        $notification = array (
+          'message' => 'Category Updated Successfully',
+          'alert-type' => 'success'  
+        );
 
-    </div>
-</div>
-@endsection
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function DeleteCategory($id){
+        Category::find($id)->delete();
+        $notification = array (
+            'message' => 'Category Deleted Successfully',
+            'alert-type' => 'success'  
+          );
+  
+          return redirect()->back()->with($notification);
+    }
+}

@@ -1,44 +1,70 @@
-<section class="section" id="trainers">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 offset-lg-3 ">
-                <div class="section-heading">
-                    <h2>Popular <em>Brand</em></h2>
-                    <hr>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="card shadow swiper card_slider">
-                <div class="swiper-wrapper mt-4">
-                    @php
-                    $popular_brands =App\Models\Brand::orderBy('brand_name','ASC')->limit(12)->get();
-                    @endphp
+<?php
 
-                    @foreach($popular_brands as $brand)
+namespace App\Http\Controllers\Backend;
 
-                    <div class="col-lg-2 swiper-slide">
-                        <div class="trainer-item">
-                            <a href="{{ url('/brand/'.$brand->id.'/'.$brand->brand_slug )}}" class="image-thumb">
-                                <img src="{{asset($brand->brand_logo)}}" alt="" />
-                            </a>
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Vehicle;
+use App\Models\Category;
 
-                        </div>
-                    </div>
+class CategoryController extends Controller
+{
+    public function AllCategory(){
+        $categories = Category::latest()->get();
+        return view('Backend.Category.all_category',compact('categories'));
+    }
 
-                    @endforeach
-                </div>
-                <!-- <div id="sp" class=" swiper-button-next"></div> -->
-                <!-- <div id="sp" class=" swiper-button-prev"></div> -->
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
+    public function AddCategory(){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        return view('Backend.Category.add_category',compact('vehicles'));
+    }
 
+    public function StoreCategory(Request $request){
+        Category::insert([
+           'vehicle_id'=>$request->vehicle_name, 
+           'category_name'=>$request->category_name,
+           'category_slug'=>strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
 
-        <br />
+        
+        $notification = array(
+            'message' => 'Vehicle Category Inserted Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->route('all.category')->with($notification);
+    }
 
-        <div class="main-button text-center">
-            <a href="{{route('all.brand.show')}}">All Brand</a>
-        </div>
-    </div>
-</section>
+    public function EditCategory($id){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        $category = Category::find($id);
+        return view('Backend.Category.edit_category',compact('vehicles','category'));
+    }
+
+    public function UpdateCategory(Request $request){
+        $category_id = $request->id;
+        
+        Category::find($category_id)->update([
+            'vehicle_id' => $request->vehicle_name,
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
+
+        $notification = array (
+          'message' => 'Category Updated Successfully',
+          'alert-type' => 'success'  
+        );
+
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function DeleteCategory($id){
+        Category::find($id)->delete();
+        $notification = array (
+            'message' => 'Category Deleted Successfully',
+            'alert-type' => 'success'  
+          );
+  
+          return redirect()->back()->with($notification);
+    }
+}

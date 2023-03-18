@@ -1,53 +1,70 @@
-@extends('admin.admin_dashboard')
-@section('content')
-<div class="animated fadeIn">
+<?php
 
+namespace App\Http\Controllers\Backend;
 
-    <div class="row">
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Vehicle;
+use App\Models\Category;
 
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header h2 text-center">Admin Setting</div>
-                <div class="card-body card-block">
-                    <a href="{{route('become.admin')}}">
-                        <div class="form-group my-4">
-                            <div class="input-group">
-                                <div class="input-group-addon px-4">Register Admin</div>
-                                <h3></h3>
-                                <div class="text-center">
-                                    <div class="btn btn-success"><i class="fa fa-user"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="{{route('admin.change.password')}}">
-                        <div class="form-group my-4">
-                            <div class="input-group">
-                                <div class="input-group-addon px-4">Change Password</div>
-                                <h3></h3>
-                                <div class="text-center">
-                                    <div class="btn btn-success"><i class="fa-solid fa-key"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="form-group my-4">
-                            <div class="input-group">
-                                <div class="input-group-addon px-4">Forget Password</div>
-                                <h3></h3>
-                                <div class="text-center">
-                                    <div class="btn btn-success"><i class="fa-sharp fa-solid fa-unlock"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+class CategoryController extends Controller
+{
+    public function AllCategory(){
+        $categories = Category::latest()->get();
+        return view('Backend.Category.all_category',compact('categories'));
+    }
 
+    public function AddCategory(){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        return view('Backend.Category.add_category',compact('vehicles'));
+    }
 
-                </div>
-            </div>
-        </div>
+    public function StoreCategory(Request $request){
+        Category::insert([
+           'vehicle_id'=>$request->vehicle_name, 
+           'category_name'=>$request->category_name,
+           'category_slug'=>strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
 
-    </div>
-</div>
-@endsection
+        
+        $notification = array(
+            'message' => 'Vehicle Category Inserted Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function EditCategory($id){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        $category = Category::find($id);
+        return view('Backend.Category.edit_category',compact('vehicles','category'));
+    }
+
+    public function UpdateCategory(Request $request){
+        $category_id = $request->id;
+        
+        Category::find($category_id)->update([
+            'vehicle_id' => $request->vehicle_name,
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
+
+        $notification = array (
+          'message' => 'Category Updated Successfully',
+          'alert-type' => 'success'  
+        );
+
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function DeleteCategory($id){
+        Category::find($id)->delete();
+        $notification = array (
+            'message' => 'Category Deleted Successfully',
+            'alert-type' => 'success'  
+          );
+  
+          return redirect()->back()->with($notification);
+    }
+}

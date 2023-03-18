@@ -5,101 +5,66 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Vehicle;
-use Image;
+use App\Models\Category;
 
-class VehicleController extends Controller
+class CategoryController extends Controller
 {
-    public function AllVehicle(){
-        $vehicles = Vehicle::latest()->get();
-        return view('Backend.Vehicle.all_vehicle',compact('vehicles'));
+    public function AllCategory(){
+        $categories = Category::latest()->get();
+        return view('Backend.Category.all_category',compact('categories'));
     }
 
-    public function AddVehicle(){
-        return view('Backend.Vehicle.add_vehicle');
+    public function AddCategory(){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        return view('Backend.Category.add_category',compact('vehicles'));
     }
 
-    public function StoreVehicle(Request $request){
-        $vehicle_img =  $request->file('vehicle_image');
-        $vehicle_name_gen = hexdec(uniqid()).'.'.$vehicle_img->getClientOriginalExtension();
+    public function StoreCategory(Request $request){
+        Category::insert([
+           'vehicle_id'=>$request->vehicle_name, 
+           'category_name'=>$request->category_name,
+           'category_slug'=>strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
+
         
-        Image::make($vehicle_img)->resize(960,720)->save('upload/vehicleImage/'.$vehicle_name_gen);
-        $save_image = 'upload/vehicleImage/'.$vehicle_name_gen;
+        $notification = array(
+            'message' => 'Vehicle Category Inserted Successfully',
+            'alert-type'=> 'success' 
+        );
         
-        Vehicle::insert([
-            'vehicle_name' =>$request->vehicle_name,
-            'vehicle_slug' =>strtolower(str_replace(' ','-',$request->vehicle_name)),
-            'vehicle_image' =>$save_image,
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function EditCategory($id){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        $category = Category::find($id);
+        return view('Backend.Category.edit_category',compact('vehicles','category'));
+    }
+
+    public function UpdateCategory(Request $request){
+        $category_id = $request->id;
+        
+        Category::find($category_id)->update([
+            'vehicle_id' => $request->vehicle_name,
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
         ]);
 
         $notification = array (
-            'message' => 'Vehicle Inserted Successfully',
-            'alert-type' => 'success',
+          'message' => 'Category Updated Successfully',
+          'alert-type' => 'success'  
         );
 
-        return redirect()->route('all.vehicle')->with($notification);
+        return redirect()->route('all.category')->with($notification);
     }
 
-    public function EditVehicle($id){
-        $vehicles = Vehicle::find($id);
-        return view('Backend.Vehicle.edit_vehicle',compact('vehicles'));
-    }
-
-    public function UpdateVehicle(Request $request){
-        $vehicle_id = $request->id;
-        $vehicle_old_img = $request->vehicle_img;
-
-        if($request->file('vehicle_image')){
-            $vehicle_img =  $request->file('vehicle_image');
-            $vehicle_name_gen = hexdec(uniqid()).'.'.$vehicle_img->getClientOriginalExtension();
-
-            if(file_exists($vehicle_old_img)){
-                unlink($vehicle_old_img);
-            }
-            
-            Image::make($vehicle_img)->resize(960,720)->save('upload/vehicleImage/'.$vehicle_name_gen);
-            $save_image = 'upload/vehicleImage/'.$vehicle_name_gen;
-            
-            Vehicle::find($vehicle_id)->update([
-                'vehicle_name' =>$request->vehicle_name,
-                'vehicle_slug' =>strtolower(str_replace(' ','-',$request->vehicle_name)),
-                'vehicle_image' =>$save_image,
-            ]);
-
-            $notification = array (
-                'message' => 'Vehicle update with Image  Successfully',
-                'alert-type' => 'success',
-            );
-
-            return redirect()->route('all.vehicle')->with($notification);
-        }
-        else {
-            Vehicle::find($vehicle_id)->update([
-                'vehicle_name' =>$request->vehicle_name,
-                'vehicle_slug' =>strtolower(str_replace(' ','-',$request->vehicle_name)),
-            ]);
-
-            $notification = array (
-                'message' => 'Vehicle update without Image  Successfully',
-                'alert-type' => 'success',
-            );
-
-            return redirect()->route('all.vehicle')->with($notification);
-        }
-    }
-
-    public function DeleteVehicle($id){
-        $vehicle = Vehicle::find($id);
-        $vehicle_img = $vehicle->vehicle_image;
-
-        unlink($vehicle_img);
-
-        Vehicle::find($id)->delete();
-
+    public function DeleteCategory($id){
+        Category::find($id)->delete();
         $notification = array (
-            'message' => 'Vehicle Delete  Successfully',
-            'alert-type' => 'success',
-        );
-
-        return redirect()->back()->with($notification);
+            'message' => 'Category Deleted Successfully',
+            'alert-type' => 'success'  
+          );
+  
+          return redirect()->back()->with($notification);
     }
 }
