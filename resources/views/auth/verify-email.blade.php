@@ -1,31 +1,70 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-    </div>
+<?php
 
-    @if (session('status') == 'verification-link-sent')
-        <div class="mb-4 font-medium text-sm text-green-600">
-            {{ __('A new verification link has been sent to the email address you provided during registration.') }}
-        </div>
-    @endif
+namespace App\Http\Controllers\Backend;
 
-    <div class="mt-4 flex items-center justify-between">
-        <form method="POST" action="{{ route('verification.send') }}">
-            @csrf
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Vehicle;
+use App\Models\Category;
 
-            <div>
-                <x-primary-button>
-                    {{ __('Resend Verification Email') }}
-                </x-primary-button>
-            </div>
-        </form>
+class CategoryController extends Controller
+{
+    public function AllCategory(){
+        $categories = Category::latest()->get();
+        return view('Backend.Category.all_category',compact('categories'));
+    }
 
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
+    public function AddCategory(){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        return view('Backend.Category.add_category',compact('vehicles'));
+    }
 
-            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                {{ __('Log Out') }}
-            </button>
-        </form>
-    </div>
-</x-guest-layout>
+    public function StoreCategory(Request $request){
+        Category::insert([
+           'vehicle_id'=>$request->vehicle_name, 
+           'category_name'=>$request->category_name,
+           'category_slug'=>strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
+
+        
+        $notification = array(
+            'message' => 'Vehicle Category Inserted Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function EditCategory($id){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        $category = Category::find($id);
+        return view('Backend.Category.edit_category',compact('vehicles','category'));
+    }
+
+    public function UpdateCategory(Request $request){
+        $category_id = $request->id;
+        
+        Category::find($category_id)->update([
+            'vehicle_id' => $request->vehicle_name,
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
+
+        $notification = array (
+          'message' => 'Category Updated Successfully',
+          'alert-type' => 'success'  
+        );
+
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function DeleteCategory($id){
+        Category::find($id)->delete();
+        $notification = array (
+            'message' => 'Category Deleted Successfully',
+            'alert-type' => 'success'  
+          );
+  
+          return redirect()->back()->with($notification);
+    }
+}

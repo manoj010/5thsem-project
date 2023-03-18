@@ -1,64 +1,70 @@
-<section class="section" id="trainers">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 offset-lg-3">
-                <div class="section-heading">
-                    <h2>{{$category_3->category_name}} <em>{{$category_3['vehicle']['vehicle_name']}}</em></h2>
-                    <hr>
-                </div>
-            </div>
-        </div>
+<?php
 
-        <div class="row">
-            <div class="card shadow swiper card_slider">
-                <div class="swiper-wrapper mt-4">
-                    
+namespace App\Http\Controllers\Backend;
 
-                        @foreach($category_3_model as $bike)
-                        <div class="col-lg-3 swiper-slide ">
-                            <div class="trainer-item">
-                                <a href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}" class=" image-thumb">
-                                    <div><img src="{{asset($bike->model_thumbnail)}}" alt="" /></div>
-                                </a>
-                                <div class="down-content">
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Vehicle;
+use App\Models\Category;
 
-                                    <div class="bike_name">
-                                        <a class="title" title="Model Name"
-                                            href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}">{{$bike->model_name}}
-                                        </a>
-                                    </div>
-                                    <div class="price">
-                                        <p>Rs. {{$bike->price}} </p>
-                                    </div>
+class CategoryController extends Controller
+{
+    public function AllCategory(){
+        $categories = Category::latest()->get();
+        return view('Backend.Category.all_category',compact('categories'));
+    }
 
-                                    <p>
-                                        <i class="fa fa-dashboard"></i> {{$bike->mileage}} km/hr &nbsp;&nbsp;&nbsp;
-                                        <i class="fa fa-cube"></i> {{$bike->displacement}} cc &nbsp;&nbsp;&nbsp;
-                                        <i class="fa fa-cog"></i> {{$bike->emission_type}} &nbsp;&nbsp;&nbsp;
-                                    </p>
+    public function AddCategory(){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        return view('Backend.Category.add_category',compact('vehicles'));
+    }
 
-                                    <ul class="social-icons text-center">
-                                        <a href="{{ route('booking',$bike->id) }}" class="primaryButton  btn-dcb p-2"
-                                            style="border:1px solid red"><span><i class="fa fa-cart-plus"> </i> Book Now</a>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                </div>
-                <!-- <div id="sp" class=" swiper-button-next"></div> -->
-                <!-- <div id="sp" class=" swiper-button-prev"></div> -->
-            </div>
-            
-        </div>
+    public function StoreCategory(Request $request){
+        Category::insert([
+           'vehicle_id'=>$request->vehicle_name, 
+           'category_name'=>$request->category_name,
+           'category_slug'=>strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
 
+        
+        $notification = array(
+            'message' => 'Vehicle Category Inserted Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->route('all.category')->with($notification);
+    }
 
-        <br />
+    public function EditCategory($id){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        $category = Category::find($id);
+        return view('Backend.Category.edit_category',compact('vehicles','category'));
+    }
 
-        <div class="main-button text-center">
-            <a href="{{ url('vehicle/'.$category_3->id.'/'.$category_3->category_slug )}}">All
-                {{$category_3->category_name}}
-                {{$category_3['vehicle']['vehicle_name']}}</a>
-        </div>
-    </div>
-</section>
+    public function UpdateCategory(Request $request){
+        $category_id = $request->id;
+        
+        Category::find($category_id)->update([
+            'vehicle_id' => $request->vehicle_name,
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
+
+        $notification = array (
+          'message' => 'Category Updated Successfully',
+          'alert-type' => 'success'  
+        );
+
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function DeleteCategory($id){
+        Category::find($id)->delete();
+        $notification = array (
+            'message' => 'Category Deleted Successfully',
+            'alert-type' => 'success'  
+          );
+  
+          return redirect()->back()->with($notification);
+    }
+}

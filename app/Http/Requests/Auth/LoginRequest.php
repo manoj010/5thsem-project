@@ -1,93 +1,70 @@
 <?php
 
-namespace App\Http\Requests\Auth;
+namespace App\Http\Controllers\Backend;
 
-use Illuminate\Auth\Events\Lockout;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Support\Str;
-use Illuminate\Validation\ValidationException;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Vehicle;
+use App\Models\Category;
 
-class LoginRequest extends FormRequest
+class CategoryController extends Controller
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
+    public function AllCategory(){
+        $categories = Category::latest()->get();
+        return view('Backend.Category.all_category',compact('categories'));
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-        return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
-        ];
+    public function AddCategory(){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        return view('Backend.Category.add_category',compact('vehicles'));
     }
 
-    /**
-     * Attempt to authenticate the request's credentials.
-     *
-     * @return void
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function authenticate()
-    {
-        $this->ensureIsNotRateLimited();
-
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
-            RateLimiter::hit($this->throttleKey());
-
-            throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
-            ]);
-        }
-
-        RateLimiter::clear($this->throttleKey());
-    }
-
-    /**
-     * Ensure the login request is not rate limited.
-     *
-     * @return void
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function ensureIsNotRateLimited()
-    {
-        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
-            return;
-        }
-
-        event(new Lockout($this));
-
-        $seconds = RateLimiter::availableIn($this->throttleKey());
-
-        throw ValidationException::withMessages([
-            'email' => trans('auth.throttle', [
-                'seconds' => $seconds,
-                'minutes' => ceil($seconds / 60),
-            ]),
+    public function StoreCategory(Request $request){
+        Category::insert([
+           'vehicle_id'=>$request->vehicle_name, 
+           'category_name'=>$request->category_name,
+           'category_slug'=>strtolower(str_replace(' ','-',$request->category_name)),
         ]);
+
+        
+        $notification = array(
+            'message' => 'Vehicle Category Inserted Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->route('all.category')->with($notification);
     }
 
-    /**
-     * Get the rate limiting throttle key for the request.
-     *
-     * @return string
-     */
-    public function throttleKey()
-    {
-        return Str::transliterate(Str::lower($this->input('email')).'|'.$this->ip());
+    public function EditCategory($id){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        $category = Category::find($id);
+        return view('Backend.Category.edit_category',compact('vehicles','category'));
+    }
+
+    public function UpdateCategory(Request $request){
+        $category_id = $request->id;
+        
+        Category::find($category_id)->update([
+            'vehicle_id' => $request->vehicle_name,
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
+
+        $notification = array (
+          'message' => 'Category Updated Successfully',
+          'alert-type' => 'success'  
+        );
+
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function DeleteCategory($id){
+        Category::find($id)->delete();
+        $notification = array (
+            'message' => 'Category Deleted Successfully',
+            'alert-type' => 'success'  
+          );
+  
+          return redirect()->back()->with($notification);
     }
 }
