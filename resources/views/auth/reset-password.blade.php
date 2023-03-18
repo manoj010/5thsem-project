@@ -1,39 +1,70 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('password.store') }}">
-        @csrf
+<?php
 
-        <!-- Password Reset Token -->
-        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+namespace App\Http\Controllers\Backend;
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Vehicle;
+use App\Models\Category;
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+class CategoryController extends Controller
+{
+    public function AllCategory(){
+        $categories = Category::latest()->get();
+        return view('Backend.Category.all_category',compact('categories'));
+    }
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+    public function AddCategory(){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        return view('Backend.Category.add_category',compact('vehicles'));
+    }
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
+    public function StoreCategory(Request $request){
+        Category::insert([
+           'vehicle_id'=>$request->vehicle_name, 
+           'category_name'=>$request->category_name,
+           'category_slug'=>strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+        
+        $notification = array(
+            'message' => 'Vehicle Category Inserted Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->route('all.category')->with($notification);
+    }
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Reset Password') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    public function EditCategory($id){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        $category = Category::find($id);
+        return view('Backend.Category.edit_category',compact('vehicles','category'));
+    }
+
+    public function UpdateCategory(Request $request){
+        $category_id = $request->id;
+        
+        Category::find($category_id)->update([
+            'vehicle_id' => $request->vehicle_name,
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
+
+        $notification = array (
+          'message' => 'Category Updated Successfully',
+          'alert-type' => 'success'  
+        );
+
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function DeleteCategory($id){
+        Category::find($id)->delete();
+        $notification = array (
+            'message' => 'Category Deleted Successfully',
+            'alert-type' => 'success'  
+          );
+  
+          return redirect()->back()->with($notification);
+    }
+}

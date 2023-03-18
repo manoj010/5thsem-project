@@ -1,35 +1,70 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<?php
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+namespace App\Http\Controllers\Backend;
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Vehicle;
+use App\Models\Category;
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+class CategoryController extends Controller
+{
+    public function AllCategory(){
+        $categories = Category::latest()->get();
+        return view('Backend.Category.all_category',compact('categories'));
+    }
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+    public function AddCategory(){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        return view('Backend.Category.add_category',compact('vehicles'));
+    }
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-    </body>
-</html>
+    public function StoreCategory(Request $request){
+        Category::insert([
+           'vehicle_id'=>$request->vehicle_name, 
+           'category_name'=>$request->category_name,
+           'category_slug'=>strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
+
+        
+        $notification = array(
+            'message' => 'Vehicle Category Inserted Successfully',
+            'alert-type'=> 'success' 
+        );
+        
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function EditCategory($id){
+        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
+        $category = Category::find($id);
+        return view('Backend.Category.edit_category',compact('vehicles','category'));
+    }
+
+    public function UpdateCategory(Request $request){
+        $category_id = $request->id;
+        
+        Category::find($category_id)->update([
+            'vehicle_id' => $request->vehicle_name,
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
+        ]);
+
+        $notification = array (
+          'message' => 'Category Updated Successfully',
+          'alert-type' => 'success'  
+        );
+
+        return redirect()->route('all.category')->with($notification);
+    }
+
+    public function DeleteCategory($id){
+        Category::find($id)->delete();
+        $notification = array (
+            'message' => 'Category Deleted Successfully',
+            'alert-type' => 'success'  
+          );
+  
+          return redirect()->back()->with($notification);
+    }
+}

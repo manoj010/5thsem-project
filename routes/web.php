@@ -1,70 +1,71 @@
-<?php
+@extends('admin.admin_dashboard')
+@section('content')
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Bookings</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                            <li><a href="{{route('all.category')}}">All Category</a></li>
+                            <li class="active">Add Category</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
 
-namespace App\Http\Controllers\Backend;
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">All Bookings </strong>
+                    </div>
+                    <div class="card-body">
+                        <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>SN</th>
+                                    <th>User</th>
+                                    <th>User Image</th>
+                                    <th>Bike</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($bookings as $item)
+                                <tr>
+                                    <td>{{ $loop->index+1 }}</td>
+                                    <td>{{ $item->rUser->name }}</td>
+                                    <td>
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Vehicle;
-use App\Models\Category;
+                                        <img src="{{ url('upload/userImages/' . $item->rUser->photo) }}" width="100">
 
-class CategoryController extends Controller
-{
-    public function AllCategory(){
-        $categories = Category::latest()->get();
-        return view('Backend.Category.all_category',compact('categories'));
-    }
+                                    </td>
+                                    <td>{{ $item->rBike->model_name }}</td>
+                                    <td>{{ $item->created_at }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
-    public function AddCategory(){
-        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
-        return view('Backend.Category.add_category',compact('vehicles'));
-    }
 
-    public function StoreCategory(Request $request){
-        Category::insert([
-           'vehicle_id'=>$request->vehicle_name, 
-           'category_name'=>$request->category_name,
-           'category_slug'=>strtolower(str_replace(' ','-',$request->category_name)),
-        ]);
-
-        
-        $notification = array(
-            'message' => 'Vehicle Category Inserted Successfully',
-            'alert-type'=> 'success' 
-        );
-        
-        return redirect()->route('all.category')->with($notification);
-    }
-
-    public function EditCategory($id){
-        $vehicles = Vehicle::orderBy('vehicle_name','ASC')->get();
-        $category = Category::find($id);
-        return view('Backend.Category.edit_category',compact('vehicles','category'));
-    }
-
-    public function UpdateCategory(Request $request){
-        $category_id = $request->id;
-        
-        Category::find($category_id)->update([
-            'vehicle_id' => $request->vehicle_name,
-            'category_name' => $request->category_name,
-            'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
-        ]);
-
-        $notification = array (
-          'message' => 'Category Updated Successfully',
-          'alert-type' => 'success'  
-        );
-
-        return redirect()->route('all.category')->with($notification);
-    }
-
-    public function DeleteCategory($id){
-        Category::find($id)->delete();
-        $notification = array (
-            'message' => 'Category Deleted Successfully',
-            'alert-type' => 'success'  
-          );
-  
-          return redirect()->back()->with($notification);
-    }
-}
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+@endsection
