@@ -15,8 +15,15 @@
                 <li>
                     <a href="{{route('all.vehicle')}}"> <i class="menu-icon fa-solid fa-motorcycle"></i>Vehicle</a>
                 </li>
-                <li>
-                    <a href="{{ route('showBookings') }}"> <i class="menu-icon fa fa-cart-plus"></i>All Booking</a>
+                
+
+                <li class="menu-item-has-children dropdown">
+                    <a  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cart-plus"></i>Booking</a>
+                    <ul class="sub-menu children dropdown-menu">                            
+                       
+                        <li><i class="fa fa-bars"></i><a href="{{ route('showBookings') }}"> All Booking</a></li>
+
+                    </ul>
                 </li>
 
 
@@ -39,6 +46,11 @@
                 <li>
                     <a href="{{route('all.users')}}"> <i class="menu-icon fa-solid fa-users"></i>Users</a>
                 </li>
+                <li>
+                    <a href="{{route('showPrebook')}}"> <i class="menu-icon fa-solid fa-users"></i>Prebookings</a>
+                </li>
+
+               
 
 
                 <!---

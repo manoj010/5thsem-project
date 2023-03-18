@@ -73,20 +73,21 @@
                                             </div>
                                         </div>
                                         <div class="form-row">
-                                                <div class="form-group col">
-                                                    <label for="color"><span class="text-danger align-middle">*
-                                                        </span><strong>Model Color:</strong> </label>
-                                                    <input type="text" class="form-control" id="color" name="model_color"
-                                                        placeholder="Choose Model Color">
-        
-                                                </div>
-                                                <div class="form-group col-md-6 ">
-                                                    <label for="zone"><span class="text-danger align-middle">*
-                                                        </span><strong>Prebook Date:</strong></label>
-                                                    <input type="datetime-local" class="form-control" id="zone" name="prebook_time"
-                                                        placeholder="Zone Name">
+                                            <div class="form-group col-md-6">
+                                                <label for="datetime-local"><span class="text-danger align-middle">*
+                                                    </span><strong>Prebook Date:</strong></label>
+                                                <input type="datetime-local" class="form-control" id="datetime-local" name="prebook_time"
+                                                    placeholder="Zone Name">
+
+                                            </div>
+                                                
+                                            <div class="form-group col">
+                                                <label for="color"><span class="text-danger align-middle">*
+                                                    </span><strong>Model Color:</strong> </label>
+                                                <input type="text" class="form-control" id="color" name="model_color"
+                                                    placeholder="Choose Model Color">
     
-                                                </div>
+                                            </div>
                                                 
 
 

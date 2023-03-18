@@ -44,4 +44,10 @@ class PreBookingController extends Controller
 
         return redirect()->route('dashboard')->with($notification);
     }
+
+    public function showPrebook(){
+   
+       $prebook = PreBooking::latest()->get();
+        return view('Backend.Prebooking.show_prebooking',compact('prebook'));
+    }
 }

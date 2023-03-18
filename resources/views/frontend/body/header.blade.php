@@ -39,7 +39,7 @@
                                 @foreach($categories as $category)
                                 <a class="dropdown-item"
                                     href="{{ url('vehicle/'.$category->id.'/'.$category->category_slug )}}">{{$category->category_name}}
-                                    <span?>
+                                    <span>
                                         {{$category['vehicle']['vehicle_name']}}</span>
                                 </a>
 

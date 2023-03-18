@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header h3 text-center">Admin Change Password</div>
                 <div class="card-body card-block">
-                    <form method="post" action="{{route('password.update')}}">
+                    <form method="post" action="{{route('admin.password.update')}}">
                         @csrf
 
 

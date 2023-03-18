@@ -46,10 +46,17 @@ Route::middleware('auth','role:user')->group(function() {
     Route::get('/remove/booking/{id}',[BookingController::class,'RemoveBooking'])->name('remove.booking');
     Route::get('/all/booking',[BookingController::class,'UserBooking'])->name('user.booking');
     
+    
+    
+    
     //preBooking by user
-    Route::get('/prebook/{id}',[PreBookingController::class,'PreBook'])->name('prebook');
-    Route::post('/add/prebook',[PreBookingController::class,'AddPrebook'])->name('add.prebook');
-    //end preBooking
+    Route::controller(PreBookingController::class)->group(function(){
+            Route::get('/prebook/{id}','PreBook')->name('prebook');
+            Route::post('/add/prebook','AddPrebook')->name('add.prebook');
+            
+    });
+        //end preBooking
+    
     
     //user only contact to admin 
     Route::post('/contact', [ContactpageController::class, 'contact'])->name('contact');
@@ -83,7 +90,7 @@ Route::middleware('auth','role:admin')->group(function() {
     Route::post('/admin/profile/store',[AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
     Route::get('/admin/setting',[AdminController::class, 'AdminSetting'])->name('admin.setting');
     Route::get('/admin/change/password',[AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
-    Route::post('/admin/password/update',[AdminController::class, 'AdminPasswordUpdate'])->name('password.update');
+    Route::post('/admin/password/update',[AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
    
 });
 
@@ -160,8 +167,11 @@ Route::middleware('auth','role:admin')->group(function() {
     });
     
     Route::get('/all/users',[AdminController::class,'AllUsers'])->name('all.users');
-});
 
+    
+    Route::get('prebook',[PreBookingController::class,'showPrebook'])->name('showPrebook');
+
+});
 
 
 
